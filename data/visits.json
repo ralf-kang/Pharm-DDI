@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "patient_id": 1,
+    "visit_date": "2026-10-08",
+    "hospital_name": "서울바른정형외과",
+    "hospital_dept": "정형외과",
+    "prescribed_drugs": "록소프로펜 60mg, 에페리손 50mg",
+    "ddi_risk_summary": "리바록사반+록소프로펜 중대 위험 (출혈 및 신손상 위험)",
+    "counseling_notes": "정형외과 처방전에 록소프로펜이 포함되어 환자 복용 중인 자렐토(DOAC)와의 위장관 대출혈 위험 안내. 원장님 통화 후 아세트아미노펜 650mg ER로 대체 변경 조제함. 환자에게 멍이나 출혈 모니터링 교육.",
+    "pharmacist_name": "담당약사",
+    "created_at": "2026-10-11 04:13:15",
+    "prescription_image": null,
+    "ocr_raw_text": null
+  },
+  {
+    "id": 2,
+    "patient_id": 2,
+    "visit_date": "2026-09-25",
+    "hospital_name": "연세이비인후과",
+    "hospital_dept": "이비인후과",
+    "prescribed_drugs": "페니라민, 코싹엘, 타이레놀",
+    "ddi_risk_summary": "SSRI 복용 중 1세대 항히스타민 졸음 상승 주의",
+    "counseling_notes": "기존 렉사프로 복용 중이므로 운전 시 졸음 주의 설명. 코막힘 심할 경우 비강 분무제 권유.",
+    "pharmacist_name": "담당약사",
+    "created_at": "2026-10-11 04:13:15",
+    "prescription_image": null,
+    "ocr_raw_text": null
+  }
+]

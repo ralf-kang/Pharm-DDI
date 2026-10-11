@@ -1,0 +1,6033 @@
+[
+  {
+    "id": "amlodipine",
+    "name_ko": "암로디핀",
+    "name_en": "Amlodipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "노바스크",
+      "아모디핀",
+      "애니디핀",
+      "로디엔",
+      "트윈스타",
+      "엑스포지"
+    ],
+    "class": "DHP계 CCB",
+    "cyp_profile": "CYP3A4 기질, 심바스타틴 20mg 제한"
+  },
+  {
+    "id": "diltiazem",
+    "name_ko": "딜티아젬",
+    "name_en": "Diltiazem",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "헤르벤",
+      "딜티아젬정"
+    ],
+    "class": "Non-DHP계 CCB",
+    "cyp_profile": "CYP3A4 중등도 억제제, 서맥 주의"
+  },
+  {
+    "id": "verapamil",
+    "name_ko": "베라파밀",
+    "name_en": "Verapamil",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "이솝틴",
+      "베라파밀정"
+    ],
+    "class": "Non-DHP계 CCB",
+    "cyp_profile": "P-gp/CYP3A4 억제, 베타차단제 병용금기"
+  },
+  {
+    "id": "felodipine",
+    "name_ko": "펠로디핀",
+    "name_en": "Felodipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "스플렌딜",
+      "펠로디핀지속정"
+    ],
+    "class": "DHP계 CCB",
+    "cyp_profile": "CYP3A4 기질, 자몽주스 상호작용"
+  },
+  {
+    "id": "nifedipine",
+    "name_ko": "니페디핀",
+    "name_en": "Nifedipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "아달라트오로스",
+      "니페디핀지속정"
+    ],
+    "class": "DHP계 CCB",
+    "cyp_profile": "혈관 선택적 확장, CYP3A4 기질"
+  },
+  {
+    "id": "lercanidipine",
+    "name_ko": "레르카니디핀",
+    "name_en": "Lercanidipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "자니딥",
+      "레르카니디핀정"
+    ],
+    "class": "DHP계 CCB",
+    "cyp_profile": "지질친화성 혈관확장, CYP3A4 기질"
+  },
+  {
+    "id": "benidipine",
+    "name_ko": "베니디핀",
+    "name_en": "Benidipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "코디핀",
+      "베니디핀정"
+    ],
+    "class": "트리플 칼슘채널차단제",
+    "cyp_profile": "신사구체압 강하"
+  },
+  {
+    "id": "barnidipine",
+    "name_ko": "바르니디핀",
+    "name_en": "Barnidipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "올데카",
+      "바르니디핀캡슐"
+    ],
+    "class": "DHP계 CCB",
+    "cyp_profile": "지속성 혈압강하"
+  },
+  {
+    "id": "lacidipine",
+    "name_ko": "라시디핀",
+    "name_en": "Lacidipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "박사르",
+      "라시디핀정"
+    ],
+    "class": "DHP계 CCB",
+    "cyp_profile": "혈관선택성"
+  },
+  {
+    "id": "nicardipine",
+    "name_ko": "니카르디핀",
+    "name_en": "Nicardipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "페르디핀",
+      "니카르디핀염산염"
+    ],
+    "class": "DHP계 CCB",
+    "cyp_profile": "뇌혈관 확장, CYP3A4 기질"
+  },
+  {
+    "id": "cilnidipine",
+    "name_ko": "실니디핀",
+    "name_en": "Cilnidipine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "아텔렉",
+      "시나롱"
+    ],
+    "class": "L/N형 CCB",
+    "cyp_profile": "교감신경 억제, 단백뇨 감소"
+  },
+  {
+    "id": "losartan",
+    "name_ko": "로사르탄",
+    "name_en": "Losartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "코자",
+      "살로탄",
+      "로사르탄정"
+    ],
+    "class": "ARB 고혈압약",
+    "cyp_profile": "CYP2C9/3A4 활성화 대사, 고칼륨 주의"
+  },
+  {
+    "id": "telmisartan",
+    "name_ko": "텔미사르탄",
+    "name_en": "Telmisartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "미카르디스",
+      "프리토",
+      "텔미누보"
+    ],
+    "class": "ARB 고혈압약",
+    "cyp_profile": "긴 반감기, PPAR-gamma 자극"
+  },
+  {
+    "id": "valsartan",
+    "name_ko": "발사르탄",
+    "name_en": "Valsartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "디오반",
+      "발사르탄정"
+    ],
+    "class": "ARB 고혈압약",
+    "cyp_profile": "신장 배설, 이뇨제 병용 다빈도"
+  },
+  {
+    "id": "candesartan",
+    "name_ko": "칸데사르탄",
+    "name_en": "Candesartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "아타칸",
+      "칸데사르탄정"
+    ],
+    "class": "ARB 고혈압약",
+    "cyp_profile": "AT1 수용체 강력 결합"
+  },
+  {
+    "id": "olmesartan",
+    "name_ko": "올메사르탄",
+    "name_en": "Olmesartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "올메텍",
+      "세비카"
+    ],
+    "class": "ARB 고혈압약",
+    "cyp_profile": "장병증 모니터링, 신기능 주의"
+  },
+  {
+    "id": "fimasartan",
+    "name_ko": "피마사르탄",
+    "name_en": "Fimasartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "카나브",
+      "듀카브"
+    ],
+    "class": "국산 ARB 고혈압약",
+    "cyp_profile": "간대사, 강력한 혈압강하"
+  },
+  {
+    "id": "irbesartan",
+    "name_ko": "이르베사르탄",
+    "name_en": "Irbesartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "아프로벨",
+      "코아프로벨"
+    ],
+    "class": "ARB 고혈압약",
+    "cyp_profile": "당뇨병성 신증 보호"
+  },
+  {
+    "id": "azilsartan",
+    "name_ko": "아질사르탄",
+    "name_en": "Azilsartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "이달비",
+      "아질사르탄정"
+    ],
+    "class": "ARB 고혈압약",
+    "cyp_profile": "강력한 24시간 혈압 강하"
+  },
+  {
+    "id": "ramipril",
+    "name_ko": "라미프릴",
+    "name_en": "Ramipril",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "트리테이스",
+      "라미프릴정"
+    ],
+    "class": "ACE 억제제",
+    "cyp_profile": "마른기침, 고칼륨혈증, 혈관부종"
+  },
+  {
+    "id": "perindopril",
+    "name_ko": "페린도프릴",
+    "name_en": "Perindopril",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "아서틸",
+      "페린도프릴정"
+    ],
+    "class": "ACE 억제제",
+    "cyp_profile": "심혈관 사건 감소, 신보호"
+  },
+  {
+    "id": "enalapril",
+    "name_ko": "에날라프릴",
+    "name_en": "Enalapril",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "에나프릴",
+      "레니텍"
+    ],
+    "class": "ACE 억제제",
+    "cyp_profile": "신기능 모니터링 필수"
+  },
+  {
+    "id": "captopril",
+    "name_ko": "캡토프릴",
+    "name_en": "Captopril",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "카포텐",
+      "캡토프릴정"
+    ],
+    "class": "단시간형 ACEi",
+    "cyp_profile": "공복 복용, 미각 이상"
+  },
+  {
+    "id": "lisinopril",
+    "name_ko": "리시노프릴",
+    "name_en": "Lisinopril",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "제스트릴",
+      "리시노프릴정"
+    ],
+    "class": "수용성 ACEi",
+    "cyp_profile": "간대사 불필요"
+  },
+  {
+    "id": "imidapril",
+    "name_ko": "이미다프릴",
+    "name_en": "Imidapril",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "타나트릴",
+      "이미다프릴정"
+    ],
+    "class": "ACE 억제제",
+    "cyp_profile": "당뇨병성 신증 적응증"
+  },
+  {
+    "id": "bisoprolol",
+    "name_ko": "비소프롤롤",
+    "name_en": "Bisoprolol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "콩코르",
+      "메가비스"
+    ],
+    "class": "선택적 베타-1 차단제",
+    "cyp_profile": "서맥, 심부전 표준약제"
+  },
+  {
+    "id": "carvedilol",
+    "name_ko": "카베딜롤",
+    "name_en": "Carvedilol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "딜라트렌",
+      "바소트롤"
+    ],
+    "class": "비선택적 알파/베타 차단제",
+    "cyp_profile": "CYP2D6 대사, 심부전"
+  },
+  {
+    "id": "propranolol",
+    "name_ko": "프로프라놀롤",
+    "name_en": "Propranolol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "인데놀",
+      "프로프라놀롤정"
+    ],
+    "class": "비선택적 베타차단제",
+    "cyp_profile": "천식 금기, 불안/떨림 조절"
+  },
+  {
+    "id": "atenolol",
+    "name_ko": "아테놀롤",
+    "name_en": "Atenolol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "테놀민",
+      "아테놀롤정"
+    ],
+    "class": "친수성 베타-1 차단제",
+    "cyp_profile": "신장 배설, 고령자 주의"
+  },
+  {
+    "id": "nebivolol",
+    "name_ko": "네비볼롤",
+    "name_en": "Nebivolol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "네비렛",
+      "네비보정"
+    ],
+    "class": "3세대 베타차단제",
+    "cyp_profile": "NO 방출 혈관 확장"
+  },
+  {
+    "id": "metoprolol",
+    "name_ko": "메토프로롤",
+    "name_en": "Metoprolol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "베타록",
+      "메토프로롤서방정"
+    ],
+    "class": "선택적 베타-1 차단제",
+    "cyp_profile": "CYP2D6 주요 대사"
+  },
+  {
+    "id": "betaxolol",
+    "name_ko": "베탁솔롤",
+    "name_en": "Betaxolol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "켈론",
+      "베탁솔롤정"
+    ],
+    "class": "선택적 베타-1 차단제",
+    "cyp_profile": "긴 반감기"
+  },
+  {
+    "id": "labetalol",
+    "name_ko": "라베탈롤",
+    "name_en": "Labetalol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "라베신",
+      "라베탈롤정"
+    ],
+    "class": "알파/베타 복합 차단제",
+    "cyp_profile": "임신성 고혈압 1차약제"
+  },
+  {
+    "id": "furosemide",
+    "name_ko": "푸로세미드",
+    "name_en": "Furosemide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "라식스",
+      "후릭스"
+    ],
+    "class": "루프 이뇨제",
+    "cyp_profile": "저칼륨, 탈수, euDKA 유발 주의"
+  },
+  {
+    "id": "torsemide",
+    "name_ko": "토르세미드",
+    "name_en": "Torsemide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "토라",
+      "토르세미드정"
+    ],
+    "class": "루프 이뇨제",
+    "cyp_profile": "생체이용률 우수, 심부전 부종"
+  },
+  {
+    "id": "hydrochlorothiazide",
+    "name_ko": "히드로클로로티아지드",
+    "name_en": "Hydrochlorothiazide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "다이크로짇",
+      "HCTZ"
+    ],
+    "class": "티아지드 이뇨제",
+    "cyp_profile": "저나트륨, 저칼륨, 요산 상승"
+  },
+  {
+    "id": "indapamide",
+    "name_ko": "인다파미드",
+    "name_en": "Indapamide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "후리덱스",
+      "나트릭스"
+    ],
+    "class": "티아지드 유사 이뇨제",
+    "cyp_profile": "대사 중립적, 뇌졸중 예방"
+  },
+  {
+    "id": "chlorthalidone",
+    "name_ko": "클로르탈리돈",
+    "name_en": "Chlorthalidone",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "하이그로톤",
+      "클로르탈리돈정"
+    ],
+    "class": "긴 반감기 티아지드 유사제",
+    "cyp_profile": "심혈관 보호 효과"
+  },
+  {
+    "id": "spironolactone",
+    "name_ko": "스피로놀락톤",
+    "name_en": "Spironolactone",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "알닥톤",
+      "스피로단"
+    ],
+    "class": "알도스테론 길항제",
+    "cyp_profile": "고칼륨혈증, 여성형유방"
+  },
+  {
+    "id": "eplerenone",
+    "name_ko": "에플레레논",
+    "name_en": "Eplerenone",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "인스프라",
+      "에플레레논정"
+    ],
+    "class": "선택적 알도스테론 차단제",
+    "cyp_profile": "CYP3A4 대사, 부작용 경감"
+  },
+  {
+    "id": "acetazolamide",
+    "name_ko": "아세타졸아미드",
+    "name_en": "Acetazolamide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "아세타졸",
+      "다이아목스"
+    ],
+    "class": "탄산탈수효소 저해제",
+    "cyp_profile": "녹내장, 고산병, 대사성 산증"
+  },
+  {
+    "id": "nitroglycerin",
+    "name_ko": "니트로글리세린",
+    "name_en": "Nitroglycerin",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "니트로설하정",
+      "니트로링구얼",
+      "니트로패치"
+    ],
+    "class": "질산염 협심증약",
+    "cyp_profile": "PDE5i 병용 시 치명적 쇼크 금기"
+  },
+  {
+    "id": "isosorbide_dinitrate",
+    "name_ko": "이소소르비드 질산염",
+    "name_en": "Isosorbide dinitrate",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "이소켓",
+      "신扩散"
+    ],
+    "class": "지속성 질산염",
+    "cyp_profile": "협심증 예방, 내약성 주의"
+  },
+  {
+    "id": "isosorbide_mononitrate",
+    "name_ko": "이소소르비드 일질산염",
+    "name_en": "Isosorbide mononitrate",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "엘탄",
+      "이소모노"
+    ],
+    "class": "활성형 질산염",
+    "cyp_profile": "간초회통과 없음"
+  },
+  {
+    "id": "nicorandil",
+    "name_ko": "니코란딜",
+    "name_en": "Nicorandil",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "시그마트",
+      "니코란딜정"
+    ],
+    "class": "K-채널 개방/질산염 복합",
+    "cyp_profile": "소화관 궤양 주의"
+  },
+  {
+    "id": "hydralazine",
+    "name_ko": "히드랄라진",
+    "name_en": "Hydralazine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "아프레솔린",
+      "삼진히드랄라진"
+    ],
+    "class": "직접 혈관확장제",
+    "cyp_profile": "반사성 빈맥, 루푸스 유사증후군"
+  },
+  {
+    "id": "minoxidil_tab",
+    "name_ko": "미녹시딜정",
+    "name_en": "Minoxidil (oral)",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "현대미녹시딜정"
+    ],
+    "class": "강력한 세동맥 확장제",
+    "cyp_profile": "난치성 고혈압, 다모증"
+  },
+  {
+    "id": "digoxin",
+    "name_ko": "디곡신",
+    "name_en": "Digoxin",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "디고신",
+      "디곡신정"
+    ],
+    "class": "강심배당체",
+    "cyp_profile": "P-gp 기질, 좁은 치료역, 서맥"
+  },
+  {
+    "id": "amiodarone",
+    "name_ko": "아미오다론",
+    "name_en": "Amiodarone",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "코다론",
+      "아미오다론정"
+    ],
+    "class": "Class III 항부정맥제",
+    "cyp_profile": "CYP/P-gp 광범위 억제, 갑상선독성"
+  },
+  {
+    "id": "dronedarone",
+    "name_ko": "드로네다론",
+    "name_en": "Dronedarone",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "멀택",
+      "드로네다론정"
+    ],
+    "class": "항부정맥제",
+    "cyp_profile": "심부전 환자 금기, CYP3A4 억제"
+  },
+  {
+    "id": "propafenone",
+    "name_ko": "프로파페논",
+    "name_en": "Propafenone",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "리트모놈",
+      "프로파페논정"
+    ],
+    "class": "Class IC 항부정맥제",
+    "cyp_profile": "CYP2D6 대사, 미각이상"
+  },
+  {
+    "id": "flecainide",
+    "name_ko": "플레카이니드",
+    "name_en": "Flecainide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "탬보코",
+      "플레카이니드정"
+    ],
+    "class": "Class IC 항부정맥제",
+    "cyp_profile": "구조적 심장질환 금기"
+  },
+  {
+    "id": "sotalol",
+    "name_ko": "소탈롤",
+    "name_en": "Sotalol",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "소타콜",
+      "베타페이스"
+    ],
+    "class": "Class III/베타차단 복합",
+    "cyp_profile": "신장 배설, QT 연장 TdP 위험"
+  },
+  {
+    "id": "quinidine",
+    "name_ko": "퀴니딘",
+    "name_en": "Quinidine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "퀴니딘황산염"
+    ],
+    "class": "Class IA 항부정맥제",
+    "cyp_profile": "CYP2D6 강력 억제, 금계독성"
+  },
+  {
+    "id": "disopyramide",
+    "name_ko": "디소피라미드",
+    "name_en": "Disopyramide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "리듬단",
+      "노르페이스"
+    ],
+    "class": "Class IA 항부정맥제",
+    "cyp_profile": "항콜린 작용, 녹내장/전립선 금기"
+  },
+  {
+    "id": "ivabradine",
+    "name_ko": "이바브라딘",
+    "name_en": "Ivabradine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "프로코라란",
+      "이바브라딘정"
+    ],
+    "class": "If 채널 억제제",
+    "cyp_profile": "심박수 감소, CYP3A4 기질"
+  },
+  {
+    "id": "sacubitril_valsartan",
+    "name_ko": "사쿠비트릴/발사르탄",
+    "name_en": "Sacubitril/Valsartan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "엔트레스토"
+    ],
+    "class": "ARNI 심부전 치료제",
+    "cyp_profile": "ACEi 투여 후 36시간 휴약 필수"
+  },
+  {
+    "id": "aliskiren",
+    "name_ko": "알리스키렌",
+    "name_en": "Aliskiren",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "라시레즈"
+    ],
+    "class": "직접 레닌 억제제",
+    "cyp_profile": "ACEi/ARB 병용 금기"
+  },
+  {
+    "id": "doxazosin",
+    "name_ko": "독사조신",
+    "name_en": "Doxazosin",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "카두라",
+      "독사조신서방정"
+    ],
+    "class": "알파-1 차단제",
+    "cyp_profile": "기립성 저혈압, 야간 복용 권고"
+  },
+  {
+    "id": "terazosin",
+    "name_ko": "테라조신",
+    "name_en": "Terazosin",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "하이트린",
+      "테라조신정"
+    ],
+    "class": "알파-1 차단제",
+    "cyp_profile": "초회 투여 실신 주의"
+  },
+  {
+    "id": "clonidine",
+    "name_ko": "클로니딘",
+    "name_en": "Clonidine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "캣타프레스",
+      "클로니딘정"
+    ],
+    "class": "중추성 알파-2 효능제",
+    "cyp_profile": "급격한 중단 시 반동성 고혈압"
+  },
+  {
+    "id": "methyldopa",
+    "name_ko": "메틸도파",
+    "name_en": "Methyldopa",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "알도메트"
+    ],
+    "class": "중추성 알파-2 효능제",
+    "cyp_profile": "임신부 고혈압, 용혈성 빈혈 주의"
+  },
+  {
+    "id": "moxonidine",
+    "name_ko": "목소니딘",
+    "name_en": "Moxonidine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "피지오텐스"
+    ],
+    "class": "이미다졸린 수용체 효능제",
+    "cyp_profile": "중추 교감신경 억제"
+  },
+  {
+    "id": "bosentan",
+    "name_ko": "보센탄",
+    "name_en": "Bosentan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "트라클리어"
+    ],
+    "class": "엔도텔린 수용체 길항제",
+    "cyp_profile": "폐동맥고혈압, 간독성, CYP3A4 유도"
+  },
+  {
+    "id": "macitentan",
+    "name_ko": "마시텐탄",
+    "name_en": "Macitentan",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "옵서미트"
+    ],
+    "class": "엔도텔린 길항제",
+    "cyp_profile": "폐동맥고혈압, 빈혈 모니터링"
+  },
+  {
+    "id": "aceclofenac",
+    "name_ko": "아세클로페낙",
+    "name_en": "Aceclofenac",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "에어탈",
+      "아세클로페낙정"
+    ],
+    "class": "NSAID 소염진통제",
+    "cyp_profile": "위장관출혈, Triple Whammy, MTX 금기"
+  },
+  {
+    "id": "ibuprofen",
+    "name_ko": "이부프로펜",
+    "name_en": "Ibuprofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "부루펜",
+      "애드빌",
+      "이지엔6애니"
+    ],
+    "class": "비선택적 NSAID",
+    "cyp_profile": "아스피린 심혈관 보호 길항, 신독성"
+  },
+  {
+    "id": "dexibuprofen",
+    "name_ko": "덱시부프로펜",
+    "name_en": "Dexibuprofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "이지엔6프로",
+      "덱스피드",
+      "애니부펜"
+    ],
+    "class": "활성형 NSAID",
+    "cyp_profile": "위장장애 경감, 아스피린 간섭"
+  },
+  {
+    "id": "loxoprofen",
+    "name_ko": "록소프로펜",
+    "name_en": "Loxoprofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "록소닌",
+      "록소프로펜정"
+    ],
+    "class": "전구약물 NSAID",
+    "cyp_profile": "정형외과 다빈도, 위장/신장 주의"
+  },
+  {
+    "id": "celecoxib",
+    "name_ko": "세레콕시브",
+    "name_en": "Celecoxib",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "세레브렉스",
+      "콕스비토"
+    ],
+    "class": "선택적 COX-2 억제제",
+    "cyp_profile": "CYP2C9 대사, 심혈관 혈전 주의"
+  },
+  {
+    "id": "meloxicam",
+    "name_ko": "멜록시캄",
+    "name_en": "Meloxicam",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "모빅",
+      "멜록시캄캡슐"
+    ],
+    "class": "엔올산계 NSAID",
+    "cyp_profile": "CYP2C9 대사, 리튬 배설 저해"
+  },
+  {
+    "id": "naproxen",
+    "name_ko": "나프록센",
+    "name_en": "Naproxen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "낙센",
+      "탁센"
+    ],
+    "class": "긴 반감기 NSAID",
+    "cyp_profile": "심혈관 안전성 상대적 우수, 위장장애"
+  },
+  {
+    "id": "ketoprofen",
+    "name_ko": "케토프로펜",
+    "name_en": "Ketoprofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "케토톱",
+      "케토프로펜정"
+    ],
+    "class": "프로피온산계 NSAID",
+    "cyp_profile": "광과민성, 위장관 궤양"
+  },
+  {
+    "id": "piroxicam",
+    "name_ko": "피록시캄",
+    "name_en": "Piroxicam",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "펠덴",
+      "피록시캄캡슐"
+    ],
+    "class": "긴 반감기 NSAID",
+    "cyp_profile": "중증 위장관 독성/피부반응"
+  },
+  {
+    "id": "indomethacin",
+    "name_ko": "인도메타신",
+    "name_en": "Indomethacin",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "인도메타신캡슐"
+    ],
+    "class": "강력한 COX 억제제",
+    "cyp_profile": "통풍 발작, 두통, 신독성"
+  },
+  {
+    "id": "diclofenac",
+    "name_ko": "디클로페낙",
+    "name_en": "Diclofenac",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "볼타렌",
+      "디클로페낙정"
+    ],
+    "class": "아세트산계 NSAID",
+    "cyp_profile": "간독성, 심혈관 위험 주의"
+  },
+  {
+    "id": "ketorolac",
+    "name_ko": "케토롤락",
+    "name_en": "Ketorolac",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "타라신",
+      "케토신"
+    ],
+    "class": "단기 진통 주사/경구",
+    "cyp_profile": "5일 초과 투여 금기, 대출혈/신부전"
+  },
+  {
+    "id": "mefenamic_acid",
+    "name_ko": "메페남산",
+    "name_en": "Mefenamic acid",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "폰탈"
+    ],
+    "class": "안트라닐산계 NSAID",
+    "cyp_profile": "생리통, 설사/용혈성빈혈 주의"
+  },
+  {
+    "id": "talniflumate",
+    "name_ko": "탈니플루메이트",
+    "name_en": "Talniflumate",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "소말겐",
+      "탈니플루메이트정"
+    ],
+    "class": "전구약물 NSAID",
+    "cyp_profile": "이비인후과 다빈도 염증치료"
+  },
+  {
+    "id": "pelubiprofen",
+    "name_ko": "펠루비프로펜",
+    "name_en": "Pelubiprofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "펠루비",
+      "펠루비서방정"
+    ],
+    "class": "국산 NSAID",
+    "cyp_profile": "골관절염/해열 적응증"
+  },
+  {
+    "id": "zaltoprofen",
+    "name_ko": "잘토프로펜",
+    "name_en": "Zaltoprofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "솔레톤",
+      "잘토프로펜정"
+    ],
+    "class": "브래디키닌 차단 NSAID",
+    "cyp_profile": "관절통/요통 다빈도"
+  },
+  {
+    "id": "etodolac",
+    "name_ko": "에토돌락",
+    "name_en": "Etodolac",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "로딘",
+      "에토돌락캡슐"
+    ],
+    "class": "선택성 COX-2 경향 NSAID",
+    "cyp_profile": "소화성 궤양 병력 주의"
+  },
+  {
+    "id": "nabumetone",
+    "name_ko": "나부메톤",
+    "name_en": "Nabumetone",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "렐라펜",
+      "나부메톤정"
+    ],
+    "class": "비산성 전구약물 NSAID",
+    "cyp_profile": "간대사 활성화"
+  },
+  {
+    "id": "polmacoxib",
+    "name_ko": "폴마콕시브",
+    "name_en": "Polmacoxib",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "아셀렉스"
+    ],
+    "class": "COX-2 저용량 억제제",
+    "cyp_profile": "골관절염 표적"
+  },
+  {
+    "id": "acetaminophen",
+    "name_ko": "아세트아미노펜",
+    "name_en": "Acetaminophen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "타이레놀",
+      "타이레놀ER",
+      "타세놀"
+    ],
+    "class": "중추성 해열진통제",
+    "cyp_profile": "간독성(일일 4000mg 상한), 알코올 금기"
+  },
+  {
+    "id": "tramadol",
+    "name_ko": "트라마돌",
+    "name_en": "Tramadol",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "트라마돌염산염",
+      "울트라셋(복합제)"
+    ],
+    "class": "비마약성 오피오이드/SNRI",
+    "cyp_profile": "세로토닌 증후군, 경련, 기면"
+  },
+  {
+    "id": "codeine",
+    "name_ko": "코데인",
+    "name_en": "Codeine",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "마이폴",
+      "코데인인산염"
+    ],
+    "class": "아편유사제 진통/진해",
+    "cyp_profile": "CYP2D6 초신속대사자 호흡억제 금기"
+  },
+  {
+    "id": "buprenorphine",
+    "name_ko": "부프레노르핀",
+    "name_en": "Buprenorphine",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "노스판패치",
+      "부프렌패치"
+    ],
+    "class": "부분 효능 마약성진통제",
+    "cyp_profile": "QT 연장, 호흡억제"
+  },
+  {
+    "id": "oxycodone",
+    "name_ko": "옥시코돈",
+    "name_en": "Oxycodone",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "옥시콘틴",
+      "타진(복합제)"
+    ],
+    "class": "강마약성 진통제",
+    "cyp_profile": "CYP3A4/2D6 대사, 변비, 의존성"
+  },
+  {
+    "id": "fentanyl_patch",
+    "name_ko": "펜타닐패치",
+    "name_en": "Fentanyl (patch)",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "듀로제식디트랜스",
+      "펜타덤패치"
+    ],
+    "class": "초강력 마약성진통제",
+    "cyp_profile": "CYP3A4 억제제 병용 치사 호흡부전"
+  },
+  {
+    "id": "morphine",
+    "name_ko": "모르핀",
+    "name_en": "Morphine",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "엠에스콘틴",
+      "모르핀황산염"
+    ],
+    "class": "표준 마약성진통제",
+    "cyp_profile": "신기능 저하 시 활성대사체 축적 독성"
+  },
+  {
+    "id": "tapentadol",
+    "name_ko": "타펜타돌",
+    "name_en": "Tapentadol",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "뉴신타"
+    ],
+    "class": "뮤효능/노르에피네프린 재흡수 억제",
+    "cyp_profile": "세로토닌 증후군 주의"
+  },
+  {
+    "id": "hydromorphone",
+    "name_ko": "히드로모르폰",
+    "name_en": "Hydromorphone",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "저니스타",
+      "딜라디드"
+    ],
+    "class": "강마약성 진통제",
+    "cyp_profile": "간신부전 용량 조절"
+  },
+  {
+    "id": "eperisone",
+    "name_ko": "에페리손",
+    "name_en": "Eperisone",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "뮤렉스",
+      "에페리손정"
+    ],
+    "class": "중추성 근이완제",
+    "cyp_profile": "혈압약 병용 기립성 어지럼증"
+  },
+  {
+    "id": "chlorzoxazone",
+    "name_ko": "클로르족사존",
+    "name_en": "Chlorzoxazone",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "파라존",
+      "담엔싹"
+    ],
+    "class": "중추성 골격근이완제",
+    "cyp_profile": "간독성 주의, 진정 작용"
+  },
+  {
+    "id": "afloqualone",
+    "name_ko": "아플로쿠알론",
+    "name_en": "Afloqualone",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "아로베스트",
+      "아플로쿠알론정"
+    ],
+    "class": "중추성 근이완제",
+    "cyp_profile": "광선과민증 주의"
+  },
+  {
+    "id": "tizanidine",
+    "name_ko": "티자니딘",
+    "name_en": "Tizanidine",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "실다루드",
+      "티자니딘정"
+    ],
+    "class": "알파-2 효능 근이완제",
+    "cyp_profile": "CYP1A2 기질, 시프로플록사신 절대금기"
+  },
+  {
+    "id": "baclofen",
+    "name_ko": "바클로펜",
+    "name_en": "Baclofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "바클로펜정",
+      "리오레살"
+    ],
+    "class": "GABA-B 효능제",
+    "cyp_profile": "신장 배설, 급격한 중단 시 금단발작"
+  },
+  {
+    "id": "methocarbamol",
+    "name_ko": "메토카르바몰",
+    "name_en": "Methocarbamol",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "로바신",
+      "메토카르바몰정"
+    ],
+    "class": "중추 신경 진정 근이완",
+    "cyp_profile": "소변 변색, 기면"
+  },
+  {
+    "id": "orphenadrine",
+    "name_ko": "오르페나드린",
+    "name_en": "Orphenadrine",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "페나드린"
+    ],
+    "class": "항콜린성 근이완제",
+    "cyp_profile": "녹내장, 배뇨장애 금기"
+  },
+  {
+    "id": "cyclobenzaprine",
+    "name_ko": "시클로벤자프린",
+    "name_en": "Cyclobenzaprine",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "사이클로벤자프린"
+    ],
+    "class": "TCA 유사 근이완제",
+    "cyp_profile": "세로토닌 증후군, 항콜린 독성"
+  },
+  {
+    "id": "pridinol",
+    "name_ko": "프리디놀",
+    "name_en": "Pridinol",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "리도렉스"
+    ],
+    "class": "항콜린 근이완제",
+    "cyp_profile": "구갈, 시야흐림"
+  },
+  {
+    "id": "tiaprofenic_acid",
+    "name_ko": "티아프로펜산",
+    "name_en": "Tiaprofenic acid",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "서지겔",
+      "티아프로펜산정"
+    ],
+    "class": "NSAID 소염제",
+    "cyp_profile": "방광염 유발 주의"
+  },
+  {
+    "id": "lornoxicam",
+    "name_ko": "로르녹시캄",
+    "name_en": "Lornoxicam",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "자포렉스",
+      "엑스포스"
+    ],
+    "class": "옥시캄계 NSAID",
+    "cyp_profile": "CYP2C9 대사"
+  },
+  {
+    "id": "flurbiprofen",
+    "name_ko": "플루르비프로펜",
+    "name_en": "Flurbiprofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "안세이드",
+      "스트렙실(트로키)"
+    ],
+    "class": "프로피온산계 NSAID",
+    "cyp_profile": "인후통 완화, 위장출혈"
+  },
+  {
+    "id": "oxaprozin",
+    "name_ko": "옥사프로진",
+    "name_en": "Oxaprozin",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "옥사프로진정"
+    ],
+    "class": "긴 반감기 NSAID",
+    "cyp_profile": "신독성 모니터링"
+  },
+  {
+    "id": "sulindac",
+    "name_ko": "설린닥",
+    "name_en": "Sulindac",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "크리돌",
+      "설린닥정"
+    ],
+    "class": "전구약물 NSAID",
+    "cyp_profile": "신장 프로스타글란딘 보존 경향"
+  },
+  {
+    "id": "tiaramide",
+    "name_ko": "티아라미드",
+    "name_en": "Tiaramide",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "솔단",
+      "티아라미드정"
+    ],
+    "class": "비산성 항염증제",
+    "cyp_profile": "위점막 자극 적음"
+  },
+  {
+    "id": "clonixin_lysinate",
+    "name_ko": "클로닉신리지네이트",
+    "name_en": "Clonixin lysinate",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "파나겔",
+      "클로닉신정"
+    ],
+    "class": "비스테로이드 소염진통",
+    "cyp_profile": "치통, 수술후 통증"
+  },
+  {
+    "id": "fenbufen",
+    "name_ko": "펜부펜",
+    "name_en": "Fenbufen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "펜부펜캡슐"
+    ],
+    "class": "전구약물 NSAID",
+    "cyp_profile": "퀴놀론계 병용 시 경련 위험"
+  },
+  {
+    "id": "alminoprofen",
+    "name_ko": "알미노프로펜",
+    "name_en": "Alminoprofen",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "미브론"
+    ],
+    "class": "골관절염 진통제",
+    "cyp_profile": "위장장애 주의"
+  },
+  {
+    "id": "pregabalin_pain",
+    "name_ko": "프레가발린 (신경통)",
+    "name_en": "Pregabalin",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "리리카",
+      "카발린"
+    ],
+    "class": "신경병증성 통증 치료제",
+    "cyp_profile": "신배설, 오피오이드 병용 시 호흡억제"
+  },
+  {
+    "id": "gabapentin_pain",
+    "name_ko": "가바펜틴 (신경통)",
+    "name_en": "Gabapentin",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "뉴론틴",
+      "가바펜틴캡슐"
+    ],
+    "class": "칼슘채널 알파2델타 차단",
+    "cyp_profile": "어지럼증, 체중증가"
+  },
+  {
+    "id": "capsaicin_patch",
+    "name_ko": "캡사이신패치",
+    "name_en": "Capsaicin (topical)",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "큐텐자"
+    ],
+    "class": "TRPV1 탈감작",
+    "cyp_profile": "국소 작열감"
+  },
+  {
+    "id": "lidocaine_patch",
+    "name_ko": "리도카인패치",
+    "name_en": "Lidocaine patch",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "리도탑",
+      "리도카인패치"
+    ],
+    "class": "국소마취성 신경통치료",
+    "cyp_profile": "부정맥약 병용 주의"
+  },
+  {
+    "id": "aspirin",
+    "name_ko": "아스피린",
+    "name_en": "Aspirin",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "아스피린프로텍트",
+      "바이엘아스피린",
+      "보령바이오아스피린"
+    ],
+    "class": "COX-1 비가역 억제 항혈소판제",
+    "cyp_profile": "위장출혈, 이부프로펜 간섭"
+  },
+  {
+    "id": "clopidogrel",
+    "name_ko": "클로피도그렐",
+    "name_en": "Clopidogrel",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "플라빅스",
+      "플래리스",
+      "클로피도그렐정"
+    ],
+    "class": "P2Y12 억제제",
+    "cyp_profile": "CYP2C19 활성화 필요, 오메프라졸 금기"
+  },
+  {
+    "id": "prasugrel",
+    "name_ko": "프라수그렐",
+    "name_en": "Prasugrel",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "에피에트",
+      "프라수그렐정"
+    ],
+    "class": "3세대 P2Y12 억제제",
+    "cyp_profile": "강력한 항혈소판, 뇌졸중 기왕력 금기"
+  },
+  {
+    "id": "ticagrelor",
+    "name_ko": "티카그렐러",
+    "name_en": "Ticagrelor",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "브릴린타",
+      "티카그렐러정"
+    ],
+    "class": "가역적 P2Y12 억제제",
+    "cyp_profile": "호흡곤란, CYP3A4 기질"
+  },
+  {
+    "id": "cilostazol",
+    "name_ko": "실로스타졸",
+    "name_en": "Cilostazol",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "프레탈",
+      "실로스탄CR"
+    ],
+    "class": "PDE3 억제 항혈소판제",
+    "cyp_profile": "울혈성 심부전 금기, 두통/빈맥"
+  },
+  {
+    "id": "sarpogrelate",
+    "name_ko": "사르포그렐레이트",
+    "name_en": "Sarpogrelate",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "안플레이드",
+      "사포그릴"
+    ],
+    "class": "5-HT2A 수용체 차단제",
+    "cyp_profile": "말초동맥폐색, 출혈 경향"
+  },
+  {
+    "id": "limaprost",
+    "name_ko": "리마프로스트",
+    "name_en": "Limaprost",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "오팔몬",
+      "리마프로스트정"
+    ],
+    "class": "PGE1 유도체",
+    "cyp_profile": "척추관협착증 보행개선"
+  },
+  {
+    "id": "triflusal",
+    "name_ko": "트리플루살",
+    "name_en": "Triflusal",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "디스그렌",
+      "트리플루살캡슐"
+    ],
+    "class": "혈소판 PDE 억제",
+    "cyp_profile": "출혈 부작용 상대적 경감"
+  },
+  {
+    "id": "beraprost",
+    "name_ko": "베라프로스트",
+    "name_en": "Beraprost",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "베라실",
+      "베라프로스트정"
+    ],
+    "class": "PGI2 유도체",
+    "cyp_profile": "혈관확장, 안면홍조"
+  },
+  {
+    "id": "dipyridamole",
+    "name_ko": "디피리다몰",
+    "name_en": "Dipyridamole",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "페르산틴",
+      "아그레녹스(복합제)"
+    ],
+    "class": "아데노신 재흡수 억제",
+    "cyp_profile": "협심증 악화 가능성"
+  },
+  {
+    "id": "warfarin",
+    "name_ko": "와파린",
+    "name_en": "Warfarin",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "쿠마딘",
+      "와파린칼륨정"
+    ],
+    "class": "비타민 K 길항 항응고제",
+    "cyp_profile": "CYP2C9 대사, 플루코나졸 절대금기"
+  },
+  {
+    "id": "rivaroxaban",
+    "name_ko": "리바록사반",
+    "name_en": "Rivaroxaban",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "자렐토",
+      "리바록사반정"
+    ],
+    "class": "경구 Factor Xa 억제제 (DOAC)",
+    "cyp_profile": "CYP3A4/P-gp 이중기질, SSRI 병용 출혈"
+  },
+  {
+    "id": "apixaban",
+    "name_ko": "아픽사반",
+    "name_en": "Apixaban",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "엘리퀴스",
+      "아픽사반정"
+    ],
+    "class": "경구 Factor Xa 억제제 (DOAC)",
+    "cyp_profile": "신배설 27%, CYP3A4/P-gp 대사"
+  },
+  {
+    "id": "edoxaban",
+    "name_ko": "에독사반",
+    "name_en": "Edoxaban",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "릭시아나",
+      "에독사반정"
+    ],
+    "class": "경구 Factor Xa 억제제 (DOAC)",
+    "cyp_profile": "P-gp 억제제 병용 시 50% 감량 필수"
+  },
+  {
+    "id": "dabigatran",
+    "name_ko": "다비가트란",
+    "name_en": "Dabigatran",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "프라닥사",
+      "다비가트란캡슐"
+    ],
+    "class": "직접 트롬빈 억제제 (DOAC)",
+    "cyp_profile": "P-gp 기질, 신배설 80%, 소화불량"
+  },
+  {
+    "id": "heparin",
+    "name_ko": "헤파린",
+    "name_en": "Heparin",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "헤파린나트륨주사"
+    ],
+    "class": "비분획 헤파린",
+    "cyp_profile": "HIT(혈소판감소증), aPTT 모니터링"
+  },
+  {
+    "id": "enoxaparin",
+    "name_ko": "에녹사파린",
+    "name_en": "Enoxaparin",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "크렉산",
+      "에녹사파린주"
+    ],
+    "class": "저분자량 헤파린 (LMWH)",
+    "cyp_profile": "신장 배설, 출혈 모니터링"
+  },
+  {
+    "id": "dalteparin",
+    "name_ko": "달테파린",
+    "name_en": "Dalteparin",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "프라그민"
+    ],
+    "class": "LMWH 항응고제",
+    "cyp_profile": "암환자 혈전증 1차선택"
+  },
+  {
+    "id": "fondaparinux",
+    "name_ko": "폰다파리눅스",
+    "name_en": "Fondaparinux",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "아릭스트라"
+    ],
+    "class": "선택적 Factor Xa 억제",
+    "cyp_profile": "신장 배설, HIT 위험 낮음"
+  },
+  {
+    "id": "nafamostat",
+    "name_ko": "나파모스타트",
+    "name_en": "Nafamostat",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "후탄주",
+      "나파모스타트주"
+    ],
+    "class": "단백분해효소 저해 항응고제",
+    "cyp_profile": "급성 췌장염, 투석 항응고"
+  },
+  {
+    "id": "alprostadil",
+    "name_ko": "알프로스타딜",
+    "name_en": "Alprostadil",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "에글란딘",
+      "프로스타글란딘E1"
+    ],
+    "class": "PGE1 제제",
+    "cyp_profile": "말초혈행개선, 혈관통"
+  },
+  {
+    "id": "mesoglycan",
+    "name_ko": "메소글리칸",
+    "name_en": "Mesoglycan",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "혈관보호제",
+      "프라비탈"
+    ],
+    "class": "천연 글리코사미노글리칸",
+    "cyp_profile": "정맥류 및 혈전성 미세순환"
+  },
+  {
+    "id": "sulodexide",
+    "name_ko": "수로덱시드",
+    "name_en": "Sulodexide",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "베셀듀에프"
+    ],
+    "class": "헤파라노이드 복합제",
+    "cyp_profile": "만성 정맥부전, 당뇨병성 신증"
+  },
+  {
+    "id": "ozagrel",
+    "name_ko": "오자그렐",
+    "name_en": "Ozagrel",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "카타크롬"
+    ],
+    "class": "트롬복산 합성효소 억제제",
+    "cyp_profile": "뇌경색 급성기 치료"
+  },
+  {
+    "id": "streptokinase",
+    "name_ko": "스트렙토키나아제",
+    "name_en": "Streptokinase",
+    "category": "항혈전제 (항혈소판제 / 항응고제)",
+    "brand_names": [
+      "뮤코라제",
+      "바리다제"
+    ],
+    "class": "소염효소/혈전용해",
+    "cyp_profile": "출혈성 소인 주의"
+  },
+  {
+    "id": "atorvastatin",
+    "name_ko": "아토르바스타틴",
+    "name_en": "Atorvastatin",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "리피토",
+      "아토르바",
+      "리피논",
+      "아토젯(복합제)"
+    ],
+    "class": "HMG-CoA 환원효소 억제제",
+    "cyp_profile": "CYP3A4 대사, 클라리시드 금기, 자몽주스"
+  },
+  {
+    "id": "simvastatin",
+    "name_ko": "심바스타틴",
+    "name_en": "Simvastatin",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "조코",
+      "심바스타틴정",
+      "바이토린"
+    ],
+    "class": "HMG-CoA 환원효소 억제제",
+    "cyp_profile": "CYP3A4 고감도, 암로디핀 20mg 제한"
+  },
+  {
+    "id": "rosuvastatin",
+    "name_ko": "로수바스타틴",
+    "name_en": "Rosuvastatin",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "크레스토",
+      "로수젯(복합제)",
+      "로바젯"
+    ],
+    "class": "친수성 강력 스타틴",
+    "cyp_profile": "CYP2C9 경유, CYP3A4 무관, 신장 모니터링"
+  },
+  {
+    "id": "pitavastatin",
+    "name_ko": "피타바스타틴",
+    "name_en": "Pitavastatin",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "리바로",
+      "리바로젯"
+    ],
+    "class": "UGT/CYP2C9 대사",
+    "cyp_profile": "CYP3A4 비의존, 당뇨병 유발 위험 낮음"
+  },
+  {
+    "id": "pravastatin",
+    "name_ko": "프라바스타틴",
+    "name_en": "Pravastatin",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "메바로친",
+      "프라바스타틴정"
+    ],
+    "class": "친수성 스타틴",
+    "cyp_profile": "간황산화 대사, 약물상호작용 최소"
+  },
+  {
+    "id": "fluvastatin",
+    "name_ko": "플루바스타틴",
+    "name_en": "Fluvastatin",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "레스콜",
+      "플루바스타틴캡슐"
+    ],
+    "class": "CYP2C9 대사 스타틴",
+    "cyp_profile": "CYP3A4 약물과 안전"
+  },
+  {
+    "id": "lovastatin",
+    "name_ko": "로바스타틴",
+    "name_en": "Lovastatin",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "메바코"
+    ],
+    "class": "CYP3A4 대사 스타틴",
+    "cyp_profile": "근병증 고위험"
+  },
+  {
+    "id": "fenofibrate",
+    "name_ko": "페노피브레이트",
+    "name_en": "Fenofibrate",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "리피딜슈프라",
+      "페노시드"
+    ],
+    "class": "PPAR-alpha 효능제",
+    "cyp_profile": "중성지방 저하, 스타틴 병용 시 근병증"
+  },
+  {
+    "id": "bezafibrate",
+    "name_ko": "베자피브레이트",
+    "name_en": "Bezafibrate",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "베잘립",
+      "베자피브레이트정"
+    ],
+    "class": "PPAR 범효능 피브레이트",
+    "cyp_profile": "신기능 저하 환자 금기"
+  },
+  {
+    "id": "fenofibric_acid",
+    "name_ko": "페노피브릭산",
+    "name_en": "Fenofibric acid",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "트릴리픽스"
+    ],
+    "class": "활성형 피브레이트",
+    "cyp_profile": "스타틴 병용 허가 제제"
+  },
+  {
+    "id": "gemfibrozil",
+    "name_ko": "겜피브로질",
+    "name_en": "Gemfibrozil",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "로피드"
+    ],
+    "class": "피브레이트계 지질강하제",
+    "cyp_profile": "스타틴과 병용 절대 금기(횡문근융해증 폭증)"
+  },
+  {
+    "id": "ezetimibe",
+    "name_ko": "에제티미브",
+    "name_en": "Ezetimibe",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "이지트롤",
+      "로수젯",
+      "아토젯"
+    ],
+    "class": "NPC1L1 콜레스테롤 흡수 차단",
+    "cyp_profile": "스타틴 복합제 표준"
+  },
+  {
+    "id": "omega3_ethyl_esters",
+    "name_ko": "오메가-3 산에틸에스테르",
+    "name_en": "Omega-3 acid ethyl esters",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "오마코",
+      "시스콘"
+    ],
+    "class": "고순도 오메가-3",
+    "cyp_profile": "중성지방 저하, 항응고제 병용 출혈"
+  },
+  {
+    "id": "icosapent_ethyl",
+    "name_ko": "이코사펜트 에틸",
+    "name_en": "Icosapent ethyl",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "바세파"
+    ],
+    "class": "고순도 EPA 제제",
+    "cyp_profile": "심혈관 사건 25% 감소 입증"
+  },
+  {
+    "id": "cholestyramine",
+    "name_ko": "콜레스티라민",
+    "name_en": "Cholestyramine",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "퀘스트란"
+    ],
+    "class": "담즙산 결합 수지",
+    "cyp_profile": "타 약물 흡수 전면 차단 (시간분리)"
+  },
+  {
+    "id": "alirocumab",
+    "name_ko": "알리로쿠맙",
+    "name_en": "Alirocumab",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "프랄런트주"
+    ],
+    "class": "PCSK9 단일클론항체",
+    "cyp_profile": "초고위험군 피하주사, 간대사 없음"
+  },
+  {
+    "id": "evolocumab",
+    "name_ko": "에볼로쿠맙",
+    "name_en": "Evolocumab",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "레파타주"
+    ],
+    "class": "PCSK9 억제제",
+    "cyp_profile": "LDL 60% 이상 추가 강하"
+  },
+  {
+    "id": "inclisiran",
+    "name_ko": "인클리시란",
+    "name_en": "Inclisiran",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "레크비오주"
+    ],
+    "class": "siRNA 기반 PCSK9 합성 차단",
+    "cyp_profile": "연 2회 주사, 상호작용 최소"
+  },
+  {
+    "id": "bempedoic_acid",
+    "name_ko": "벰페도산",
+    "name_en": "Bempedoic acid",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "넥슬레톨"
+    ],
+    "class": "ACL 억제제",
+    "cyp_profile": "스타틴 불내성 환자, 요산 상승"
+  },
+  {
+    "id": "probucol",
+    "name_ko": "프로부콜",
+    "name_en": "Probucol",
+    "category": "항지질혈증 (스타틴계 / 피브레이트)",
+    "brand_names": [
+      "로렐코"
+    ],
+    "class": "항산화 지질강하제",
+    "cyp_profile": "QT 간격 연장 주의"
+  },
+  {
+    "id": "amoxicillin",
+    "name_ko": "아목시실린",
+    "name_en": "Amoxicillin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "아목사펜",
+      "파목신"
+    ],
+    "class": "아미노페니실린 항생제",
+    "cyp_profile": "피임약 효과 감소, 발진"
+  },
+  {
+    "id": "amoxicillin_clavulanate",
+    "name_ko": "아목시실린/클라불란산",
+    "name_en": "Amoxicillin/Clavulanate",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "오구멘틴",
+      "아모크라",
+      "오구멘틴듀오"
+    ],
+    "class": "베타락탐/베타락타마제 억제제",
+    "cyp_profile": "간독성/설사 모니터링"
+  },
+  {
+    "id": "ampicillin",
+    "name_ko": "암피실린",
+    "name_en": "Ampicillin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "암피실린캡슐",
+      "유한암피실린"
+    ],
+    "class": "광범위 페니실린",
+    "cyp_profile": "음식물 흡수 저하, 공복 복용"
+  },
+  {
+    "id": "ampicillin_sulbactam",
+    "name_ko": "암피실린/설박탐",
+    "name_en": "Ampicillin/Sulbactam",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "유나신주",
+      "설바실린"
+    ],
+    "class": "복합 주사 항생제",
+    "cyp_profile": "혐기균 및 원내감염"
+  },
+  {
+    "id": "piperacillin_tazobactam",
+    "name_ko": "피페라실린/타조박탐",
+    "name_en": "Piperacillin/Tazobactam",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "타조신주",
+      "타조박탐"
+    ],
+    "class": "녹농균 커버 광범위 주사제",
+    "cyp_profile": "반코마이신 병용 신독성"
+  },
+  {
+    "id": "cefaclor",
+    "name_ko": "세파클러",
+    "name_en": "Cefaclor",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "시클러",
+      "세파클러캡슐"
+    ],
+    "class": "2세대 세팔로스포린",
+    "cyp_profile": "혈청병 유사 반응 주의"
+  },
+  {
+    "id": "cefadroxil",
+    "name_ko": "세파드록실",
+    "name_en": "Cefadroxil",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "듀리세프",
+      "세파드록실캡슐"
+    ],
+    "class": "1세대 세팔로스포린",
+    "cyp_profile": "피부연조직염 다빈도"
+  },
+  {
+    "id": "cephalexin",
+    "name_ko": "세팔렉신",
+    "name_en": "Cephalexin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "케플렉스",
+      "세팔렉신정"
+    ],
+    "class": "1세대 세팔로스포린",
+    "cyp_profile": "신배설, 메트포르민 배설 간섭"
+  },
+  {
+    "id": "cefazolin",
+    "name_ko": "세파졸린",
+    "name_en": "Cefazolin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "세파졸린주"
+    ],
+    "class": "1세대 주사 세팔로스포린",
+    "cyp_profile": "수술 전 예방적 항생제 표준"
+  },
+  {
+    "id": "cefuroxime",
+    "name_ko": "세푸록심",
+    "name_en": "Cefuroxime",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "진네트",
+      "세푸록심정"
+    ],
+    "class": "2세대 세팔로스포린",
+    "cyp_profile": "위산저하제 병용 시 흡수 저하"
+  },
+  {
+    "id": "cefprozil",
+    "name_ko": "세프프로질",
+    "name_en": "Cefprozil",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "세프질",
+      "세프프로질정"
+    ],
+    "class": "2세대 경구 세파",
+    "cyp_profile": "소아 중이염 다빈도"
+  },
+  {
+    "id": "cefdinir",
+    "name_ko": "세프디니르",
+    "name_en": "Cefdinir",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "옴니세프",
+      "세프디니르캡슐"
+    ],
+    "class": "3세대 경구 세팔로스포린",
+    "cyp_profile": "철분제 병용 시 붉은 대변 및 흡수저하"
+  },
+  {
+    "id": "cefditoren",
+    "name_ko": "세프디토렌",
+    "name_en": "Cefditoren",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "메이액트",
+      "세프디토렌피복실"
+    ],
+    "class": "3세대 경구 세파",
+    "cyp_profile": "카르니틴 결핍 주의"
+  },
+  {
+    "id": "cefpodoxime",
+    "name_ko": "세프포독심",
+    "name_en": "Cefpodoxime",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "바난",
+      "포독심정"
+    ],
+    "class": "3세대 경구 세파",
+    "cyp_profile": "제산제 병용 흡수 저하"
+  },
+  {
+    "id": "cefixime",
+    "name_ko": "세픽심",
+    "name_en": "Cefixime",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "슈프락스",
+      "세픽심캡슐"
+    ],
+    "class": "3세대 경구 세파",
+    "cyp_profile": "임질 및 요로감염"
+  },
+  {
+    "id": "ceftriaxone",
+    "name_ko": "세프트리악손",
+    "name_en": "Ceftriaxone",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "로세핀주",
+      "세프트리악손주"
+    ],
+    "class": "3세대 광범위 주사 세파",
+    "cyp_profile": "칼슘 함유 수액과 절대 병용금기(결정석)"
+  },
+  {
+    "id": "cefotaxime",
+    "name_ko": "세포탁심",
+    "name_en": "Cefotaxime",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "클라포란주",
+      "세포탁심주"
+    ],
+    "class": "3세대 주사 세파",
+    "cyp_profile": "뇌수막염 및 패혈증"
+  },
+  {
+    "id": "ceftazidime",
+    "name_ko": "세프타지딤",
+    "name_en": "Ceftazidime",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "포텀주",
+      "타지딤"
+    ],
+    "class": "3세대 녹농균 커버 세파",
+    "cyp_profile": "신부전 용량 조절"
+  },
+  {
+    "id": "cefepime",
+    "name_ko": "세페핌",
+    "name_en": "Cefepime",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "맥스핌주",
+      "세페핌주"
+    ],
+    "class": "4세대 주사 세팔로스포린",
+    "cyp_profile": "신부전 환자 신경독성/뇌병증"
+  },
+  {
+    "id": "clarithromycin",
+    "name_ko": "클래리스로마이신",
+    "name_en": "Clarithromycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "클라리시드",
+      "클래리정"
+    ],
+    "class": "마크로라이드계 항생제",
+    "cyp_profile": "강력한 CYP3A4/P-gp 억제, 콜키신/스타틴 금기"
+  },
+  {
+    "id": "azithromycin",
+    "name_ko": "아지스로마이신",
+    "name_en": "Azithromycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "지스로맥스",
+      "아지트로정"
+    ],
+    "class": "아잘라이드계 마크로라이드",
+    "cyp_profile": "CYP 억제 적음, QT 연장 모니터링"
+  },
+  {
+    "id": "roxithromycin",
+    "name_ko": "록시트로마이신",
+    "name_en": "Roxithromycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "루리드",
+      "록시스정"
+    ],
+    "class": "마크로라이드계 항생제",
+    "cyp_profile": "CYP3A4 약한 억제, 이비인후과 다빈도"
+  },
+  {
+    "id": "erythromycin",
+    "name_ko": "에리스로마이신",
+    "name_en": "Erythromycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "에리스로마이신정"
+    ],
+    "class": "마크로라이드계 모약물",
+    "cyp_profile": "강력한 CYP3A4 억제, 위장장애 극심"
+  },
+  {
+    "id": "ciprofloxacin",
+    "name_ko": "시프로플록사신",
+    "name_en": "Ciprofloxacin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "사이톱신",
+      "씨프로유로"
+    ],
+    "class": "퀴놀론계 항생제",
+    "cyp_profile": "CYP1A2 억제, 킬레이트 흡수저하, 건파열"
+  },
+  {
+    "id": "levofloxacin",
+    "name_ko": "레보플록사신",
+    "name_en": "Levofloxacin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "크라비트",
+      "레보펙신"
+    ],
+    "class": "호흡기 퀴놀론계",
+    "cyp_profile": "신장 배설, QT 연장, 혈당 변동"
+  },
+  {
+    "id": "moxifloxacin",
+    "name_ko": "목시플록사신",
+    "name_en": "Moxifloxacin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "아벨록스",
+      "목시클정"
+    ],
+    "class": "호흡기 퀴놀론계",
+    "cyp_profile": "간대사, 강력한 QT 연장 주의"
+  },
+  {
+    "id": "tosufloxacin",
+    "name_ko": "토수플록사신",
+    "name_en": "Tosufloxacin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "토스론",
+      "오제كس"
+    ],
+    "class": "경구 퀴놀론계",
+    "cyp_profile": "소아 폐렴 주의"
+  },
+  {
+    "id": "gemifloxacin",
+    "name_ko": "제미플록사신",
+    "name_en": "Gemifloxacin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "팩티브"
+    ],
+    "class": "국산 호흡기 퀴놀론",
+    "cyp_profile": "피부 발진 주의"
+  },
+  {
+    "id": "ofloxacin",
+    "name_ko": "오플록사신",
+    "name_en": "Ofloxacin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "에펙신",
+      "타리비드"
+    ],
+    "class": "퀴놀론계 항생제",
+    "cyp_profile": "안과/이과 점이액 다빈도"
+  },
+  {
+    "id": "doxycycline",
+    "name_ko": "독시사이클린",
+    "name_en": "Doxycycline",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "모노신",
+      "바이브라마이신"
+    ],
+    "class": "테트라사이클린계 항생제",
+    "cyp_profile": "이소티논 병용 시 가뇌종양 실명 금기, 킬레이트"
+  },
+  {
+    "id": "minocycline",
+    "name_ko": "미노사이클린",
+    "name_en": "Minocycline",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "미노씬",
+      "미노클린"
+    ],
+    "class": "지질친화성 테트라사이클린",
+    "cyp_profile": "전정독성 어지럼증, 색소침착, 이소티논 금기"
+  },
+  {
+    "id": "tetracycline",
+    "name_ko": "테트라사이클린",
+    "name_en": "Tetracycline",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "테트라사이클린캡슐"
+    ],
+    "class": "테트라사이클린 모약물",
+    "cyp_profile": "소아 치아 착색, 뼈 성장 억제 금기"
+  },
+  {
+    "id": "amikacin",
+    "name_ko": "아미카신",
+    "name_en": "Amikacin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "아미카신주"
+    ],
+    "class": "아미노글리코시드계",
+    "cyp_profile": "이독성, 신독성, 신경근 차단"
+  },
+  {
+    "id": "gentamicin",
+    "name_ko": "겐타마이신",
+    "name_en": "Gentamicin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "겐타마이신주",
+      "겐타크림"
+    ],
+    "class": "아미노글리코시드계",
+    "cyp_profile": "신부전/난청 고위험군 혈중농도 측정"
+  },
+  {
+    "id": "tobramycin",
+    "name_ko": "토브라마이신",
+    "name_en": "Tobramycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "토브라주",
+      "토브렉스점안액"
+    ],
+    "class": "녹농균 커버 아미노글리코시드",
+    "cyp_profile": "안과 점안액 안전"
+  },
+  {
+    "id": "meropenem",
+    "name_ko": "메로페넴",
+    "name_en": "Meropenem",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "메로펜주",
+      "메로페넴주"
+    ],
+    "class": "카바페넴계 초광범위 주사",
+    "cyp_profile": "발프로산 병용 절대금기(혈중농도 80% 급락 발작)"
+  },
+  {
+    "id": "imipenem_cilastatin",
+    "name_ko": "이미페넴/실라스타틴",
+    "name_en": "Imipenem/Cilastatin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "티에남주"
+    ],
+    "class": "카바페넴 주사제",
+    "cyp_profile": "고용량 시 중추 발작 경련, 발프로산 금기"
+  },
+  {
+    "id": "ertapenem",
+    "name_ko": "에르타페넴",
+    "name_en": "Ertapenem",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "인반즈주"
+    ],
+    "class": "1일 1회 카바페넴",
+    "cyp_profile": "발프로산 병용 금기"
+  },
+  {
+    "id": "vancomycin",
+    "name_ko": "반코마이신",
+    "name_en": "Vancomycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "반코신주",
+      "하 Ivan"
+    ],
+    "class": "글리코펩타이드 항생제",
+    "cyp_profile": "MRSA 치료 표준, 레드맨 증후군, 신독성 TDM"
+  },
+  {
+    "id": "teicoplanin",
+    "name_ko": "테이코플라닌",
+    "name_en": "Teicoplanin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "타르고시드주"
+    ],
+    "class": "글리코펩타이드 항생제",
+    "cyp_profile": "반코마이신 대비 신독성 낮음"
+  },
+  {
+    "id": "linezolid",
+    "name_ko": "리네졸리드",
+    "name_en": "Linezolid",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "자이복스정",
+      "자이복스주"
+    ],
+    "class": "옥사졸리디논계 (VRE/MRSA)",
+    "cyp_profile": "MAO-A 억제작용, SSRI/트라마돌 병용 세로토닌 증후군"
+  },
+  {
+    "id": "clindamycin",
+    "name_ko": "클린다마이신",
+    "name_en": "Clindamycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "풀그램",
+      "클레오신"
+    ],
+    "class": "린코사마이드계 항생제",
+    "cyp_profile": "위막성 대장염(C.difficile) 고위험"
+  },
+  {
+    "id": "colistin",
+    "name_ko": "콜리스틴",
+    "name_en": "Colistin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "콜리스메테이트주"
+    ],
+    "class": "다제내성 그람음성균 구원투수",
+    "cyp_profile": "심각한 신독성 및 신경독성"
+  },
+  {
+    "id": "fosfomycin",
+    "name_ko": "포스포마이신",
+    "name_en": "Fosfomycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "모누롤산",
+      "포스포마이신주"
+    ],
+    "class": "단회 경구 요로감염제",
+    "cyp_profile": "내성균 비뇨기 1차선택"
+  },
+  {
+    "id": "sulfamethoxazole_trimethoprim",
+    "name_ko": "코트리목사졸 (박트림)",
+    "name_en": "TMP-SMX",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "셉트린",
+      "박트림"
+    ],
+    "class": "엽산 합성 차단 복합제",
+    "cyp_profile": "CYP2C9 억제, 고칼륨혈증, 와파린 출혈"
+  },
+  {
+    "id": "metronidazole",
+    "name_ko": "메트로니다졸",
+    "name_en": "Metronidazole",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "후라시닐",
+      "메트로니다졸정"
+    ],
+    "class": "항원충 및 혐기균 항생제",
+    "cyp_profile": "알코올 병용 디설피람 반응 금기, 와파린 증강"
+  },
+  {
+    "id": "rifampin",
+    "name_ko": "리팜핀",
+    "name_en": "Rifampin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "리포덱스",
+      "리팜피신"
+    ],
+    "class": "항결핵제",
+    "cyp_profile": "가장 강력한 전신 CYP 효소 유도제, 타 약효 소실"
+  },
+  {
+    "id": "isoniazid",
+    "name_ko": "이소니아지드",
+    "name_en": "Isoniazid",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "유한이소니아지드"
+    ],
+    "class": "항결핵제",
+    "cyp_profile": "간독성, 말초신경염(비타민B6 병용), CYP2C19 억제"
+  },
+  {
+    "id": "ethambutol",
+    "name_ko": "에탐부톨",
+    "name_en": "Ethambutol",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "마이ambutol"
+    ],
+    "class": "항결핵제",
+    "cyp_profile": "시신경염, 색각 이상 모니터링"
+  },
+  {
+    "id": "pyrazinamide",
+    "name_ko": "피라진아미드",
+    "name_en": "Pyrazinamide",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "피라진아미드정"
+    ],
+    "class": "항결핵제",
+    "cyp_profile": "고요산혈증, 관절통, 간독성"
+  },
+  {
+    "id": "itraconazole",
+    "name_ko": "이트라코나졸",
+    "name_en": "Itraconazole",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "스포라녹스",
+      "이트라코나졸정"
+    ],
+    "class": "트리아졸계 항진균제",
+    "cyp_profile": "강력한 CYP3A4 억제, 심부전 악화, 스타틴 금기"
+  },
+  {
+    "id": "fluconazole",
+    "name_ko": "플루코나졸",
+    "name_en": "Fluconazole",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "디푸루칸",
+      "플루코나졸캡슐"
+    ],
+    "class": "트리아졸계 항진균제",
+    "cyp_profile": "강력한 CYP2C9 억제, 와파린/당뇨약 치명 상호작용"
+  },
+  {
+    "id": "voriconazole",
+    "name_ko": "보리코나졸",
+    "name_en": "Voriconazole",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "브이펜드",
+      "보리코나졸정"
+    ],
+    "class": "광범위 아졸계 항진균제",
+    "cyp_profile": "CYP2C19/2C9/3A4 광범위 억제, 시각장애"
+  },
+  {
+    "id": "posaconazole",
+    "name_ko": "포사코나졸",
+    "name_en": "Posaconazole",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "녹사필"
+    ],
+    "class": "침습성 진균 치료제",
+    "cyp_profile": "CYP3A4 강력 억제, 지방식사 복용"
+  },
+  {
+    "id": "ketoconazole_oral",
+    "name_ko": "케토코나졸 (경구)",
+    "name_en": "Ketoconazole",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "스파라정"
+    ],
+    "class": "이미다졸계 항진균제",
+    "cyp_profile": "치명적 간독성 경고, 국소제제 위주 전환"
+  },
+  {
+    "id": "isavuconazole",
+    "name_ko": "이사부코나졸",
+    "name_en": "Isavuconazole",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "크레셈바"
+    ],
+    "class": "신규 아졸계 항진균제",
+    "cyp_profile": "QT 단축, 침습성 아스페르길루스"
+  },
+  {
+    "id": "terbinafine",
+    "name_ko": "테르비나핀",
+    "name_en": "Terbinafine",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "라미실",
+      "테르비나핀정"
+    ],
+    "class": "알릴아민계 무좀약",
+    "cyp_profile": "CYP2D6 강력 억제, 간기능 추적"
+  },
+  {
+    "id": "amorolfine",
+    "name_ko": "아모롤핀",
+    "name_en": "Amorolfine",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "로세릴네일라카"
+    ],
+    "class": "국소 네일라카 무좀약",
+    "cyp_profile": "전신 상호작용 없음"
+  },
+  {
+    "id": "ciclopirox",
+    "name_ko": "시클로피록스",
+    "name_en": "Ciclopirox",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "풀케어",
+      "로프로스"
+    ],
+    "class": "국소 항진균제",
+    "cyp_profile": "손발톱 무좀"
+  },
+  {
+    "id": "nystatin",
+    "name_ko": "니스타틴",
+    "name_en": "Nystatin",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "니스타틴시럽"
+    ],
+    "class": "폴리엔계 항진균제",
+    "cyp_profile": "장관 흡수 안 됨, 구강 칸디다"
+  },
+  {
+    "id": "amphotericin_b",
+    "name_ko": "암포테리신 B",
+    "name_en": "Amphotericin B",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "암비솜주",
+      "암포테리신주"
+    ],
+    "class": "중증 전신 진균 치료제",
+    "cyp_profile": "극심한 신독성, 전해질 소실, 발열"
+  },
+  {
+    "id": "caspofungin",
+    "name_ko": "카스포펀진",
+    "name_en": "Caspofungin",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "칸시다스주"
+    ],
+    "class": "에키노칸딘계 항진균제",
+    "cyp_profile": "간대사, 사이클로스포린 병용 간독성"
+  },
+  {
+    "id": "anidulafungin",
+    "name_ko": "아니둘라펀진",
+    "name_en": "Anidulafungin",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "에락시스주"
+    ],
+    "class": "화학적 분해 배설",
+    "cyp_profile": "약물상호작용 최소 항진균제"
+  },
+  {
+    "id": "acyclovir",
+    "name_ko": "아시클로버",
+    "name_en": "Acyclovir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "바이라미드",
+      "아시클로버정",
+      "조비락스"
+    ],
+    "class": "항헤르페스 바이러스제",
+    "cyp_profile": "신장 세뇨관 결정 형성, 수분 공급 필수"
+  },
+  {
+    "id": "valacyclovir",
+    "name_ko": "발라시클로버",
+    "name_en": "Valacyclovir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "발트렉스",
+      "발라시클로버정"
+    ],
+    "class": "아시클로버 전구약물",
+    "cyp_profile": "생체이용률 5배, 대상포진 1차약제"
+  },
+  {
+    "id": "famciclovir",
+    "name_ko": "팜시클로버",
+    "name_en": "Famciclovir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "팜비어",
+      "팜시클로버정"
+    ],
+    "class": "펜시클로버 전구약물",
+    "cyp_profile": "긴 세포내 반감기, 신장 배설"
+  },
+  {
+    "id": "oseltamivir",
+    "name_ko": "오셀타미비르",
+    "name_en": "Oseltamivir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "타미플루",
+      "한미플루"
+    ],
+    "class": "인플루엔자 뉴라미니다아제 억제제",
+    "cyp_profile": "소아/청소년 섬망 이상행동 모니터링"
+  },
+  {
+    "id": "zanamivir",
+    "name_ko": "자나미비르",
+    "name_en": "Zanamivir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "리렌자로타디스크"
+    ],
+    "class": "흡입형 독감 치료제",
+    "cyp_profile": "천식/COPD 환자 기관지경련 위험 금기"
+  },
+  {
+    "id": "peramivir",
+    "name_ko": "페라미비르",
+    "name_en": "Peramivir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "페라미플루주"
+    ],
+    "class": "정맥 주사용 독감치료제",
+    "cyp_profile": "단회 정맥투여"
+  },
+  {
+    "id": "remdesivir",
+    "name_ko": "렘데시비르",
+    "name_en": "Remdesivir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "베클루리주"
+    ],
+    "class": "코로나19 RNA 중합효소 억제",
+    "cyp_profile": "간효소 상승, 신기능 모니터링"
+  },
+  {
+    "id": "nirmatrelvir_ritonavir",
+    "name_ko": "팍스로비드 (니르마트렐비르/리토나비르)",
+    "name_en": "Paxlovid",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "팍스로비드"
+    ],
+    "class": "경구 코로나19 치료제",
+    "cyp_profile": "초강력 CYP3A4 억제로 수십 종 약물 절대금기"
+  },
+  {
+    "id": "entecavir",
+    "name_ko": "엔테카비르",
+    "name_en": "Entecavir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "바라크루드",
+      "엔테카비르정"
+    ],
+    "class": "B형간염 항바이러스제",
+    "cyp_profile": "공복 복용, 신장 배설"
+  },
+  {
+    "id": "tenofovir_df",
+    "name_ko": "테노포비르 디소프록실",
+    "name_en": "Tenofovir DF",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "비리어드"
+    ],
+    "class": "B형간염/HIV 치료제",
+    "cyp_profile": "신독성 및 골밀도 감소 주의"
+  },
+  {
+    "id": "tenofovir_af",
+    "name_ko": "테노포비르 알라페나미드",
+    "name_en": "Tenofovir AF",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "베믈리디"
+    ],
+    "class": "표적화 B형간염 치료제",
+    "cyp_profile": "신장/골 안전성 대폭 개선"
+  },
+  {
+    "id": "sofosbuvir",
+    "name_ko": "소포스부비르",
+    "name_en": "Sofosbuvir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "소발디",
+      "하보니(복합제)"
+    ],
+    "class": "C형간염 DAA 완치제",
+    "cyp_profile": "아미오다론 병용 시 치명적 서맥 금기"
+  },
+  {
+    "id": "glecaprevir_pibrentasvir",
+    "name_ko": "글레카프레비르/피브렌타스비르",
+    "name_en": "Glecaprevir/Pibrentasvir",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "마비렛"
+    ],
+    "class": "범유전자형 C형간염 치료제",
+    "cyp_profile": "스타틴 농도 상승 주의, 에티닐에스트라디올 금기"
+  },
+  {
+    "id": "escitalopram",
+    "name_ko": "에스시탈로프람",
+    "name_en": "Escitalopram",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "렉사프로",
+      "산도스에스시탈로프람"
+    ],
+    "class": "선택적 세로토닌 재흡수 억제제 (SSRI)",
+    "cyp_profile": "QT 연장, 혈소판 세로토닌 고갈 출혈, DOAC 출혈 급증"
+  },
+  {
+    "id": "sertraline",
+    "name_ko": "세르트랄린",
+    "name_en": "Sertraline",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "졸로푸트",
+      "산도스세르트랄린"
+    ],
+    "class": "SSRI 항우울제",
+    "cyp_profile": "CYP2D6 약한 억제, 출혈 위험"
+  },
+  {
+    "id": "paroxetine",
+    "name_ko": "파록세틴",
+    "name_en": "Paroxetine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "세로자트",
+      "파록스"
+    ],
+    "class": "강력한 CYP2D6 억제제 SSRI",
+    "cyp_profile": "트라마돌/타목시펜 상호작용, 금단증상"
+  },
+  {
+    "id": "fluoxetine",
+    "name_ko": "플루옥세틴",
+    "name_en": "Fluoxetine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "프로작",
+      "푸록틴"
+    ],
+    "class": "긴 반감기 SSRI",
+    "cyp_profile": "강력한 CYP2D6/2C19 억제, 5주 휴약기 필요"
+  },
+  {
+    "id": "fluvoxamine",
+    "name_ko": "플루복사민",
+    "name_en": "Fluvoxamine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "루복스"
+    ],
+    "class": "SSRI 강박장애 치료제",
+    "cyp_profile": "강력한 CYP1A2 억제제 (티자니딘 절대금기)"
+  },
+  {
+    "id": "duloxetine",
+    "name_ko": "둘록세틴",
+    "name_en": "Duloxetine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "심발타",
+      "둘로세틴"
+    ],
+    "class": "세로토닌-노르에피네프린 억제제 (SNRI)",
+    "cyp_profile": "신경통, 트라마돌 병용 세로토닌 증후군"
+  },
+  {
+    "id": "venlafaxine",
+    "name_ko": "벤라팍신",
+    "name_en": "Venlafaxine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "이팩사",
+      "코팩사"
+    ],
+    "class": "SNRI 항우울제",
+    "cyp_profile": "고혈압 유발 가능, 금단증상 심함"
+  },
+  {
+    "id": "desvenlafaxine",
+    "name_ko": "데스벤라팍신",
+    "name_en": "Desvenlafaxine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "프리스틱"
+    ],
+    "class": "벤라팍신 활성대사체 SNRI",
+    "cyp_profile": "간대사 의존도 낮음"
+  },
+  {
+    "id": "milnacipran",
+    "name_ko": "밀나시프란",
+    "name_en": "Milnacipran",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "익셀"
+    ],
+    "class": "SNRI 섬유근육통 치료제",
+    "cyp_profile": "배뇨장애 주의"
+  },
+  {
+    "id": "mirtazapine",
+    "name_ko": "미르타자핀",
+    "name_en": "Mirtazapine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "레메론",
+      "미르탁스"
+    ],
+    "class": "NaSSA 비정형 항우울제",
+    "cyp_profile": "진정/수면유도, 체중/식욕 증가"
+  },
+  {
+    "id": "bupropion",
+    "name_ko": "부프로피온",
+    "name_en": "Bupropion",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "웰부트린",
+      "니코피온"
+    ],
+    "class": "NDRI 항우울제 / 금연치료제",
+    "cyp_profile": "경련 환자 금기, CYP2D6 강력 억제"
+  },
+  {
+    "id": "vortioxetine",
+    "name_ko": "보티옥세틴",
+    "name_en": "Vortioxetine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "브린텔릭스"
+    ],
+    "class": "다중기전 항우울제",
+    "cyp_profile": "인지기능 개선, 오심"
+  },
+  {
+    "id": "trazodone",
+    "name_ko": "트라조돈",
+    "name_en": "Trazodone",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "트리티코"
+    ],
+    "class": "SARI 항우울/수면유도",
+    "cyp_profile": "기립성 저혈압, 지속발기증 주의"
+  },
+  {
+    "id": "amitriptyline",
+    "name_ko": "아미트립틸린",
+    "name_en": "Amitriptyline",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "에나폰"
+    ],
+    "class": "삼환계 항우울제 (TCA)",
+    "cyp_profile": "강력한 항콜린, 부정맥, 입마름, 녹내장 악화"
+  },
+  {
+    "id": "nortriptyline",
+    "name_ko": "노르트립틸린",
+    "name_en": "Nortriptyline",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "센시발"
+    ],
+    "class": "TCA 신경병증성 통증",
+    "cyp_profile": "항콜린 부작용 상대적 적음"
+  },
+  {
+    "id": "imipramine",
+    "name_ko": "이미프라민",
+    "name_en": "Imipramine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "에프람"
+    ],
+    "class": "TCA 야뇨증/공황장애",
+    "cyp_profile": "심혈관 전도장애 주의"
+  },
+  {
+    "id": "clomipramine",
+    "name_ko": "클로미프라민",
+    "name_en": "Clomipramine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "그 lawsuit"
+    ],
+    "class": "TCA 강박장애 치료제",
+    "cyp_profile": "세로토닌 작용 강력"
+  },
+  {
+    "id": "alprazolam",
+    "name_ko": "알프라졸람",
+    "name_en": "Alprazolam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "자낙스",
+      "알프람"
+    ],
+    "class": "단시간형 벤조디아제핀",
+    "cyp_profile": "공황장애, 졸림, 의존성, 항히스타민 병용 낙상"
+  },
+  {
+    "id": "lorazepam",
+    "name_ko": "로라제팜",
+    "name_en": "Lorazepam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "아티반",
+      "로라반"
+    ],
+    "class": "중간시간형 벤조디아제핀",
+    "cyp_profile": "간대사(포합) 안전, 노인/간질환자 선호"
+  },
+  {
+    "id": "diazepam",
+    "name_ko": "디아제팜",
+    "name_en": "Diazepam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "바륨",
+      "디아제팜정"
+    ],
+    "class": "장시간형 벤조디아제핀",
+    "cyp_profile": "활동성 대사체 축적, 노인 금기"
+  },
+  {
+    "id": "clonazepam",
+    "name_ko": "클로나제팜",
+    "name_en": "Clonazepam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "리보트릴"
+    ],
+    "class": "고역가 벤조디아제핀",
+    "cyp_profile": "항전간 및 공황장애, 기면"
+  },
+  {
+    "id": "etizolam",
+    "name_ko": "에티졸람",
+    "name_en": "Etizolam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "데파스"
+    ],
+    "class": "티에노디아제핀계 항불안제",
+    "cyp_profile": "긴장 완화, 내성/의존성 빠름"
+  },
+  {
+    "id": "clobazam",
+    "name_ko": "클로바잠",
+    "name_en": "Clobazam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "센틸"
+    ],
+    "class": "1,5-벤조디아제핀",
+    "cyp_profile": "난치성 뇌전증 보조"
+  },
+  {
+    "id": "bromazepam",
+    "name_ko": "브로마제팜",
+    "name_en": "Bromazepam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "렉소탄"
+    ],
+    "class": "항불안 신경안정제",
+    "cyp_profile": "위장신경증 다빈도"
+  },
+  {
+    "id": "flunitrazepam",
+    "name_ko": "플루니트라제팜",
+    "name_en": "Flunitrazepam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "라제팜"
+    ],
+    "class": "강력한 수면진정 벤조계",
+    "cyp_profile": "역행성 기억상실, 오남용"
+  },
+  {
+    "id": "triazolam",
+    "name_ko": "트리아졸람",
+    "name_en": "Triazolam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "할시온"
+    ],
+    "class": "초단시간형 수면제",
+    "cyp_profile": "단기 치료(7~10일), 반동성 불면"
+  },
+  {
+    "id": "zolpidem",
+    "name_ko": "졸피뎀",
+    "name_en": "Zolpidem",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "스틸녹스",
+      "졸피드"
+    ],
+    "class": "비벤조디아제핀 수면제 (Z-drug)",
+    "cyp_profile": "몽유병, 수면운전, 호흡억제"
+  },
+  {
+    "id": "eszopiclone",
+    "name_ko": "에스조피클론",
+    "name_en": "Eszopiclone",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "조피스타"
+    ],
+    "class": "비벤조디아제핀 수면제",
+    "cyp_profile": "장기 투여 가능, 쓴맛"
+  },
+  {
+    "id": "melatonin_rx",
+    "name_ko": "멜라토닌 (전문의약품)",
+    "name_en": "Melatonin (prolonged-release)",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "서카딘"
+    ],
+    "class": "수면리듬 조절 서방형",
+    "cyp_profile": "55세 이상 불면증 1차선택"
+  },
+  {
+    "id": "lithium",
+    "name_ko": "탄산리튬",
+    "name_en": "Lithium carbonate",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "리튬정"
+    ],
+    "class": "조울증 기분조절제",
+    "cyp_profile": "좁은 치료역, NSAIDs/이뇨제/ACEi 중독 금기"
+  },
+  {
+    "id": "valproic_acid",
+    "name_ko": "발프로산",
+    "name_en": "Valproic acid",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "데파킨",
+      "데파코트"
+    ],
+    "class": "광범위 항전간제/기분조절",
+    "cyp_profile": "카바페넴 병용 시 농도 급락 금기, 기형유발"
+  },
+  {
+    "id": "carbamazepine",
+    "name_ko": "카르바마제핀",
+    "name_en": "Carbamazepine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "테그레톨"
+    ],
+    "class": "항전간제 / 삼차신경통",
+    "cyp_profile": "강력한 자가/타제 CYP 유도제, SJS 위험"
+  },
+  {
+    "id": "oxcarbazepine",
+    "name_ko": "옥스카르바제핀",
+    "name_en": "Oxcarbazepine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "트리렙탈"
+    ],
+    "class": "카르바마제핀 유도체",
+    "cyp_profile": "저나트륨혈증 빈발 모니터링"
+  },
+  {
+    "id": "lamotrigine",
+    "name_ko": "라모트리진",
+    "name_en": "Lamotrigine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "라믹탈"
+    ],
+    "class": "항전간/양극성우울",
+    "cyp_profile": "발프로산 병용 시 반감기 2배 급증(치명적 피부발진 SJS)"
+  },
+  {
+    "id": "topiramate",
+    "name_ko": "토피라메이트",
+    "name_en": "Topiramate",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "토파맥스"
+    ],
+    "class": "항전간제 / 편두통 예방",
+    "cyp_profile": "체중 감소, 신장 결석, 녹내장"
+  },
+  {
+    "id": "levetiracetam",
+    "name_ko": "레베티라세탐",
+    "name_en": "Levetiracetam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "케프라"
+    ],
+    "class": "시냅스소포단백질(SV2A) 결합",
+    "cyp_profile": "약물상호작용 거의 없음, 신장배설"
+  },
+  {
+    "id": "pregabalin",
+    "name_ko": "프레가발린",
+    "name_en": "Pregabalin",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "리리카"
+    ],
+    "class": "신경병증성 통증 / 섬유근육통",
+    "cyp_profile": "어지럼증, 부종, 오피오이드 병용 호흡억제"
+  },
+  {
+    "id": "gabapentin",
+    "name_ko": "가바펜틴",
+    "name_en": "Gabapentin",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "뉴론틴"
+    ],
+    "class": "신경통 및 뇌전증",
+    "cyp_profile": "신장 배설, 제산제 병용 흡수 저하"
+  },
+  {
+    "id": "phenytoin",
+    "name_ko": "페니토인",
+    "name_en": "Phenytoin",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "페니토인정",
+      "디란틴"
+    ],
+    "class": "비선형 약동학 항전간제",
+    "cyp_profile": "잇몸비대, 엽산결핍, CYP2C9 기질/유도제"
+  },
+  {
+    "id": "zonisamide",
+    "name_ko": "조니사미드",
+    "name_en": "Zonisamide",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "엑세그란"
+    ],
+    "class": "설파계 항전간제",
+    "cyp_profile": "무한증, 발열, 체중감소"
+  },
+  {
+    "id": "lacosamide",
+    "name_ko": "라코사미드",
+    "name_en": "Lacosamide",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "빔패트"
+    ],
+    "class": "느린 나트륨 채널 불활성화",
+    "cyp_profile": "PR 간격 연장 모니터링"
+  },
+  {
+    "id": "aripiprazole",
+    "name_ko": "아리피프라졸",
+    "name_en": "Aripiprazole",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "아빌리파이"
+    ],
+    "class": "도파민 D2 부분 효능제",
+    "cyp_profile": "대사증후군 적음, 정좌불능증"
+  },
+  {
+    "id": "quetiapine",
+    "name_ko": "쿠에티아핀",
+    "name_en": "Quetiapine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "쎄로켈",
+      "쿠에타핀"
+    ],
+    "class": "비정형 항정신병약",
+    "cyp_profile": "진정/수면 작용 우수, 기립성 저혈압"
+  },
+  {
+    "id": "olanzapine",
+    "name_ko": "올란자핀",
+    "name_en": "Olanzapine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "자이프렉사"
+    ],
+    "class": "다발성 수용체 차단 비정형",
+    "cyp_profile": "체중 증가, 고혈당, 대사증후군 주의"
+  },
+  {
+    "id": "risperidone",
+    "name_ko": "리스페리돈",
+    "name_en": "Risperidone",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "리스페달"
+    ],
+    "class": "D2/5-HT2A 차단제",
+    "cyp_profile": "프로락틴 상승, 추체외로 증상"
+  },
+  {
+    "id": "paliperidone",
+    "name_ko": "팔리페리돈",
+    "name_en": "Paliperidone",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "인베가"
+    ],
+    "class": "리스페리돈 활성대사체",
+    "cyp_profile": "간대사 없음, 신장 배설"
+  },
+  {
+    "id": "amisulpride",
+    "name_ko": "아미설프리드",
+    "name_en": "Amisulpride",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "솔리안"
+    ],
+    "class": "선택적 D2/D3 차단제",
+    "cyp_profile": "음성증상 개선, QT 연장"
+  },
+  {
+    "id": "clozapine",
+    "name_ko": "클로자핀",
+    "name_en": "Clozapine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "클로자릴"
+    ],
+    "class": "난치성 조현병 1차선택",
+    "cyp_profile": "무과립구증(정기 혈액검사 필수), 심근염"
+  },
+  {
+    "id": "haloperidol",
+    "name_ko": "할로페리돌",
+    "name_en": "Haloperidol",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "페리돌"
+    ],
+    "class": "전형적 정온제",
+    "cyp_profile": "강력한 D2 차단, 추체외로 부작용 고위험"
+  },
+  {
+    "id": "ziprasidone",
+    "name_ko": "지프라시돈",
+    "name_en": "Ziprasidone",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "젤독스"
+    ],
+    "class": "비정형 항정신병약",
+    "cyp_profile": "식사와 함께 복용, QT 연장"
+  },
+  {
+    "id": "donepezil",
+    "name_ko": "도네페질",
+    "name_en": "Donepezil",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "아리셉트",
+      "도네페질정"
+    ],
+    "class": "아세틸콜린에스테라제 억제(알츠하이머)",
+    "cyp_profile": "CYP2D6/3A4 대사, 서맥, 실신, 항콜린약 길항"
+  },
+  {
+    "id": "memantine",
+    "name_ko": "메만틴",
+    "name_en": "Memantine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "에빅사"
+    ],
+    "class": "NMDA 수용체 길항제(중증 치매)",
+    "cyp_profile": "신장 배설, 요 알칼리화제 배설 저해"
+  },
+  {
+    "id": "rivastigmine",
+    "name_ko": "리바스티그민",
+    "name_en": "Rivastigmine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "엑셀론패치",
+      "엑셀론"
+    ],
+    "class": "AChE/BuChE 이중 차단제",
+    "cyp_profile": "간대사 무관, 오심/구토(패치제 경감)"
+  },
+  {
+    "id": "galantamine",
+    "name_ko": "갈란타민",
+    "name_en": "Galantamine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "레미닐"
+    ],
+    "class": "AChE 억제/니코틴 수용체 조절",
+    "cyp_profile": "CYP2D6/3A4 대사"
+  },
+  {
+    "id": "levodopa_carbidopa",
+    "name_ko": "레보도파/카르비도파",
+    "name_en": "Levodopa/Carbidopa",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "시네메트",
+      "마도파(복합제)"
+    ],
+    "class": "파킨슨병 표준 치료제",
+    "cyp_profile": "비타민B6 길항, 고단백 식사 흡수 저해"
+  },
+  {
+    "id": "pramipexole",
+    "name_ko": "프라미펙솔",
+    "name_en": "Pramipexole",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "미라펙스"
+    ],
+    "class": "도파민 효능제 / 하지불안증후군",
+    "cyp_profile": "돌발성 수면, 충동조절장애"
+  },
+  {
+    "id": "ropinirole",
+    "name_ko": "로피니롤",
+    "name_en": "Ropinirole",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "리큅"
+    ],
+    "class": "CYP1A2 대사 도파민 효능제",
+    "cyp_profile": "시프로플록사신 병용 농도 상승"
+  },
+  {
+    "id": "selegiline",
+    "name_ko": "셀레길린",
+    "name_en": "Selegiline",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "유멕스"
+    ],
+    "class": "선택적 MAO-B 억제제",
+    "cyp_profile": "SSRI/트라마돌 병용 세로토닌 증후군 절대금기"
+  },
+  {
+    "id": "rasagiline",
+    "name_ko": "라사길린",
+    "name_en": "Rasagiline",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "아질렉트"
+    ],
+    "class": "2세대 MAO-B 억제제",
+    "cyp_profile": "항우울제/교감신경작용제 병용 금기"
+  },
+  {
+    "id": "entacapone",
+    "name_ko": "엔타카폰",
+    "name_en": "Entacapone",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "콤탄",
+      "스타레보(복합제)"
+    ],
+    "class": "말초 COMT 억제제",
+    "cyp_profile": "소변 주황색 변색, 설사"
+  },
+  {
+    "id": "methylphenidate",
+    "name_ko": "메틸페니데이트",
+    "name_en": "Methylphenidate",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "콘서타",
+      "메디키넷",
+      "페니드"
+    ],
+    "class": "중추신경 자극제 (ADHD)",
+    "cyp_profile": "MAOI 병용 금기(고혈압 위기), 불면/식욕저하"
+  },
+  {
+    "id": "atomoxetine",
+    "name_ko": "아토목세틴",
+    "name_en": "Atomoxetine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "스트라테라"
+    ],
+    "class": "비자극성 노르에피네프린 재흡수 억제",
+    "cyp_profile": "CYP2D6 대사, 심박수 상승"
+  },
+  {
+    "id": "chlorpheniramine",
+    "name_ko": "클로르페니라민",
+    "name_en": "Chlorpheniramine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "페니라민",
+      "판피린"
+    ],
+    "class": "1세대 항히스타민제",
+    "cyp_profile": "강력한 졸음, 항콜린성 배뇨장애, 진정제 병용 낙상"
+  },
+  {
+    "id": "diphenhydramine",
+    "name_ko": "디펜히드라민",
+    "name_en": "Diphenhydramine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "쿨드림",
+      "슬리펠"
+    ],
+    "class": "수면유도 항히스타민",
+    "cyp_profile": "항콜린 독성, 주간 기면"
+  },
+  {
+    "id": "hydroxyzine",
+    "name_ko": "히드록시진",
+    "name_en": "Hydroxyzine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "유시락스",
+      "아디팜"
+    ],
+    "class": "항불안/진정 항히스타민",
+    "cyp_profile": "QT 간격 연장 주의"
+  },
+  {
+    "id": "meclizine",
+    "name_ko": "메클리진",
+    "name_en": "Meclizine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "보나링에이"
+    ],
+    "class": "진훈/항구토 항히스타민",
+    "cyp_profile": "어지럼증 완화, 졸음"
+  },
+  {
+    "id": "ketotifen",
+    "name_ko": "케토티펜",
+    "name_en": "Ketotifen",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "자디텐"
+    ],
+    "class": "비만세포 안정 항히스타민",
+    "cyp_profile": "소아 천식/비염"
+  },
+  {
+    "id": "triprolidine",
+    "name_ko": "트리프로리딘",
+    "name_en": "Triprolidine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "액티피드"
+    ],
+    "class": "비충혈 감기 복합제",
+    "cyp_profile": "졸음, 구갈"
+  },
+  {
+    "id": "cetirizine",
+    "name_ko": "세티리진",
+    "name_en": "Cetirizine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "지르텍",
+      "세티리진정"
+    ],
+    "class": "2세대 항히스타민제",
+    "cyp_profile": "신장 배설, 경미한 졸음 가능"
+  },
+  {
+    "id": "levocetirizine",
+    "name_ko": "레보세티리진",
+    "name_en": "Levocetirizine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "씨잘",
+      "레보세티정"
+    ],
+    "class": "세티리진 R-이성질체",
+    "cyp_profile": "졸음 경감, 효능 개선"
+  },
+  {
+    "id": "loratadine",
+    "name_ko": "로라타딘",
+    "name_en": "Loratadine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "클라리틴",
+      "로라타딘정"
+    ],
+    "class": "2세대 무진정 항히스타민",
+    "cyp_profile": "CYP3A4/2D6 대사, 졸음 없음"
+  },
+  {
+    "id": "desloratadine",
+    "name_ko": "데스로라타딘",
+    "name_en": "Desloratadine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "에리우스"
+    ],
+    "class": "로라타딘 활성대사체",
+    "cyp_profile": "빠른 흡수, 긴 작용시간"
+  },
+  {
+    "id": "fexofenadine",
+    "name_ko": "펙소페나딘",
+    "name_en": "Fexofenadine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "알레그라",
+      "펙소페나딘정"
+    ],
+    "class": "가장 졸리지 않는 2세대 항히스타민",
+    "cyp_profile": "OATP 기질, 과일주스 흡수 저하"
+  },
+  {
+    "id": "epinastine",
+    "name_ko": "에피나스틴",
+    "name_en": "Epinastine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "알레지온"
+    ],
+    "class": "2세대 항히스타민제",
+    "cyp_profile": "천식 및 비염"
+  },
+  {
+    "id": "ebastine",
+    "name_ko": "에바스틴",
+    "name_en": "Ebastine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "에바스텔"
+    ],
+    "class": "CYP3A4 대사 항히스타민",
+    "cyp_profile": "케토코나졸 병용 주의"
+  },
+  {
+    "id": "bepotastine",
+    "name_ko": "베포타스틴",
+    "name_en": "Bepotastine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "타리온",
+      "베포타스틴정"
+    ],
+    "class": "2세대 항히스타민제",
+    "cyp_profile": "빠른 가려움증 완화"
+  },
+  {
+    "id": "olopatadine",
+    "name_ko": "올로파타딘",
+    "name_en": "Olopatadine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "알레락",
+      "파타놀점안액"
+    ],
+    "class": "비만세포 안정화 복합",
+    "cyp_profile": "안과 점안 및 경구제"
+  },
+  {
+    "id": "rupatadine",
+    "name_ko": "루파타딘",
+    "name_en": "Rupatadine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "루파핀"
+    ],
+    "class": "PAF/H1 이중 차단",
+    "cyp_profile": "CYP3A4 대사, 자몽 금기"
+  },
+  {
+    "id": "bilastine",
+    "name_ko": "빌라스틴",
+    "name_en": "Bilastine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "빌라스테"
+    ],
+    "class": "BBB 투과 없는 항히스타민",
+    "cyp_profile": "공복 복용 권고"
+  },
+  {
+    "id": "dihydrocodeine_complex",
+    "name_ko": "디히드로코데인 복합제",
+    "name_en": "Dihydrocodeine complex",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "코대원포르테",
+      "코푸시럽"
+    ],
+    "class": "진해거담 복합시럽",
+    "cyp_profile": "12세 미만 금기, 변비/기면"
+  },
+  {
+    "id": "dextromethorphan",
+    "name_ko": "덱스트로메토르판",
+    "name_en": "Dextromethorphan",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "메디코프"
+    ],
+    "class": "중추성 비마약성 진해제",
+    "cyp_profile": "CYP2D6 대사, SSRI 병용 세로토닌 증후군"
+  },
+  {
+    "id": "noscapine",
+    "name_ko": "노스카핀",
+    "name_en": "Noscapine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "기침약 복합제"
+    ],
+    "class": "아편 알칼로이드 진해제",
+    "cyp_profile": "와파린 작용 증강 주의"
+  },
+  {
+    "id": "erdosteine",
+    "name_ko": "에르도스테인",
+    "name_en": "Erdosteine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "엘도스",
+      "에르도스테인캡슐"
+    ],
+    "class": "점액 용해 거담제",
+    "cyp_profile": "간신부전 용량 조절"
+  },
+  {
+    "id": "acetylcysteine",
+    "name_ko": "아세틸시스테인",
+    "name_en": "Acetylcysteine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "뮤코펙트",
+      "아세틸시스테인캡슐"
+    ],
+    "class": "점액용해제 / 타이레놀 해독제",
+    "cyp_profile": "황 함유 냄새, 기관지 연축"
+  },
+  {
+    "id": "ambroxol",
+    "name_ko": "암브록솔",
+    "name_en": "Ambroxol",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "뮤코팩트",
+      "암브록솔정"
+    ],
+    "class": "계면활성물질 분비 촉진",
+    "cyp_profile": "항생제 폐포 이행 증강"
+  },
+  {
+    "id": "bromhexine",
+    "name_ko": "브롬헥신",
+    "name_en": "Bromhexine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "비ソル본"
+    ],
+    "class": "점액 용해제",
+    "cyp_profile": "위궤양 환자 주의"
+  },
+  {
+    "id": "sobrerol",
+    "name_ko": "소브레롤",
+    "name_en": "Sobrerol",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "소브레롤캡슐",
+      "소브레"
+    ],
+    "class": "기관지 점액 분비 조절",
+    "cyp_profile": "호흡기 감염 다빈도"
+  },
+  {
+    "id": "levodropropizine",
+    "name_ko": "레보드로프로피진",
+    "name_en": "Levodropropizine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "드로피진",
+      "레보투스"
+    ],
+    "class": "말초성 진해제",
+    "cyp_profile": "진정 작용 적음"
+  },
+  {
+    "id": "benproperine",
+    "name_ko": "벤프로페린",
+    "name_en": "Benproperine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "코프렐"
+    ],
+    "class": "폐신전 수용체 차단 진해",
+    "cyp_profile": "씹지 않고 삼킴"
+  },
+  {
+    "id": "montelukast",
+    "name_ko": "몬테루카스트",
+    "name_en": "Montelukast",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "싱귤레어",
+      "몬테잘"
+    ],
+    "class": "류코트리엔 수용체 조절제",
+    "cyp_profile": "야간 신경정신 이상반응(악몽/우울) 경고"
+  },
+  {
+    "id": "pranlukast",
+    "name_ko": "프란루카스트",
+    "name_en": "Pranlukast",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "프란에어",
+      "오논"
+    ],
+    "class": "류코트리엔 길항제",
+    "cyp_profile": "음식물 흡수 촉진, 식후 복용"
+  },
+  {
+    "id": "pseudoephedrine",
+    "name_ko": "슈도에페드린",
+    "name_en": "Pseudoephedrine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "슈다페드",
+      "코싹"
+    ],
+    "class": "경구 비충혈제거제",
+    "cyp_profile": "교감신경 흥분, 혈압 급상승, 불면"
+  },
+  {
+    "id": "salbutamol",
+    "name_ko": "살부타몰",
+    "name_en": "Salbutamol (Albuterol)",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "벤토린흡입제",
+      "살부타몰정"
+    ],
+    "class": "속효성 베타-2 효능제 (SABA)",
+    "cyp_profile": "급성 천식 발작 구원약, 빈맥/떨림"
+  },
+  {
+    "id": "formoterol",
+    "name_ko": "포르모테롤",
+    "name_en": "Formoterol",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "심비코트(복합)",
+      "포라딜"
+    ],
+    "class": "속효/지속성 베타-2 효능제",
+    "cyp_profile": "스테로이드 병용 필수"
+  },
+  {
+    "id": "salmeterol",
+    "name_ko": "살메테롤",
+    "name_en": "Salmeterol",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "세레타이드(복합)"
+    ],
+    "class": "지속성 베타-2 효능제 (LABA)",
+    "cyp_profile": "단독 사용 금기"
+  },
+  {
+    "id": "fluticasone_inh",
+    "name_ko": "플루티카손 (흡입)",
+    "name_en": "Fluticasone",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "후릭소타이드",
+      "아바미스(비강)"
+    ],
+    "class": "흡입/비강 코르티코스테로이드",
+    "cyp_profile": "구강 칸디다 예방 가글 필수"
+  },
+  {
+    "id": "budesonide_inh",
+    "name_ko": "부데소니드 (흡입)",
+    "name_en": "Budesonide",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "풀미코트",
+      "심비코트"
+    ],
+    "class": "흡입 스테로이드",
+    "cyp_profile": "CYP3A4 대사, 입안 헹굼"
+  },
+  {
+    "id": "tiotropium",
+    "name_ko": "티오트로피움",
+    "name_en": "Tiotropium",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "스피리바"
+    ],
+    "class": "LAMA 지속성 항콜린 기관지확장",
+    "cyp_profile": "COPD 표준약제, 녹내장 주의"
+  },
+  {
+    "id": "ipratropium",
+    "name_ko": "이프라트로피움",
+    "name_en": "Ipratropium",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "아트로벤트"
+    ],
+    "class": "속효성 항콜린 흡입제",
+    "cyp_profile": "전립선비대 배뇨곤란 주의"
+  },
+  {
+    "id": "theophylline",
+    "name_ko": "테오필린",
+    "name_en": "Theophylline",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "아시마",
+      "테오크론"
+    ],
+    "class": "잔틴계 기관지확장제",
+    "cyp_profile": "좁은 치료역(TDM), CYP1A2 억제제 중독"
+  },
+  {
+    "id": "aminophylline",
+    "name_ko": "아미노필린",
+    "name_en": "Aminophylline",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "아미노필린주"
+    ],
+    "class": "테오필린 수용성 복합체",
+    "cyp_profile": "심부정맥, 경련 모니터링"
+  },
+  {
+    "id": "oxymetazoline",
+    "name_ko": "옥시메타졸린",
+    "name_en": "Oxymetazoline",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "오트리빈",
+      "옥시메타졸린비분무액"
+    ],
+    "class": "국소 비충혈제거제",
+    "cyp_profile": "5일 초과 연속 사용 금기(반동성 비염)"
+  },
+  {
+    "id": "omeprazole",
+    "name_ko": "오메프라졸",
+    "name_en": "Omeprazole",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "유한로섹",
+      "오메프라졸캡슐"
+    ],
+    "class": "프로톤펌프억제제 (PPI)",
+    "cyp_profile": "CYP2C19 강력 저해, 클로피도그렐/MTX 금기"
+  },
+  {
+    "id": "esomeprazole",
+    "name_ko": "에스오메프라졸",
+    "name_en": "Esomeprazole",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "넥시움",
+      "에소메졸"
+    ],
+    "class": "PPI 위산분비억제제",
+    "cyp_profile": "CYP2C19 저해, 클로피도그렐 병용 금기"
+  },
+  {
+    "id": "lansoprazole",
+    "name_ko": "란소프라졸",
+    "name_en": "Lansoprazole",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "란스톤",
+      "란소프라졸캡슐"
+    ],
+    "class": "PPI 제제",
+    "cyp_profile": "CYP2C19/3A4 대사"
+  },
+  {
+    "id": "pantoprazole",
+    "name_ko": "판토프라졸",
+    "name_en": "Pantoprazole",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "판토록",
+      "판토프라졸정"
+    ],
+    "class": "PPI 제제",
+    "cyp_profile": "CYP2C19 영향 적음, 클로피도그렐 안전 대안"
+  },
+  {
+    "id": "rabeprazole",
+    "name_ko": "라베프라졸",
+    "name_en": "Rabeprazole",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "파리에트",
+      "라베원"
+    ],
+    "class": "비효소적 대사 PPI",
+    "cyp_profile": "약물상호작용 최소, 빠른 산억제"
+  },
+  {
+    "id": "ilaprazole",
+    "name_ko": "일라프라졸",
+    "name_en": "Ilaprazole",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "놀텍"
+    ],
+    "class": "국산 3세대 PPI",
+    "cyp_profile": "긴 반감기, 야간 속쓰림 개선"
+  },
+  {
+    "id": "dexlansoprazole",
+    "name_ko": "덱스란소프라졸",
+    "name_en": "Dexlansoprazole",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "덱실란트"
+    ],
+    "class": "이중 지연 방출 PPI",
+    "cyp_profile": "식사 무관 복용 가능"
+  },
+  {
+    "id": "tegoprazan",
+    "name_ko": "테고프라잔",
+    "name_en": "Tegoprazan",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "케이캡",
+      "케이캡구강붕해정"
+    ],
+    "class": "P-CAB 칼륨경쟁적 위산차단제",
+    "cyp_profile": "식사 무관, 빠른 효과(30분), CYP3A4 대사"
+  },
+  {
+    "id": "fexuprazan",
+    "name_ko": "펙수프라잔",
+    "name_en": "Fexuprazan",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "펙수클루"
+    ],
+    "class": "국산 P-CAB 위식도역류약",
+    "cyp_profile": "야간 산분비 억제 우수"
+  },
+  {
+    "id": "zastaprazan",
+    "name_ko": "자스타프라잔",
+    "name_en": "Zastaprazan",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "자큐보"
+    ],
+    "class": "신규 P-CAB 제제",
+    "cyp_profile": "장시간 지속 위산차단"
+  },
+  {
+    "id": "famotidine",
+    "name_ko": "파모티딘",
+    "name_en": "Famotidine",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "가스터",
+      "파모티딘정"
+    ],
+    "class": "H2 수용체 길항제",
+    "cyp_profile": "CYP 상호작용 없음, 클로피도그렐 안전 병용"
+  },
+  {
+    "id": "nizatidine",
+    "name_ko": "니자티딘",
+    "name_en": "Nizatidine",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "액시드",
+      "니자티딘캡슐"
+    ],
+    "class": "H2 수용체 길항제",
+    "cyp_profile": "신장 배설, 간대사 적음"
+  },
+  {
+    "id": "lafutidine",
+    "name_ko": "라푸티딘",
+    "name_en": "Lafutidine",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "스토가"
+    ],
+    "class": "H2RA 및 캡사이신 민감 신경 자극",
+    "cyp_profile": "위점막 보호 복합"
+  },
+  {
+    "id": "rebamipide",
+    "name_ko": "레바미피드",
+    "name_en": "Rebamipide",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "무코스타",
+      "레바미피드정"
+    ],
+    "class": "위점막 프로스타글란딘 유도제",
+    "cyp_profile": "NSAID 궤양 예방 다빈도"
+  },
+  {
+    "id": "teprenone",
+    "name_ko": "테프레논",
+    "name_en": "Teprenone",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "셀벡스",
+      "테프레논캡슐"
+    ],
+    "class": "점액 분비 촉진제",
+    "cyp_profile": "식후 복용 흡수 우수"
+  },
+  {
+    "id": "artemisia_extract",
+    "name_ko": "애엽추출물 (스티렌)",
+    "name_en": "Artemisia extract",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "스티렌",
+      "디스텍"
+    ],
+    "class": "생약 천연물 위염치료제",
+    "cyp_profile": "위점막 혈류 개선"
+  },
+  {
+    "id": "sucralfate",
+    "name_ko": "수크랄페이트",
+    "name_en": "Sucralfate",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "아스테파스",
+      "수크랄페이트정"
+    ],
+    "class": "위점막 부착 궤양 보호막",
+    "cyp_profile": "타 약물 흡수 차단 (2시간 분리)"
+  },
+  {
+    "id": "bismuth_subcitrate",
+    "name_ko": "비스무스",
+    "name_en": "Bismuth subcitrate",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "데놀"
+    ],
+    "class": "헬리코박터 제균/점막보호",
+    "cyp_profile": "대변 흑색 변색, 신부전 금기"
+  },
+  {
+    "id": "almagate",
+    "name_ko": "알마게이트",
+    "name_en": "Almagate",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "알마겔",
+      "유한알마게이트"
+    ],
+    "class": "알루미늄/마그네슘 제산제",
+    "cyp_profile": "항생제/철분 킬레이트 흡수 차단"
+  },
+  {
+    "id": "magnesium_hydroxide",
+    "name_ko": "수산화마그네슘 (마그밀)",
+    "name_en": "Magnesium hydroxide",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "마그밀",
+      "마그넬"
+    ],
+    "class": "삼투성 완하제 / 제산제",
+    "cyp_profile": "신부전 고마그네슘혈증 주의, 킬레이트"
+  },
+  {
+    "id": "metoclopramide",
+    "name_ko": "메토클로프라미드",
+    "name_en": "Metoclopramide",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "맥페란"
+    ],
+    "class": "도파민 D2 차단 위장관운동제",
+    "cyp_profile": "추체외로 부작용, 지연성 운동장애"
+  },
+  {
+    "id": "domperidone",
+    "name_ko": "돔페리돈",
+    "name_en": "Domperidone",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "모티리움",
+      "돔페리돈정"
+    ],
+    "class": "말초 D2 차단 항구토제",
+    "cyp_profile": "QT 연장 및 심실부정맥 경고"
+  },
+  {
+    "id": "itopride",
+    "name_ko": "이토프리드",
+    "name_en": "Itopride",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "가나톤",
+      "이토프리드정"
+    ],
+    "class": "D2 차단/AChE 억제 위장운동",
+    "cyp_profile": "FMO 대사, CYP 상호작용 없음"
+  },
+  {
+    "id": "mosapride",
+    "name_ko": "모사프리드",
+    "name_en": "Mosapride",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "가스모틴",
+      "모사프리드정"
+    ],
+    "class": "5-HT4 효능 위장운동촉진제",
+    "cyp_profile": "CYP3A4 대사, 안전성 우수"
+  },
+  {
+    "id": "levosulpiride",
+    "name_ko": "레보설피리드",
+    "name_en": "Levosulpiride",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "레보펙신",
+      "레보설피리드정"
+    ],
+    "class": "도파민 D2 차단 소화기계용제",
+    "cyp_profile": "파킨슨 유사증상, 프로락틴 상승"
+  },
+  {
+    "id": "trimebutine",
+    "name_ko": "트리메부틴",
+    "name_en": "Trimebutine",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "포리부틴",
+      "트리메부틴정"
+    ],
+    "class": "엔케팔린 수용체 위장운동조절",
+    "cyp_profile": "과민성대장증후군, 설사/변비 양방향"
+  },
+  {
+    "id": "tiropramide",
+    "name_ko": "티로프라미드",
+    "name_en": "Tiropramide",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "티로파",
+      "티로프라미드정"
+    ],
+    "class": "항콜린성 진경제",
+    "cyp_profile": "위경련, 담석통, 녹내장/전립선 주의"
+  },
+  {
+    "id": "otilonium",
+    "name_ko": "오틸로늄",
+    "name_en": "Otilonium",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "스파스모멘"
+    ],
+    "class": "장관 칼슘채널 차단 진경",
+    "cyp_profile": "과민대장증후군 복통"
+  },
+  {
+    "id": "dicyclomine",
+    "name_ko": "디사이클로민",
+    "name_en": "Dicyclomine",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "벤틸"
+    ],
+    "class": "항콜린 진경제",
+    "cyp_profile": "구갈, 시야흐림, 변비"
+  },
+  {
+    "id": "loperamide",
+    "name_ko": "로페라미드",
+    "name_en": "Loperamide",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "로페민",
+      "이모디움"
+    ],
+    "class": "말초 오피오이드 지사제",
+    "cyp_profile": "고용량 시 심장 QT 연장 부정맥"
+  },
+  {
+    "id": "lactulose",
+    "name_ko": "락툴로오스",
+    "name_en": "Lactulose",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "듀파락",
+      "모니락시럽"
+    ],
+    "class": "삼투성 완하제 / 간성혼수",
+    "cyp_profile": "장내 암모니아 배출, 복부팽만"
+  },
+  {
+    "id": "bisacodyl",
+    "name_ko": "비사코딜",
+    "name_en": "Bisacodyl",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "둘코락스"
+    ],
+    "class": "자극성 완하제",
+    "cyp_profile": "우유/제산제 1시간 내 동시복용 금기"
+  },
+  {
+    "id": "senna",
+    "name_ko": "센나",
+    "name_en": "Senna",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "아락실",
+      "비코그린"
+    ],
+    "class": "안트라퀴논 자극성 하제",
+    "cyp_profile": "대장흑색증 주의"
+  },
+  {
+    "id": "macrogol",
+    "name_ko": "마크로골 (PEG)",
+    "name_en": "Macrogol / PEG",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "마이락",
+      "쿨프렙산"
+    ],
+    "class": "삼투성 고분자 완하제",
+    "cyp_profile": "전해질 변동 적음"
+  },
+  {
+    "id": "picosulfate",
+    "name_ko": "피코설페이트",
+    "name_en": "Picosulfate",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "피코락스",
+      "피코솔루션"
+    ],
+    "class": "결장 자극 완하제",
+    "cyp_profile": "장정결 및 변비"
+  },
+  {
+    "id": "udca",
+    "name_ko": "우르소데옥시콜산 (UDCA)",
+    "name_en": "Ursodeoxycholic acid",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "우루사",
+      "대웅우루사"
+    ],
+    "class": "담즙산 분비 촉진 / 간기능 개선",
+    "cyp_profile": "담석용해, 콜레스테롤 흡수 억제제와 길항"
+  },
+  {
+    "id": "silymarin",
+    "name_ko": "실리마린 (밀크씨슬)",
+    "name_en": "Silymarin",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "레가론",
+      "실리마린캡슐"
+    ],
+    "class": "간세포막 보호제",
+    "cyp_profile": "항산화 간장약"
+  },
+  {
+    "id": "biphenyl_dicarboxylate",
+    "name_ko": "DDB (비페닐디카르복실레이트)",
+    "name_en": "Biphenyl dimethyl dicarboxylate",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "펜넬",
+      "엔테론"
+    ],
+    "class": "ALT 효소 강하제",
+    "cyp_profile": "간세포 보호"
+  },
+  {
+    "id": "metformin",
+    "name_ko": "메트포르민",
+    "name_en": "Metformin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "다이아벡스",
+      "글루코파지",
+      "메트포르민정"
+    ],
+    "class": "비구아니드계 당뇨병약",
+    "cyp_profile": "조영제 병용 시 젖산산증 금기, 신부전 주의"
+  },
+  {
+    "id": "glimepiride",
+    "name_ko": "글리메피리드",
+    "name_en": "Glimepiride",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "아마릴",
+      "글리메피리드정"
+    ],
+    "class": "설포닐우레아계 인슐린 분비 촉진",
+    "cyp_profile": "CYP2C9 대사, 플루코나졸 병용 저혈당 쇼크 금기"
+  },
+  {
+    "id": "gliclazide",
+    "name_ko": "글리클라지드",
+    "name_en": "Gliclazide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "디아미크롱",
+      "글리클라지드정"
+    ],
+    "class": "설포닐우레아계 당뇨약",
+    "cyp_profile": "저혈당 빈도 상대적 적음"
+  },
+  {
+    "id": "glipizide",
+    "name_ko": "글리피지드",
+    "name_en": "Glipizide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "미니디압"
+    ],
+    "class": "단시간형 설포닐우레아",
+    "cyp_profile": "식전 복용"
+  },
+  {
+    "id": "sitagliptin",
+    "name_ko": "시타글립틴",
+    "name_en": "Sitagliptin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "자누비아",
+      "자누메트"
+    ],
+    "class": "DPP-4 억제제",
+    "cyp_profile": "혈당 의존적 인슐린 분비, 췌장염 주의"
+  },
+  {
+    "id": "linagliptin",
+    "name_ko": "리나글립틴",
+    "name_en": "Linagliptin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "트라젠타",
+      "트라젠타듀오"
+    ],
+    "class": "담즙 배설 DPP-4 억제제",
+    "cyp_profile": "신장 기능 저하 환자 용량 조절 불필요"
+  },
+  {
+    "id": "vildagliptin",
+    "name_ko": "빌다글립틴",
+    "name_en": "Vildagliptin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "가브스",
+      "가브스메트"
+    ],
+    "class": "1일 2회 DPP-4i",
+    "cyp_profile": "간기능 모니터링 필수"
+  },
+  {
+    "id": "saxagliptin",
+    "name_ko": "삭사글립틴",
+    "name_en": "Saxagliptin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "온글라이자"
+    ],
+    "class": "CYP3A4 대사 DPP-4i",
+    "cyp_profile": "심부전 입원 위험 모니터링"
+  },
+  {
+    "id": "gemigliptin",
+    "name_ko": "제미글립틴",
+    "name_en": "Gemigliptin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "제미글로",
+      "제미메트"
+    ],
+    "class": "국산 DPP-4 억제제",
+    "cyp_profile": "신장/간 듀얼 배설"
+  },
+  {
+    "id": "teneligliptin",
+    "name_ko": "테넬리글립틴",
+    "name_en": "Teneligliptin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "테넬리아",
+      "테넬리아엠"
+    ],
+    "class": "DPP-4 억제제",
+    "cyp_profile": "신애 대사 안전"
+  },
+  {
+    "id": "alogliptin",
+    "name_ko": "알로그립틴",
+    "name_en": "Alogliptin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "네시나"
+    ],
+    "class": "신배설 DPP-4 억제제",
+    "cyp_profile": "심부전 모니터링"
+  },
+  {
+    "id": "evogliptin",
+    "name_ko": "에보글립틴",
+    "name_en": "Evogliptin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "슈가논"
+    ],
+    "class": "국산 저용량 DPP-4i",
+    "cyp_profile": "신부전 용량조절 없음"
+  },
+  {
+    "id": "dapagliflozin",
+    "name_ko": "다파글리플로진",
+    "name_en": "Dapagliflozin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "포시가",
+      "직듀오"
+    ],
+    "class": "SGLT2 억제제",
+    "cyp_profile": "루프이뇨제 병용 탈수 및 정상혈당 케톤산증(euDKA) 주의"
+  },
+  {
+    "id": "empagliflozin",
+    "name_ko": "엠파글리플로진",
+    "name_en": "Empagliflozin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "자디앙",
+      "자디앙듀오"
+    ],
+    "class": "SGLT2 억제제",
+    "cyp_profile": "심혈관/신장 보호, 요로생식기 감염"
+  },
+  {
+    "id": "ipragliflozin",
+    "name_ko": "이프라글리플로진",
+    "name_en": "Ipragliflozin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "슈글렛"
+    ],
+    "class": "SGLT2 억제제",
+    "cyp_profile": "탈수 주의"
+  },
+  {
+    "id": "ertugliflozin",
+    "name_ko": "에르투글리플로진",
+    "name_en": "Ertugliflozin",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "스테글라트로"
+    ],
+    "class": "SGLT2 억제제",
+    "cyp_profile": "다뇨 및 혈압 강하"
+  },
+  {
+    "id": "pioglitazone",
+    "name_ko": "피오글리타존",
+    "name_en": "Pioglitazone",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "액토스",
+      "피오글리타존정"
+    ],
+    "class": "티아졸리딘디온 (TZD)",
+    "cyp_profile": "체액 저류 부종, 심부전 환자 금기"
+  },
+  {
+    "id": "lobeglitazone",
+    "name_ko": "로베글리타존",
+    "name_en": "Lobeglitazone",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "듀비에"
+    ],
+    "class": "국산 TZD 인슐린 감작제",
+    "cyp_profile": "저용량 안전성"
+  },
+  {
+    "id": "dulaglutide",
+    "name_ko": "둘라글루타이드",
+    "name_en": "Dulaglutide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "트루리시티"
+    ],
+    "class": "주 1회 GLP-1 수용체 효능제",
+    "cyp_profile": "위배출 지연, 타 경구약 흡수 지연"
+  },
+  {
+    "id": "liraglutide",
+    "name_ko": "리라글루타이드",
+    "name_en": "Liraglutide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "삭센다",
+      "빅토자"
+    ],
+    "class": "1일 1회 GLP-1 유사체",
+    "cyp_profile": "비만/당뇨, 갑상선 수질암 금기"
+  },
+  {
+    "id": "semaglutide",
+    "name_ko": "세마글루타이드",
+    "name_en": "Semaglutide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "위고비",
+      "오젬픽",
+      "리벨서스"
+    ],
+    "class": "초강력 GLP-1 작용제",
+    "cyp_profile": "담석증, 췌장염, 마취 전 흡인 위험"
+  },
+  {
+    "id": "insulin_glargine",
+    "name_ko": "인슐린 글라진",
+    "name_en": "Insulin glargine",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "란투스",
+      "투제오"
+    ],
+    "class": "기저 지속형 인슐린",
+    "cyp_profile": "피크 없음, 저혈당 모니터링"
+  },
+  {
+    "id": "insulin_degludec",
+    "name_ko": "인슐린 데글루덱",
+    "name_en": "Insulin degludec",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "트레시바"
+    ],
+    "class": "초지속형 기저 인슐린",
+    "cyp_profile": "42시간 반감기"
+  },
+  {
+    "id": "insulin_lispro",
+    "name_ko": "인슐린 리스프로",
+    "name_en": "Insulin lispro",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "휴마로그"
+    ],
+    "class": "초속효성 인슐린",
+    "cyp_profile": "식사 직전/직후 투여"
+  },
+  {
+    "id": "insulin_aspart",
+    "name_ko": "인슐린 아스파트",
+    "name_en": "Insulin aspart",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "노보래피드",
+      "피아스프"
+    ],
+    "class": "초속효성 인슐린",
+    "cyp_profile": "빠른 혈당 강하"
+  },
+  {
+    "id": "levothyroxine",
+    "name_ko": "레보티록신",
+    "name_en": "Levothyroxine",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "씬지로이드",
+      "씬지록신"
+    ],
+    "class": "갑상선 호르몬제 (T4)",
+    "cyp_profile": "아침 공복 복용 필수, 제산제/철분 킬레이트 4시간 분리"
+  },
+  {
+    "id": "liothyronine",
+    "name_ko": "리오티로닌",
+    "name_en": "Liothyronine",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "테트로닌"
+    ],
+    "class": "합성 T3 갑상선호르몬",
+    "cyp_profile": "빠른 작용, 심계항진 주의"
+  },
+  {
+    "id": "methimazole",
+    "name_ko": "메티마졸",
+    "name_en": "Methimazole",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "메티마졸정"
+    ],
+    "class": "항갑상선제",
+    "cyp_profile": "무과립구증(발열/인후통 시 즉시 검사), 최기형성"
+  },
+  {
+    "id": "propylthiouracil",
+    "name_ko": "프로필티오우라실 (PTU)",
+    "name_en": "Propylthiouracil",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "안티로이드"
+    ],
+    "class": "항갑상선제",
+    "cyp_profile": "임신 1삼분기 선호, 전격성 간괴사 경고"
+  },
+  {
+    "id": "alendronate",
+    "name_ko": "알렌드로네이트",
+    "name_en": "Alendronate",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "포사맥스",
+      "포사맥스플러스"
+    ],
+    "class": "비스포스포네이트 골다공증약",
+    "cyp_profile": "식도궤양 위험, 물 한 컵 복용 후 30분 기립, 턱뼈괴사(MRONJ)"
+  },
+  {
+    "id": "risedronate",
+    "name_ko": "리세드로네이트",
+    "name_en": "Risedronate",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "악토넬",
+      "리세넥스"
+    ],
+    "class": "주 1회/월 1회 비스포스포네이트",
+    "cyp_profile": "칼슘제 동시복용 흡수 0%"
+  },
+  {
+    "id": "ibandronate",
+    "name_ko": "이반드로네이트",
+    "name_en": "Ibandronate",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "본비바",
+      "이반드론주"
+    ],
+    "class": "월 1회 경구 / 3개월 주사",
+    "cyp_profile": "식도염 주의"
+  },
+  {
+    "id": "zoledronic_acid",
+    "name_ko": "졸레드론산",
+    "name_en": "Zoledronic acid",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "아클라스타주",
+      "조메타주"
+    ],
+    "class": "연 1회 정맥주사 골다공증약",
+    "cyp_profile": "급성기 반응 발열, 신독성, MRONJ"
+  },
+  {
+    "id": "raloxifene",
+    "name_ko": "라록시펜",
+    "name_en": "Raloxifene",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "에비스타",
+      "라록시펜정"
+    ],
+    "class": "SERM 선택적 에스트로겐 수용체 조절",
+    "cyp_profile": "정맥혈전색전증(VTE) 고위험 금기, 안면홍조"
+  },
+  {
+    "id": "bazedoxifene",
+    "name_ko": "바제독시펜",
+    "name_en": "Bazedoxifene",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "비비안트"
+    ],
+    "class": "SERM 제제",
+    "cyp_profile": "유방/자궁내막 안전, 혈전 주의"
+  },
+  {
+    "id": "denosumab",
+    "name_ko": "데노수맙",
+    "name_en": "Denosumab",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "프롤리아주",
+      "엑스지바주"
+    ],
+    "class": "RANKL 표적 단일클론항체",
+    "cyp_profile": "6개월 1회 피하주사, 중단 시 반동성 다발 골절, 저칼슘혈증"
+  },
+  {
+    "id": "teriparatide",
+    "name_ko": "테리파라타이드",
+    "name_en": "Teriparatide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "포스테오주"
+    ],
+    "class": "부갑상선호르몬 (골형성 촉진)",
+    "cyp_profile": "최대 2년 사용 제한, 고칼슘혈증"
+  },
+  {
+    "id": "calcitriol",
+    "name_ko": "칼시트리올",
+    "name_en": "Calcitriol",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "로카트롤",
+      "본키"
+    ],
+    "class": "활성형 비타민 D3",
+    "cyp_profile": "신기능 저하 환자, 고칼슘혈증 모니터링"
+  },
+  {
+    "id": "cholecalciferol",
+    "name_ko": "콜레칼시페롤 (비타민 D3)",
+    "name_en": "Cholecalciferol",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "디맥",
+      "비타민D주사"
+    ],
+    "class": "비활성형 비타민 D",
+    "cyp_profile": "칼슘 흡수 촉진"
+  },
+  {
+    "id": "tamsulosin",
+    "name_ko": "탐스로신",
+    "name_en": "Tamsulosin",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "하루날디",
+      "탐스로신정"
+    ],
+    "class": "전립선 선택적 알파-1A 차단제",
+    "cyp_profile": "기립성 저혈압, 백내장 수술 시 IFIS 증후군"
+  },
+  {
+    "id": "silodosin",
+    "name_ko": "실로도신",
+    "name_en": "Silodosin",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "트루패스",
+      "실로도신캡슐"
+    ],
+    "class": "초선택적 알파-1A 차단제",
+    "cyp_profile": "역행성 사정 빈발, 혈압 영향 적음"
+  },
+  {
+    "id": "alfuzosin",
+    "name_ko": "알푸조신",
+    "name_en": "Alfuzosin",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "자트랄",
+      "알푸조신서방정"
+    ],
+    "class": "요로 선택적 알파 차단제",
+    "cyp_profile": "CYP3A4 대사, QT 연장"
+  },
+  {
+    "id": "finasteride",
+    "name_ko": "피나스테리드",
+    "name_en": "Finasteride",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "프로스카(5mg)",
+      "프로페시아(1mg)"
+    ],
+    "class": "5-알파 환원효소 억제제",
+    "cyp_profile": "PSA 수치 50% 위장 감소, 가임기 여성 접촉 금기"
+  },
+  {
+    "id": "dutasteride",
+    "name_ko": "두타스테리드",
+    "name_en": "Dutasteride",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "아보다트",
+      "두타스테리드연질캡슐"
+    ],
+    "class": "1/2형 5-ARI 이중 억제제",
+    "cyp_profile": "긴 반감기(5주), 헌혈 금지 6개월"
+  },
+  {
+    "id": "solifenacin",
+    "name_ko": "솔리페나신",
+    "name_en": "Solifenacin",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "베시케어",
+      "솔리페나신정"
+    ],
+    "class": "항콜린성 과민성방광약",
+    "cyp_profile": "구갈, 극심한 변비, 녹내장/요폐 금기"
+  },
+  {
+    "id": "tolterodine",
+    "name_ko": "톨테로딘",
+    "name_en": "Tolterodine",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "디트루시톨",
+      "톨테로딘서방캡슐"
+    ],
+    "class": "무스카린 차단제",
+    "cyp_profile": "CYP2D6/3A4 대사"
+  },
+  {
+    "id": "fesoterodine",
+    "name_ko": "페소테로딘",
+    "name_en": "Fesoterodine",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "토비애즈"
+    ],
+    "class": "톨테로딘 전구체",
+    "cyp_profile": "비효소적 활성화, 균일한 효과"
+  },
+  {
+    "id": "oxybutynin",
+    "name_ko": "옥시부티닌",
+    "name_en": "Oxybutynin",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "디트판",
+      "디트판패치"
+    ],
+    "class": "비선택적 항콜린제",
+    "cyp_profile": "중추 부작용(인지저하) 주의"
+  },
+  {
+    "id": "propiverine",
+    "name_ko": "프로피베린",
+    "name_en": "Propiverine",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "비유피-4",
+      "프로피베린정"
+    ],
+    "class": "항콜린 및 칼슘 길항 복합",
+    "cyp_profile": "녹내장 주의"
+  },
+  {
+    "id": "mirabegron",
+    "name_ko": "미라베그론",
+    "name_en": "Mirabegron",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "베타미가",
+      "미라베그론서방정"
+    ],
+    "class": "베타-3 아드레날린 효능제",
+    "cyp_profile": "항콜린 부작용 없음(입마름 안 생김), 혈압상승 주의"
+  },
+  {
+    "id": "vibegron",
+    "name_ko": "비베그론",
+    "name_en": "Vibegron",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "베오바"
+    ],
+    "class": "선택적 베타-3 효능제",
+    "cyp_profile": "CYP 대사 없음, 혈압 안전성 우수"
+  },
+  {
+    "id": "sildenafil",
+    "name_ko": "실데나필",
+    "name_en": "Sildenafil",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "비아그라",
+      "팔팔"
+    ],
+    "class": "PDE5 억제제 (발기부전/폐동맥고혈압)",
+    "cyp_profile": "질산염 제제 병용 시 치명적 쇼크사 절대금기"
+  },
+  {
+    "id": "tadalafil",
+    "name_ko": "타다라필",
+    "name_en": "Tadalafil",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "시알리스",
+      "구구"
+    ],
+    "class": "긴 반감기(36시간) PDE5i",
+    "cyp_profile": "질산염 48시간 금기, 전립선비대 5mg 일일요법"
+  },
+  {
+    "id": "vardenafil",
+    "name_ko": "바데나필",
+    "name_en": "Vardenafil",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "레비트라",
+      "야일라"
+    ],
+    "class": "PDE5 억제제",
+    "cyp_profile": "QT 연장 주의, 질산염 금기"
+  },
+  {
+    "id": "udenafil",
+    "name_ko": "유데나필",
+    "name_en": "Udenafil",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "자이데나"
+    ],
+    "class": "국산 PDE5 억제제",
+    "cyp_profile": "안면홍조, 두통"
+  },
+  {
+    "id": "mirodenafil",
+    "name_ko": "미로데나필",
+    "name_en": "Mirodenafil",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "엠빅스",
+      "엠빅스S구강붕해필름"
+    ],
+    "class": "필름형 PDE5 억제제",
+    "cyp_profile": "질산염 금기"
+  },
+  {
+    "id": "ethinyl_estradiol",
+    "name_ko": "에티닐에스트라디올",
+    "name_en": "Ethinyl estradiol",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "야즈",
+      "머시론",
+      "마이보라"
+    ],
+    "class": "합성 에스트로겐 (경구피임약)",
+    "cyp_profile": "혈전색전증, 흡연자 35세 이상 절대금기, 항생제 병용 피임실패"
+  },
+  {
+    "id": "levonorgestrel",
+    "name_ko": "레보노르게스트렐",
+    "name_en": "Levonorgestrel",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "포스티노",
+      "노레보",
+      "미레나"
+    ],
+    "class": "프로게스틴 (응급피임약)",
+    "cyp_profile": "72시간 이내 복용, 구토 시 재복용"
+  },
+  {
+    "id": "drospirenone",
+    "name_ko": "드로스피레논",
+    "name_en": "Drospirenone",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "야즈",
+      "야스민"
+    ],
+    "class": "항미네랄로코르티코이드 프로게스틴",
+    "cyp_profile": "여드름/월경전증후군 개선, 고칼륨혈증 주의"
+  },
+  {
+    "id": "medroxyprogesterone",
+    "name_ko": "메드록시프로게스테론",
+    "name_en": "Medroxyprogesterone",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "프로베라"
+    ],
+    "class": "합성 프로게스틴",
+    "cyp_profile": "자궁내막증, 유방암 검진"
+  },
+  {
+    "id": "allopurinol",
+    "name_ko": "알로푸리놀",
+    "name_en": "Allopurinol",
+    "category": "통풍치료제",
+    "brand_names": [
+      "자이로릭",
+      "알로푸리놀정"
+    ],
+    "class": "잔틴산화효소 억제제",
+    "cyp_profile": "아자티오프린 병용 골수파괴 금기, HLA-B*5801 스티븐스존슨"
+  },
+  {
+    "id": "febuxostat",
+    "name_ko": "페북소스타트",
+    "name_en": "Febuxostat",
+    "category": "통풍치료제",
+    "brand_names": [
+      "페브릭",
+      "페북소스타트정"
+    ],
+    "class": "비퓨린계 XO 억제제",
+    "cyp_profile": "아자티오프린 절대금기, 심혈관 사망 모니터링"
+  },
+  {
+    "id": "colchicine",
+    "name_ko": "콜키신",
+    "name_en": "Colchicine",
+    "category": "통풍치료제",
+    "brand_names": [
+      "콜킨",
+      "콜키신정"
+    ],
+    "class": "미세소관 중합 억제제",
+    "cyp_profile": "CYP3A4/P-gp 억제제(클라리시드) 병용 치명적 중독 금기"
+  },
+  {
+    "id": "benzbromarone",
+    "name_ko": "벤즈브로마론",
+    "name_en": "Benzbromarone",
+    "category": "통풍치료제",
+    "brand_names": [
+      "유리논",
+      "벤즈브로마론정"
+    ],
+    "class": "요산 배설 촉진제",
+    "cyp_profile": "전격성 간염 주의, 요로결석 주의"
+  },
+  {
+    "id": "prednisolone",
+    "name_ko": "프레드니솔론",
+    "name_en": "Prednisolone",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "소론도",
+      "피디정"
+    ],
+    "class": "경구 스테로이드",
+    "cyp_profile": "NSAID 궤양 천공, 퀴놀론 힘줄파열, 고혈당/쿠싱"
+  },
+  {
+    "id": "methylprednisolone",
+    "name_ko": "메틸프레드니솔론",
+    "name_en": "Methylprednisolone",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "메드롤",
+      "메틸솔론"
+    ],
+    "class": "중간시간형 스테로이드",
+    "cyp_profile": "염류코르티코이드 작용 적음"
+  },
+  {
+    "id": "dexamethasone",
+    "name_ko": "덱사메타손",
+    "name_en": "Dexamethasone",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "덱사메타손정",
+      "덱사정"
+    ],
+    "class": "강력한 장시간형 스테로이드",
+    "cyp_profile": "항구토/뇌부종, 강력한 CYP3A4 유도"
+  },
+  {
+    "id": "betamethasone",
+    "name_ko": "베타메타손",
+    "name_en": "Betamethasone",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "베타메타손주",
+      "린단주"
+    ],
+    "class": "지속성 스테로이드",
+    "cyp_profile": "국소/관절강내 주사"
+  },
+  {
+    "id": "triamcinolone",
+    "name_ko": "트리암시놀론",
+    "name_en": "Triamcinolone",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "트리암시놀론주",
+      "오라메디"
+    ],
+    "class": "관절강 주사 / 구내염 연고",
+    "cyp_profile": "국소 조직 위축 주의"
+  },
+  {
+    "id": "hydrocortisone",
+    "name_ko": "히드로코르티손",
+    "name_en": "Hydrocortisone",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "코르테프",
+      "락티케어(외용)"
+    ],
+    "class": "단시간형 천연형 코르티솔",
+    "cyp_profile": "부신피질기능저하증 대체"
+  },
+  {
+    "id": "deflazacort",
+    "name_ko": "데플라자코르트",
+    "name_en": "Deflazacort",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "칼코트",
+      "데플라코트"
+    ],
+    "class": "옥사졸린 유도 스테로이드",
+    "cyp_profile": "골다공증/당뇨 유발 위험 경감"
+  },
+  {
+    "id": "fludrocortisone",
+    "name_ko": "플루드로코르티손",
+    "name_en": "Fludrocortisone",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "플로리네프"
+    ],
+    "class": "강력한 미네랄로코르티코이드",
+    "cyp_profile": "기립성 저혈압/애디슨병, 고혈압/부종"
+  },
+  {
+    "id": "methotrexate",
+    "name_ko": "메토트렉세이트",
+    "name_en": "Methotrexate",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "유한메토트렉세이트",
+      "엠텍스"
+    ],
+    "class": "항엽산 면역억제제",
+    "cyp_profile": "NSAID/아스피린/PPI 병용 치명적 골수억제 금기"
+  },
+  {
+    "id": "azathioprine",
+    "name_ko": "아자티오프린",
+    "name_en": "Azathioprine",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "이뮤란",
+      "아자프린"
+    ],
+    "class": "퓨린 길항 면역억제제",
+    "cyp_profile": "알로푸리놀/페북소스타트 병용 골수파괴 금기"
+  },
+  {
+    "id": "cyclosporine",
+    "name_ko": "사이클로스포린",
+    "name_en": "Cyclosporine",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "산디문뉴오랄",
+      "사이폴엔"
+    ],
+    "class": "칼시뉴린 억제제",
+    "cyp_profile": "CYP3A4/P-gp 기질, 스타틴 횡문근융해증, 신독성"
+  },
+  {
+    "id": "tacrolimus",
+    "name_ko": "타크로리무스",
+    "name_en": "Tacrolimus",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "프로그랍",
+      "프로토픽(외용)"
+    ],
+    "class": "강력한 칼시뉴린 억제제",
+    "cyp_profile": "CYP3A4 대사, 자몽주스/아졸계 진균제 독성 급증"
+  },
+  {
+    "id": "mycophenolate",
+    "name_ko": "미코페놀레이트 모페틸",
+    "name_en": "Mycophenolate mofetil",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "셀셉트",
+      "마이렙트"
+    ],
+    "class": "IMPDH 억제 면역억제제",
+    "cyp_profile": "제산제/철분제 킬레이트 흡수 저하, 기형유발"
+  },
+  {
+    "id": "leflunomide",
+    "name_ko": "레플루노미드",
+    "name_en": "Leflunomide",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "아라바"
+    ],
+    "class": "피리미딘 합성 억제제",
+    "cyp_profile": "2년간 체내 잔류(콜레스티라민 제거), 기형유발"
+  },
+  {
+    "id": "hydroxychloroquine",
+    "name_ko": "히드록시클로로퀸",
+    "name_en": "Hydroxychloroquine",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "할록신",
+      "피라퀸"
+    ],
+    "class": "항말라리아/루푸스 치료제",
+    "cyp_profile": "망막병증(안과 정기검진), QT 연장"
+  },
+  {
+    "id": "isotretinoin",
+    "name_ko": "이소트레티노인",
+    "name_en": "Isotretinoin",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "이소티논",
+      "로아큐탄",
+      "니메겐"
+    ],
+    "class": "비타민 A 레티노이드",
+    "cyp_profile": "임부 절대금기(기형아), 테트라사이클린 병용 뇌압상승 실명 금기"
+  },
+  {
+    "id": "acitretin",
+    "name_ko": "아시트레틴",
+    "name_en": "Acitretin",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "네오티가손"
+    ],
+    "class": "중증 건선 레티노이드",
+    "cyp_profile": "복용 후 3년간 임신 금지, 알코올 금기"
+  },
+  {
+    "id": "minoxidil",
+    "name_ko": "미녹시딜(경구)",
+    "name_en": "Minoxidil oral",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "로니텐",
+      "현대미녹시딜"
+    ],
+    "class": "강력한 말초혈관확장제",
+    "cyp_profile": "중증 고혈압/탈모, 심낭삼출/부종 주의"
+  },
+  {
+    "id": "rilmenidine",
+    "name_ko": "릴메니딘",
+    "name_en": "Rilmenidine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "알베스코",
+      "알바렐"
+    ],
+    "class": "중추성 이미다졸린 수용체 효능제",
+    "cyp_profile": "교감신경 긴장 완화, 진정/구갈"
+  },
+  {
+    "id": "phenoxybenzamine",
+    "name_ko": "페녹시벤자민",
+    "name_en": "Phenoxybenzamine",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "디베닐린"
+    ],
+    "class": "비가역적 알파 차단제",
+    "cyp_profile": "갈색세포종 수술 전 처치"
+  },
+  {
+    "id": "flavoxate",
+    "name_ko": "플라복세이트",
+    "name_en": "Flavoxate",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "유리스파스"
+    ],
+    "class": "비뇨기 평활근 진경초",
+    "cyp_profile": "야간빈뇨/요실금 개선"
+  },
+  {
+    "id": "dapoxetine",
+    "name_ko": "다폭세틴",
+    "name_en": "Dapoxetine",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "프릴리지"
+    ],
+    "class": "단시간형 사정지연 SSRI",
+    "cyp_profile": "CYP3A4 억제제 병용금기, 기립성 어지럼"
+  },
+  {
+    "id": "imidafenacin",
+    "name_ko": "이미다페나신",
+    "name_en": "Imidafenacin",
+    "category": "비뇨생식기계 (전립선비대증 / PDE5 억제제)",
+    "brand_names": [
+      "유리토스"
+    ],
+    "class": "선택적 M1/M3 수용체 길항제",
+    "cyp_profile": "과민성 방광, 구갈 감소"
+  },
+  {
+    "id": "calcium_carbonate",
+    "name_ko": "탄산칼슘",
+    "name_en": "Calcium carbonate",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "디카맥스",
+      "칼테오"
+    ],
+    "class": "칼슘염 제산제 / 인결합제",
+    "cyp_profile": "산분비 반동, 변비, 킬레이트 결합"
+  },
+  {
+    "id": "magnesium_oxide",
+    "name_ko": "산화마그네슘",
+    "name_en": "Magnesium oxide",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "마그오",
+      "중질산화마그네슘"
+    ],
+    "class": "제산제 / 마그네슘 보충제",
+    "cyp_profile": "테트라사이클린/퀴놀론 흡수 80% 저하"
+  },
+  {
+    "id": "ecabet",
+    "name_ko": "에카베트",
+    "name_en": "Ecabet sodium",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "가스트렉스"
+    ],
+    "class": "펩신 불활성화 위점막보호제",
+    "cyp_profile": "헬리코박터 억제, 안전성 우수"
+  },
+  {
+    "id": "polaprezinc",
+    "name_ko": "폴라프레징크",
+    "name_en": "Polaprezinc",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "프로맥"
+    ],
+    "class": "아연-L-카르노신 킬레이트",
+    "cyp_profile": "항산화 위점막 보호, 구리 결핍 주의"
+  },
+  {
+    "id": "pinaverium",
+    "name_ko": "피나베륨",
+    "name_en": "Pinaverium bromide",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "디세텔"
+    ],
+    "class": "국소 장관 칼슘길항 진경초",
+    "cyp_profile": "식도궤양 예방 위해 식중 물과 복용"
+  },
+  {
+    "id": "simethicone",
+    "name_ko": "시메티콘",
+    "name_en": "Simethicone",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "가스콘"
+    ],
+    "class": "위장관 가스 표면장력 저하 소포제",
+    "cyp_profile": "체내 미흡수, 내시경 전처치"
+  },
+  {
+    "id": "pancreatin",
+    "name_ko": "판크레아틴",
+    "name_en": "Pancreatin",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "노자임",
+      "베스타제"
+    ],
+    "class": "췌장 소화효소 복합제",
+    "cyp_profile": "아밀라아제/리파아제/프로테아제 보충"
+  },
+  {
+    "id": "racecadotril",
+    "name_ko": "라세카도트릴",
+    "name_en": "Racecadotril",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "하이드라섹"
+    ],
+    "class": "말초 엔케팔리나제 억제 지사제",
+    "cyp_profile": "장운동 저하 없는 수분분비 억제"
+  },
+  {
+    "id": "alfacalcidol",
+    "name_ko": "알파칼시돌",
+    "name_en": "Alfacalcidol",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "알파롤",
+      "원알파"
+    ],
+    "class": "간대사 필요 활성형 프로비타민D",
+    "cyp_profile": "신부전 골이영양증, 혈중 칼슘 모니터링"
+  },
+  {
+    "id": "folic_acid",
+    "name_ko": "엽산",
+    "name_en": "Folic acid",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "폴산정",
+      "엽산정"
+    ],
+    "class": "수용성 비타민 B9",
+    "cyp_profile": "MTX 독성 경감, 페니토인 혈중농도 감소 상호작용"
+  },
+  {
+    "id": "cyanocobalamin",
+    "name_ko": "시아노코발라민",
+    "name_en": "Cyanocobalamin (Vitamin B12)",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "비타민B12주"
+    ],
+    "class": "비타민 B12 결핍증 치료제",
+    "cyp_profile": "메트포르민/PPI 장기복용 시 흡수 결핍 유발"
+  },
+  {
+    "id": "mecobalamin",
+    "name_ko": "메코발라민",
+    "name_en": "Mecobalamin",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "메치코발"
+    ],
+    "class": "보효소형 활성 비타민 B12",
+    "cyp_profile": "당뇨병성 말초신경염/신경통 개선"
+  },
+  {
+    "id": "pyridoxine",
+    "name_ko": "피리독신",
+    "name_en": "Pyridoxine (Vitamin B6)",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "피리독신정"
+    ],
+    "class": "수용성 비타민 B6",
+    "cyp_profile": "이소니아지드 말초신경염 예방, 레보도파 효과 감쇄"
+  },
+  {
+    "id": "thiamine",
+    "name_ko": "티아민",
+    "name_en": "Thiamine (Vitamin B1)",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "비타민B1정",
+      "치아민주"
+    ],
+    "class": "수용성 탄수화물 대사 조효소",
+    "cyp_profile": "알코올 의존자 베르니케 뇌병증 예방"
+  },
+  {
+    "id": "phytomenadione",
+    "name_ko": "피토메나디온",
+    "name_en": "Phytomenadione (Vitamin K1)",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "케이원주"
+    ],
+    "class": "지용성 비타민 K1 지혈제",
+    "cyp_profile": "와파린 직접 길항제, 과다 투여 시 혈전 위험"
+  },
+  {
+    "id": "potassium_chloride",
+    "name_ko": "염화칼륨",
+    "name_en": "Potassium chloride",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "케이콘틴",
+      "염화칼륨서방정"
+    ],
+    "class": "전해질 칼륨 보충제",
+    "cyp_profile": "ACEi/ARB/스피로노락톤 병용 시 치명적 고칼륨"
+  },
+  {
+    "id": "sodium_bicarbonate",
+    "name_ko": "탄산수소나트륨",
+    "name_en": "Sodium bicarbonate",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "탄산수소나트륨정",
+      "중탄산주"
+    ],
+    "class": "체액 산증 교정/요알칼리화제",
+    "cyp_profile": "요알칼리화로 살리실산 배설촉진, 리튬 배설촉진"
+  },
+  {
+    "id": "potassium_citrate",
+    "name_ko": "구연산칼륨",
+    "name_en": "Potassium citrate",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "유로시트라",
+      "구연산칼륨정"
+    ],
+    "class": "요알칼리화/요로결석 예방제",
+    "cyp_profile": "고칼륨혈증 모니터링, 신부전 주의"
+  },
+  {
+    "id": "polystyrene_sulfonate",
+    "name_ko": "칼슘 폴리스티렌 설폰산염",
+    "name_en": "Polystyrene sulfonate",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "카리메트",
+      "칼리메이트"
+    ],
+    "class": "장관 칼륨 이온 교환 수지",
+    "cyp_profile": "장관 괴사 위험, 소르비톨 병용 금기"
+  },
+  {
+    "id": "sevelamer",
+    "name_ko": "세벨라머",
+    "name_en": "Sevelamer",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "렌벨라"
+    ],
+    "class": "비칼슘/비금속 인결합 중합체",
+    "cyp_profile": "만성신장병 투석환자 고인산혈증 개선"
+  },
+  {
+    "id": "lanthanum_carbonate",
+    "name_ko": "탄산란탄",
+    "name_en": "Lanthanum carbonate",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "포스레놀"
+    ],
+    "class": "비칼슘계 희토류 인결합제",
+    "cyp_profile": "씹어서 복용, 장폐색 환자 금기"
+  },
+  {
+    "id": "ferrous_sulfate",
+    "name_ko": "황산제일철",
+    "name_en": "Ferrous sulfate",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "훼로바유",
+      "헤모큐"
+    ],
+    "class": "무기 철분 빈혈 치료제",
+    "cyp_profile": "제산제/테트라사이클린 킬레이트 흡수 90% 저하"
+  },
+  {
+    "id": "iron_protein_succinylate",
+    "name_ko": "철단백추출물",
+    "name_en": "Iron protein succinylate",
+    "category": "기타 / 면역억제제",
+    "brand_names": [
+      "훼럼메이트",
+      "볼그레"
+    ],
+    "class": "유기 복합 철분제",
+    "cyp_profile": "위장장애 경감, 칼슘/제산제와 시간차 복용"
+  },
+  {
+    "id": "oxeladin",
+    "name_ko": "옥셀라딘",
+    "name_en": "Oxeladin",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "팍세라딘"
+    ],
+    "class": "비마약성 중추성 진해제",
+    "cyp_profile": "진정 작용 적고 호흡억제 없음"
+  },
+  {
+    "id": "dropropizine",
+    "name_ko": "드로프로피진",
+    "name_en": "Dropropizine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "드로피진"
+    ],
+    "class": "말초 작용 비마약성 진해제",
+    "cyp_profile": "기관지 진정, 경미한 졸음"
+  },
+  {
+    "id": "piprinhydrinate",
+    "name_ko": "피프린히드리네이트",
+    "name_en": "Piprinhydrinate",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "플라마진"
+    ],
+    "class": "1세대 지속성 항히스타민제",
+    "cyp_profile": "항콜린 작용, 진정/구갈/배뇨장애"
+  },
+  {
+    "id": "dimenhydrinate",
+    "name_ko": "디멘히드리네이트",
+    "name_en": "Dimenhydrinate",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "보나링에이"
+    ],
+    "class": "어지럼증/구토 억제 항히스타민",
+    "cyp_profile": "전정신경 흥분 억제, 강한 진정/졸음"
+  },
+  {
+    "id": "betahistine",
+    "name_ko": "베타히스틴",
+    "name_en": "Betahistine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "메네스",
+      "메니에르"
+    ],
+    "class": "H1 효능 + H3 길항 림프순환개선",
+    "cyp_profile": "메니에르병 어지럼/이명, 천식환자 주의"
+  },
+  {
+    "id": "flunarizine",
+    "name_ko": "플루나리진",
+    "name_en": "Flunarizine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "시벨리움"
+    ],
+    "class": "중추 칼슘채널 차단제",
+    "cyp_profile": "편두통 예방/전정계 현훈, 추체외로증상 주의"
+  },
+  {
+    "id": "cinnarizine",
+    "name_ko": "신나리진",
+    "name_en": "Cinnarizine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "스투게론"
+    ],
+    "class": "항히스타민/칼슘길항 혈류개선제",
+    "cyp_profile": "어지럼증/뇌혈관부전, 파킨슨 증상 주의"
+  },
+  {
+    "id": "azelastine",
+    "name_ko": "아젤라스틴",
+    "name_en": "Azelastine",
+    "category": "호흡기용제 / 항히스타민제 / 진해거담제",
+    "brand_names": [
+      "아젭틴"
+    ],
+    "class": "2세대 항히스타민/비만세포안정제",
+    "cyp_profile": "알레르기 비염/천식, 쓴맛/진정"
+  },
+  {
+    "id": "dorzolamide",
+    "name_ko": "도르졸아미드",
+    "name_en": "Dorzolamide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "트루솝",
+      "코솝"
+    ],
+    "class": "국소 탄산탈수효소 억제 점안제",
+    "cyp_profile": "설파계 알레르기 교차, 안압 강하"
+  },
+  {
+    "id": "brinzolamide",
+    "name_ko": "브린졸아미드",
+    "name_en": "Brinzolamide",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "아좁트"
+    ],
+    "class": "점안용 탄산탈수효소 억제제",
+    "cyp_profile": "방수 생성 억제 안압 강하"
+  },
+  {
+    "id": "latanoprost",
+    "name_ko": "라타노프로스트",
+    "name_en": "Latanoprost",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "잘라탄",
+      "라타로프"
+    ],
+    "class": "프로스타글란딘 F2a 유도체 점안액",
+    "cyp_profile": "포도막공막 방수유출 촉진, 홍채색소 침착"
+  },
+  {
+    "id": "travoprost",
+    "name_ko": "트라보프로스트",
+    "name_en": "Travoprost",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "트라바탄"
+    ],
+    "class": "선택적 FP 프로스타노이드 수용체",
+    "cyp_profile": "안압 강하, 속눈썹 증식"
+  },
+  {
+    "id": "bimatoprost",
+    "name_ko": "비마토프로스트",
+    "name_en": "Bimatoprost",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "루미간"
+    ],
+    "class": "프로스타마이드 계열 녹내장 점안액",
+    "cyp_profile": "강력한 안압 하강, 속눈썹 성장"
+  },
+  {
+    "id": "timolol_eye",
+    "name_ko": "티몰롤(점안)",
+    "name_en": "Timolol ophthalmic",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "티모프틱"
+    ],
+    "class": "비선택적 베타차단 점안액",
+    "cyp_profile": "전신 흡수 시 천식 발작 유발/서맥 금기"
+  },
+  {
+    "id": "daptomycin",
+    "name_ko": "답토마이신",
+    "name_en": "Daptomycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "큐비신"
+    ],
+    "class": "환상 립펩티드 MRSA 항생제",
+    "cyp_profile": "CPK 상승/근병증, 스타틴 병용 시 횡문근융해증 폭증"
+  },
+  {
+    "id": "tigecycline",
+    "name_ko": "티게사이클린",
+    "name_en": "Tigecycline",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "타이가실"
+    ],
+    "class": "글리실사이클린 광범위 항생제",
+    "cyp_profile": "와파린 항응고효과 증강, 소아 치아착색"
+  },
+  {
+    "id": "tedizolid",
+    "name_ko": "테디졸리드",
+    "name_en": "Tedizolid",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "시벡스트로"
+    ],
+    "class": "2세대 옥사졸리디논 항생제",
+    "cyp_profile": "MAO 저해 최소화, 1일 1회 복용"
+  },
+  {
+    "id": "lincomycin",
+    "name_ko": "린코마이신",
+    "name_en": "Lincomycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "린코신"
+    ],
+    "class": "린코사마이드계 혐기균 항생제",
+    "cyp_profile": "위막성 대장염(CDAD), 마크로라이드 경쟁길항"
+  },
+  {
+    "id": "spiramycin",
+    "name_ko": "스피라마이신",
+    "name_en": "Spiramycin",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "로바마이신"
+    ],
+    "class": "마크로라이드계 톡소플라스마/구강항생제",
+    "cyp_profile": "임신부 톡소플라스마증 안전, QT 연장 모니터링"
+  },
+  {
+    "id": "antacid_ca_mg",
+    "name_ko": "제산제 (칼슘/마그네슘염)",
+    "name_en": "Antacids (Calcium/Magnesium)",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "알마겔",
+      "마그밀",
+      "겔포스"
+    ],
+    "class": "제산제 복합군",
+    "cyp_profile": "2가/3가 양이온 킬레이트 형성, 퀴놀론/테트라사이클린 흡수저하"
+  },
+  {
+    "id": "fentanyl",
+    "name_ko": "펜타닐",
+    "name_en": "Fentanyl",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "듀로제식",
+      "펜타닐패취"
+    ],
+    "class": "강력한 합성 마약성 진통제",
+    "cyp_profile": "CYP3A4 기질, 세로토닌 증후군, 호흡 억제"
+  },
+  {
+    "id": "pethidine",
+    "name_ko": "페티딘",
+    "name_en": "Pethidine (Meperidine)",
+    "category": "소염진통제 (NSAIDs / 진통제)",
+    "brand_names": [
+      "페티딘염산염주"
+    ],
+    "class": "합성 오피오이드 진통제",
+    "cyp_profile": "MAOI/SSRI 병용 치명적 세로토닌 증후군 절대금기"
+  },
+  {
+    "id": "midazolam",
+    "name_ko": "미다졸람",
+    "name_en": "Midazolam",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "바스캄",
+      "미다졸람주"
+    ],
+    "class": "단시간형 벤조디아제핀 수면진정제",
+    "cyp_profile": "CYP3A4 대사, 마약성 진통제 병용 호흡정지"
+  },
+  {
+    "id": "citalopram",
+    "name_ko": "시탈로프람",
+    "name_en": "Citalopram",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "시탈로프람정"
+    ],
+    "class": "SSRI 항우울제",
+    "cyp_profile": "용량 의존적 QT 연장, 세로토닌 증후군"
+  },
+  {
+    "id": "chlorpromazine",
+    "name_ko": "클로르프로마진",
+    "name_en": "Chlorpromazine",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "클로르프로마진정"
+    ],
+    "class": "전형적 페노티아진계 항정신병제",
+    "cyp_profile": "QT 연장, 추체외로 증상"
+  },
+  {
+    "id": "ondansetron",
+    "name_ko": "온단세트론",
+    "name_en": "Ondansetron",
+    "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
+    "brand_names": [
+      "조프란",
+      "온단세트론주"
+    ],
+    "class": "5-HT3 수용체 길항 항구토제",
+    "cyp_profile": "QT 연장, 세로토닌 수용체 조절"
+  },
+  {
+    "id": "ketoconazole",
+    "name_ko": "케토코나졸",
+    "name_en": "Ketoconazole",
+    "category": "항진균제 / 항바이러스제",
+    "brand_names": [
+      "니조랄",
+      "스파이크"
+    ],
+    "class": "이미다졸계 항진균제",
+    "cyp_profile": "CYP3A4 극강 저해제, 심바스타틴/콜키신 병용금기"
+  },
+  {
+    "id": "trimethoprim_sulfamethoxazole",
+    "name_ko": "코트리목사졸 (설파메톡사졸-트리메토프림)",
+    "name_en": "Trimethoprim / Sulfamethoxazole",
+    "category": "항균제 / 항생제",
+    "brand_names": [
+      "셉트린"
+    ],
+    "class": "엽산합성 2단계 차단 복합 항균제",
+    "cyp_profile": "CYP2C9 저해(와파린 출혈), MTX 병용 골수독성, 고칼륨혈증"
+  },
+  {
+    "id": "sumatriptan",
+    "name_ko": "수마트립탄",
+    "name_en": "Sumatriptan",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "이미그란"
+    ],
+    "class": "5-HT1B/1D 효능 편두통 치료제",
+    "cyp_profile": "SSRI 병용 세로토닌 증후군, 맥각알칼로이드 병용금기"
+  },
+  {
+    "id": "zolmitriptan",
+    "name_ko": "졸미트립탄",
+    "name_en": "Zolmitriptan",
+    "category": "정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)",
+    "brand_names": [
+      "조믹"
+    ],
+    "class": "5-HT1 수용체 효능 편두통 치료제",
+    "cyp_profile": "세로토닌 증후군, MAOI 병용금기"
+  }
+]
