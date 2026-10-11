@@ -4057,10 +4057,11 @@
     "name_en": "Fexuprazan",
     "category": "소화기계용제 (위산분비억제제 / 위장운동 / 제산제)",
     "brand_names": [
-      "펙수클루"
+      "펙수클루",
+      "벨라펙스"
     ],
-    "class": "국산 P-CAB 위식도역류약",
-    "cyp_profile": "야간 산분비 억제 우수"
+    "class": "P-CAB (칼륨경쟁적 위산분비억제제)",
+    "cyp_profile": "CYP3A4 주요 대사, CYP2C19 비의존적 대사"
   },
   {
     "id": "zastaprazan",

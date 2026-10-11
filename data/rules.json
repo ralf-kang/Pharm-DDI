@@ -13095,5 +13095,24 @@
     "clinical_action": "FDA Black Box Warning / DUR 주의 경보. 병용 시 최저 유효 용량 및 최단 기간 투여, 보호자 호흡 감시 지도",
     "hospital_department": "원외처방 / 내과 / 가정의학과",
     "is_recent_sci": false
+  },
+  {
+    "drug_a_id": "fexuprazan",
+    "drug_b_id": "clopidogrel",
+    "severity": "MODERATE",
+    "title": "펙수프라잔 + 클로피도그렐 병용 안전성 평가 (DDInter 지식 축적)",
+    "mechanism": "펙수프라잔은 CYP2C19 대사 비의존적 기전으로 클로피도그렐의 활성 대사체 전환에 영향을 주지 않아 스텐트 혈전 위험이 낮음.",
+    "adverse_reactions": [
+      "약효 간섭 최소화",
+      "위장관 점막 보호"
+    ],
+    "clinical_action": "오메프라졸/에스오메프라졸의 대체 P-CAB 약제로 처방 권장 가능. 정기적 위장관 증상 모니터링.",
+    "hospital_department": "순환기내과 ↔ 소화기내과",
+    "id": "DDI-EXP-0649",
+    "drugs": [
+      "fexuprazan",
+      "clopidogrel"
+    ],
+    "severity_ko": "병용 주의"
   }
 ]
