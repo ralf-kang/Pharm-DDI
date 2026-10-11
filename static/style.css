@@ -2529,3 +2529,304 @@ body {
     border-radius: 16px;
   }
 }
+
+/* ==========================================================================
+   🧬 한국형 DDInter 지식 축적소 & Git 실시간 동기화 스타일링
+   ========================================================================== */
+
+/* 1. 헤더 Git 동기화 배지 & 버튼 */
+.git-sync-header-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.git-sync-header-pill:hover {
+  background: rgba(15, 23, 42, 0.08);
+  border-color: rgba(100, 116, 139, 0.4);
+}
+
+.git-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+}
+
+.git-status-dot.syncing {
+  background: #f59e0b;
+  animation: pulse 1s infinite;
+}
+
+.git-status-dot.error {
+  background: #ef4444;
+}
+
+.btn-git-header-sync {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s;
+}
+
+.btn-git-header-sync:hover {
+  background: #1d4ed8;
+}
+
+.sync-icon-rotate.spinning {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 2. DDInter Hero 카드 */
+.ddinter-hero-card {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
+}
+
+.ddinter-hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.ddinter-pill {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.hero-title-group h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.hero-desc {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* DDInter 실시간 통계 그리드 */
+.ddinter-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.ddinter-stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ddinter-stat-card .stat-icon {
+  font-size: 1.8rem;
+}
+
+.ddinter-stat-card .stat-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.ddinter-stat-card .stat-label {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.ddinter-stat-card .stat-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.ddinter-stat-card .stat-number.branch {
+  font-size: 1.05rem;
+  color: #38bdf8;
+}
+
+.ddinter-stat-card .stat-number.active {
+  color: #10b981;
+}
+
+.ddinter-stat-card .stat-sub {
+  font-size: 0.72rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* 3. DDInter 레이아웃 & 패널 */
+.ddinter-layout-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.ddinter-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.ddinter-knowledge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 580px;
+  overflow-y: auto;
+  margin-top: 14px;
+}
+
+.ddinter-knowledge-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+  background: #f8fafc;
+  transition: all 0.2s;
+}
+
+.ddinter-knowledge-card:hover {
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+}
+
+.ddinter-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.ddinter-card-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ddinter-card-desc {
+  font-size: 0.86rem;
+  color: #475569;
+  line-height: 1.45;
+  margin: 6px 0;
+}
+
+.ddinter-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 8px;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 6px;
+}
+
+/* 4. Git 커밋 타임라인 */
+.git-log-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 580px;
+  overflow-y: auto;
+  margin-top: 14px;
+}
+
+.git-log-item {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.git-log-item::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3b82f6;
+}
+
+.git-log-msg {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.git-log-meta {
+  font-size: 0.75rem;
+  color: #64748b;
+  display: flex;
+  gap: 8px;
+}
+
+.git-log-hash {
+  font-family: monospace;
+  background: #f1f5f9;
+  padding: 1px 4px;
+  border-radius: 4px;
+  color: #0f172a;
+}
+
+@media (max-width: 900px) {
+  .ddinter-layout-row {
+    grid-template-columns: 1fr;
+  }
+}
+

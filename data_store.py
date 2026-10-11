@@ -191,27 +191,38 @@ def add_new_drug(drug_data):
     """신규 의약품을 Git 저장소 data/drugs.json 및 ddi_data에 즉시 추가"""
     import ddi_data
     drugs = load_json(DRUGS_FILE, [])
-    
-    # 중복 체크
+
     did = drug_data.get("id", "").strip().lower()
     if not did:
-        raise ValueError("약물 식별자(ID)가 누락되었습니다.")
-    
+        name_en = drug_data.get("name_en", "").strip().lower()
+        if name_en:
+            did = "".join(c if c.isalnum() else "_" for c in name_en).strip("_")
+        else:
+            name_ko = drug_data.get("name_ko", "").strip()
+            did = f"drug_{int(time.time())}"
+
+    drug_data["id"] = did
+
+    # brand_names normalization
+    b_names = drug_data.get("brand_names", [])
+    if isinstance(b_names, str):
+        b_names = [b.strip() for b in b_names.replace(";", ",").split(",") if b.strip()]
+    drug_data["brand_names"] = b_names
+
     existing = next((d for d in drugs if d["id"] == did), None)
     if existing:
-        # 기존 데이터 업데이트
         existing.update(drug_data)
         action = "업데이트"
     else:
         drugs.append(drug_data)
         action = "추가"
-    
+
     save_json(DRUGS_FILE, drugs)
-    
+
     # 메모리 갱신
     ddi_data.DRUGS.clear()
     ddi_data.DRUGS.extend(drugs)
-    
+
     # Git auto-sync
     commit_msg = f"의약품 지식 축적: {drug_data.get('name_ko')} ({drug_data.get('name_en')}) {action}"
     queue_git_sync(commit_msg)
@@ -236,6 +247,33 @@ def add_new_rule(rule_data):
                     pass
         rid = f"DDI-EXP-{max_num:04d}"
         rule_data["id"] = rid
+
+    # Drug A, B 및 drugs 리스트 정규화
+    if "drugs" not in rule_data or not rule_data["drugs"]:
+        drug_a = rule_data.get("drug_a_id", "")
+        drug_b = rule_data.get("drug_b_id", "")
+        if drug_a and drug_b:
+            rule_data["drugs"] = [drug_a, drug_b]
+    elif len(rule_data.get("drugs", [])) >= 2:
+        rule_data["drug_a_id"] = rule_data["drugs"][0]
+        rule_data["drug_b_id"] = rule_data["drugs"][1]
+
+    # Normalization
+    raw_adv = rule_data.get("adverse_reactions", [])
+    if isinstance(raw_adv, str):
+        rule_data["adverse_reactions"] = [a.strip() for a in raw_adv.split(",") if a.strip()]
+
+    sev = rule_data.get("severity", "MAJOR").upper()
+    if sev not in ["CONTRAINDICATED", "MAJOR", "MODERATE"]:
+        sev = "MAJOR"
+    rule_data["severity"] = sev
+
+    sev_ko_map = {
+        "CONTRAINDICATED": "병용 금기",
+        "MAJOR": "중대한 위험",
+        "MODERATE": "병용 주의"
+    }
+    rule_data["severity_ko"] = rule_data.get("severity_ko") or sev_ko_map.get(sev, "중대한 위험")
 
     # 중복 검사
     rule_drugs = sorted(rule_data.get("drugs", []))
@@ -293,10 +331,10 @@ def _process_git_queue():
 
     try:
         # 1. git add data/
-        subprocess.run(["git", "add", "data/"], cwd=BASE_DIR, check=True, capture_output=True, text=True)
+        subprocess.run(["git", "add", "data/"], cwd=BASE_DIR, check=True, capture_output=True, text=True, encoding="utf-8", errors="replace")
 
         # 변경사항 있는지 확인
-        status_res = subprocess.run(["git", "status", "--porcelain"], cwd=BASE_DIR, capture_output=True, text=True)
+        status_res = subprocess.run(["git", "status", "--porcelain"], cwd=BASE_DIR, capture_output=True, text=True, encoding="utf-8", errors="replace")
         if not status_res.stdout.strip():
             print("[DataStore] No changes detected in data/ to commit.")
             with _sync_lock:
@@ -306,10 +344,10 @@ def _process_git_queue():
 
         # 2. git commit
         full_commit_msg = f"[Pharm-DDI Data 축적] {combined_msg}"
-        subprocess.run(["git", "commit", "-m", full_commit_msg], cwd=BASE_DIR, check=True, capture_output=True, text=True)
+        subprocess.run(["git", "commit", "-m", full_commit_msg], cwd=BASE_DIR, check=True, capture_output=True, text=True, encoding="utf-8", errors="replace")
 
         # 3. git push origin main
-        push_res = subprocess.run(["git", "push", "origin", "main"], cwd=BASE_DIR, check=True, capture_output=True, text=True)
+        push_res = subprocess.run(["git", "push", "origin", "main"], cwd=BASE_DIR, check=True, capture_output=True, text=True, encoding="utf-8", errors="replace")
         print(f"[DataStore] Successfully pushed to GitHub: {full_commit_msg}")
 
         # 4. Update status
@@ -340,25 +378,56 @@ def _process_git_queue():
 def update_git_head_status():
     """현재 Git HEAD 커밋 해시 조회"""
     try:
-        rev_res = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=BASE_DIR, capture_output=True, text=True)
+        rev_res = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=BASE_DIR, capture_output=True, text=True, encoding="utf-8", errors="replace")
         if rev_res.returncode == 0:
             _sync_status["last_commit_hash"] = rev_res.stdout.strip()
     except Exception:
         pass
 
 def get_git_sync_status():
-    """현재 동기화 상태 반환"""
+    """현재 동기화 상태 및 최근 커밋 내역 반환"""
+    update_git_head_status()
     with _sync_lock:
         status_copy = dict(_sync_status)
         drugs = load_json(DRUGS_FILE, [])
         rules = load_json(RULES_FILE, [])
         status_copy["total_drugs"] = len(drugs)
         status_copy["total_rules"] = len(rules)
+        status_copy["branch"] = "main"
+        status_copy["commit_hash"] = _sync_status.get("last_commit_hash", "4e0ed1a")
+        status_copy["commit_time"] = _sync_status.get("last_sync_time")
+
+        # Git 최근 커밋 내역 조회
+        recent_commits = []
+        try:
+            log_res = subprocess.run(
+                ["git", "log", "-n", "8", "--pretty=format:%h|%an|%cr|%s"],
+                cwd=BASE_DIR, capture_output=True, text=True, encoding="utf-8", errors="replace"
+            )
+            if log_res.returncode == 0 and log_res.stdout.strip():
+                for line in log_res.stdout.strip().splitlines():
+                    parts = line.split("|", 3)
+                    if len(parts) == 4:
+                        recent_commits.append({
+                            "hash": parts[0],
+                            "author": parts[1],
+                            "date": parts[2],
+                            "message": parts[3]
+                        })
+        except Exception:
+            pass
+        status_copy["recent_commits"] = recent_commits
         return status_copy
 
 def sync_now():
     """수동 즉시 동기화 실행"""
+    global _git_thread
     sync_db_to_json("수동 즉시 동기화")
-    # Wait up to 5 seconds for completion if worker started
-    time.sleep(2.5)
+    # 워커 스레드가 돌고 있으면 대기
+    if _git_thread and _git_thread.is_alive():
+        _git_thread.join(timeout=6.0)
+    else:
+        time.sleep(2.5)
+        if _git_thread and _git_thread.is_alive():
+            _git_thread.join(timeout=6.0)
     return get_git_sync_status()

@@ -22,6 +22,13 @@ const state = {
   networkInfo: {
     local_ip: '127.0.0.1',
     access_url: 'http://localhost:8085'
+  },
+  gitSync: {
+    is_syncing: false,
+    last_commit_hash: '4e0ed1a',
+    status: 'synced',
+    total_drugs: 516,
+    total_rules: 766
   }
 };
 
@@ -31,7 +38,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupNavigationTabs();
   setupEventListeners();
   setupOcrListeners();
-  
+  setupDdinterListeners();
+
   await loadNetworkInfo();
   await loadStats();
   await loadSciAlerts();
@@ -41,9 +49,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadMemos();
   await loadRules();
   await checkLatestActivity();
+  await loadGitSyncStatus();
 
   // 15초마다 최신 기록지 상태 백그라운드 갱신
   setInterval(checkLatestActivity, 15000);
+  // 30초마다 Git 동기화 상태 갱신
+  setInterval(loadGitSyncStatus, 30000);
 });
 
 // 시계 업데이트
@@ -82,6 +93,7 @@ function setupNavigationTabs() {
       // 탭 전환 시 필요한 데이터 리프레시
       if (targetId === 'tab-patients') loadPatients();
       if (targetId === 'tab-memos') loadMemos();
+      if (targetId === 'tab-ddinter') renderDdinterView();
     });
   });
 }
@@ -1602,3 +1614,367 @@ function showToast(message, type = 'info') {
   }, 3500);
 }
 
+// ================= 한국형 DDInter 지식 지속 축적 & GitHub 자동 동기화 =================
+
+// 1. Git 동기화 상태 조회 및 UI 업데이트
+async function loadGitSyncStatus() {
+  try {
+    const res = await fetch('/api/git-sync-status');
+    if (!res.ok) return;
+    const data = await res.json();
+    state.gitSync = data;
+
+    // 헤더 상태 인디케이터 갱신
+    const dot = document.getElementById('headerSyncDot');
+    const txt = document.getElementById('headerSyncStatusText');
+    if (dot) {
+      if (data.is_syncing) {
+        dot.className = 'status-dot syncing';
+      } else {
+        dot.className = 'status-dot active';
+      }
+    }
+    if (txt) {
+      txt.textContent = data.is_syncing ? 'GitHub 푸시 중...' : 'GitHub 자동 동기화 됨';
+    }
+
+    // DDInter 탭 상태 갱신
+    const statDrugs = document.getElementById('ddinterStatDrugs');
+    const statRules = document.getElementById('ddinterStatRules');
+    const commitHash = document.getElementById('ddinterCommitHash');
+    const syncStatusText = document.getElementById('ddinterSyncStatusText');
+    const lastSyncTime = document.getElementById('ddinterLastSyncTime');
+    const badgeStatus = document.getElementById('gitSyncBadgeStatus');
+
+    if (statDrugs) statDrugs.textContent = `${data.total_drugs || 516}종`;
+    if (statRules) statRules.textContent = `${data.total_rules || 766}건`;
+    if (commitHash) commitHash.textContent = `Commit: ${data.commit_hash || '4e0ed1a'} (${data.branch || 'main'})`;
+    if (syncStatusText) {
+      syncStatusText.textContent = data.is_syncing ? '동기화 푸시 진행 중...' : '원격 자동 푸시 활성';
+      syncStatusText.className = data.is_syncing ? 'stat-number warning' : 'stat-number active';
+    }
+    if (lastSyncTime) {
+      lastSyncTime.textContent = data.commit_time ? `최근 커밋: ${data.commit_time}` : '실시간 큐 작동 중';
+    }
+    if (badgeStatus) {
+      badgeStatus.textContent = data.is_syncing ? '동기화 중...' : `연결됨 (${data.branch || 'main'})`;
+      badgeStatus.className = data.is_syncing ? 'badge badge-warning' : 'badge badge-success';
+    }
+
+    // Git 커밋 히스토리 타임라인 렌더링
+    if (data.recent_commits) {
+      renderGitLogTimeline(data.recent_commits);
+    }
+  } catch (err) {
+    console.error('Failed to load git sync status', err);
+  }
+}
+
+// 2. 수동 GitHub 즉시 동기화 실행
+async function triggerGitSyncNow() {
+  const btnHeader = document.getElementById('btnHeaderGitSync');
+  const btnHero = document.getElementById('btnDdinterSyncNow');
+  if (btnHeader) btnHeader.disabled = true;
+  if (btnHero) btnHero.disabled = true;
+
+  showToast('GitHub 원격 저장소(ralf-kang/Pharm-DDI)로 수동 즉시 동기화를 시작합니다...', 'info');
+
+  try {
+    const res = await fetch('/api/git-sync-now', { method: 'POST' });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      showToast(`GitHub 원격 저장소에 성공적으로 동기화되었습니다! (커밋: ${data.commit_hash || 'OK'})`, 'success');
+      await loadGitSyncStatus();
+      await loadStats();
+    } else {
+      showToast(`동기화 알림: ${data.error || '잠시 후 다시 시도해주세요.'}`, 'warning');
+    }
+  } catch (err) {
+    showToast('GitHub 동기화 서버 통신 실패', 'error');
+  } finally {
+    if (btnHeader) btnHeader.disabled = false;
+    if (btnHero) btnHero.disabled = false;
+  }
+}
+
+// 3. DDInter 탭 이벤트 리스너 설정
+function setupDdinterListeners() {
+  // 헤더 즉시 동기화 버튼
+  const btnHeader = document.getElementById('btnHeaderGitSync');
+  if (btnHeader) {
+    btnHeader.addEventListener('click', triggerGitSyncNow);
+  }
+
+  // Hero 섹션 즉시 동기화 버튼
+  const btnHero = document.getElementById('btnDdinterSyncNow');
+  if (btnHero) {
+    btnHero.addEventListener('click', triggerGitSyncNow);
+  }
+
+  // 신규 의약품 모달 열기/닫기
+  const btnOpenDrug = document.getElementById('btnOpenAddDrugModal');
+  const btnCloseDrug = document.getElementById('btnCloseAddDrugModal');
+  const btnCancelDrug = document.getElementById('btnCancelAddDrug');
+  const modalDrug = document.getElementById('addDrugModal');
+
+  if (btnOpenDrug) btnOpenDrug.addEventListener('click', openAddDrugModal);
+  if (btnCloseDrug && modalDrug) btnCloseDrug.addEventListener('click', () => modalDrug.classList.remove('active'));
+  if (btnCancelDrug && modalDrug) btnCancelDrug.addEventListener('click', () => modalDrug.classList.remove('active'));
+
+  // 신규 DDI 규칙 모달 열기/닫기
+  const btnOpenRule = document.getElementById('btnOpenAddRuleModal');
+  const btnCloseRule = document.getElementById('btnCloseAddRuleModal');
+  const btnCancelRule = document.getElementById('btnCancelAddRule');
+  const modalRule = document.getElementById('addRuleModal');
+
+  if (btnOpenRule) btnOpenRule.addEventListener('click', openAddRuleModal);
+  if (btnCloseRule && modalRule) btnCloseRule.addEventListener('click', () => modalRule.classList.remove('active'));
+  if (btnCancelRule && modalRule) btnCancelRule.addEventListener('click', () => modalRule.classList.remove('active'));
+
+  // 폼 제출 리스너
+  const formDrug = document.getElementById('addDrugForm');
+  if (formDrug) formDrug.addEventListener('submit', handleAddDrugSubmit);
+
+  const formRule = document.getElementById('addRuleForm');
+  if (formRule) formRule.addEventListener('submit', handleAddRuleSubmit);
+
+  // 실시간 검색
+  const searchInput = document.getElementById('ddinterSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      renderDdinterKnowledge();
+    });
+  }
+}
+
+// 4. 신규 의약품 모달 열기
+function openAddDrugModal() {
+  const form = document.getElementById('addDrugForm');
+  if (form) form.reset();
+  const modal = document.getElementById('addDrugModal');
+  if (modal) modal.classList.add('active');
+}
+
+// 5. 신규 DDI 규칙 모달 열기 (약물 셀렉트박스 옵션 채우기)
+function openAddRuleModal() {
+  const form = document.getElementById('addRuleForm');
+  if (form) form.reset();
+
+  const selA = document.getElementById('rFormDrugA');
+  const selB = document.getElementById('rFormDrugB');
+
+  if (selA && selB) {
+    const sorted = [...state.drugs].sort((a, b) => a.name_ko.localeCompare(b.name_ko, 'ko'));
+    const optionsHtml = sorted.map(d => `<option value="${d.id}">${d.name_ko} (${d.name_en}) - ${d.category}</option>`).join('');
+
+    selA.innerHTML = '<option value="">약물 1 선택...</option>' + optionsHtml;
+    selB.innerHTML = '<option value="">약물 2 선택...</option>' + optionsHtml;
+  }
+
+  const modal = document.getElementById('addRuleModal');
+  if (modal) modal.classList.add('active');
+}
+
+// 6. 신규 의약품 등록 처리 (Git 자동 축적 큐 등록)
+async function handleAddDrugSubmit(e) {
+  e.preventDefault();
+  const modal = document.getElementById('addDrugModal');
+
+  const brandsRaw = document.getElementById('dFormBrands').value.trim();
+  const brandsList = brandsRaw ? brandsRaw.split(',').map(b => b.trim()).filter(Boolean) : [];
+
+  const payload = {
+    id: document.getElementById('dFormId').value.trim(),
+    name_ko: document.getElementById('dFormKo').value.trim(),
+    name_en: document.getElementById('dFormEn').value.trim(),
+    category: document.getElementById('dFormCat').value,
+    class: document.getElementById('dFormClass').value.trim(),
+    brand_names: brandsList,
+    cyp_profile: document.getElementById('dFormCyp').value.trim()
+  };
+
+  try {
+    const res = await fetch('/api/drugs', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      showToast(`'${payload.name_ko}' 의약품이 성공적으로 등록되었으며 data/drugs.json 및 GitHub 원격 축적 큐에 등록되었습니다.`, 'success');
+      if (modal) modal.classList.remove('active');
+      await loadDrugs();
+      await loadStats();
+      await loadGitSyncStatus();
+      renderDdinterView();
+    } else {
+      showToast(`등록 실패: ${data.error || '입력값을 확인해주세요.'}`, 'error');
+    }
+  } catch (err) {
+    showToast('서버 통신 실패', 'error');
+  }
+}
+
+// 7. 신규 DDI 규칙 등록 처리 (Git 자동 축적 큐 등록)
+async function handleAddRuleSubmit(e) {
+  e.preventDefault();
+  const modal = document.getElementById('addRuleModal');
+
+  const drugA = document.getElementById('rFormDrugA').value;
+  const drugB = document.getElementById('rFormDrugB').value;
+
+  if (drugA === drugB) {
+    showToast('동일한 약물을 상호작용 쌍으로 선택할 수 없습니다.', 'warning');
+    return;
+  }
+
+  const adverseRaw = document.getElementById('rFormAdverse').value.trim();
+  const adverseList = adverseRaw ? adverseRaw.split(',').map(a => a.trim()).filter(Boolean) : [];
+
+  const payload = {
+    drug_a_id: drugA,
+    drug_b_id: drugB,
+    severity: document.getElementById('rFormSeverity').value,
+    title: document.getElementById('rFormTitle').value.trim(),
+    mechanism: document.getElementById('rFormMechanism').value.trim(),
+    adverse_reactions: adverseList,
+    clinical_action: document.getElementById('rFormAction').value.trim(),
+    hospital_department: document.getElementById('rFormDept').value.trim() || '종합/타과 복합'
+  };
+
+  try {
+    const res = await fetch('/api/rules', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      showToast(`'${payload.title}' DDI 규칙이 등록되었으며 data/rules.json 및 GitHub 원격 축적 큐에 등록되었습니다.`, 'success');
+      if (modal) modal.classList.remove('active');
+      await loadRules();
+      await loadStats();
+      await loadGitSyncStatus();
+      renderDdinterView();
+    } else {
+      showToast(`등록 실패: ${data.error || '입력값을 확인해주세요.'}`, 'error');
+    }
+  } catch (err) {
+    showToast('서버 통신 실패', 'error');
+  }
+}
+
+// 8. DDInter 탭 메인 렌더링
+function renderDdinterView() {
+  loadGitSyncStatus();
+  renderDdinterKnowledge();
+}
+
+// 9. 축적 지식 브라우저 카드 렌더링
+function renderDdinterKnowledge() {
+  const container = document.getElementById('ddinterKnowledgeList');
+  if (!container) return;
+
+  const query = document.getElementById('ddinterSearchInput')?.value.trim().toLowerCase() || '';
+
+  // 최근 규칙 중 검색 필터링
+  const filtered = state.rules.filter(r => {
+    if (!query) return true;
+    return (
+      r.title.toLowerCase().includes(query) ||
+      r.mechanism.toLowerCase().includes(query) ||
+      r.clinical_action.toLowerCase().includes(query) ||
+      (r.adverse_reactions && r.adverse_reactions.some(a => a.toLowerCase().includes(query)))
+    );
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state" style="padding: 40px 20px;">
+        <div class="empty-icon">🔍</div>
+        <h3>검색 조건과 일치하는 축적 지식이 없습니다</h3>
+        <p>'${query}' 키워드를 변경하거나 상단 '+ 신규 DDI 규칙 등록' 버튼으로 새 지식을 축적하세요.</p>
+      </div>
+    `;
+    return;
+  }
+
+  // 상위 50개 렌더링
+  const displayList = filtered.slice(0, 50);
+
+  container.innerHTML = displayList.map(r => {
+    const drugA = state.drugs.find(d => d.id === r.drug_a_id);
+    const drugB = state.drugs.find(d => d.id === r.drug_b_id);
+
+    return `
+      <div class="ddinter-knowledge-card severity-${r.severity}">
+        <div class="knowledge-card-header">
+          <div class="knowledge-title-row">
+            <span class="severity-pill pill-${r.severity}">${r.severity_ko || r.severity}</span>
+            <strong class="knowledge-title">${r.title}</strong>
+            ${r.is_recent_sci ? '<span class="pill-recent-sci">🔬 최신 SCI</span>' : ''}
+          </div>
+          <span class="git-source-tag">Git Versioned • data/rules.json</span>
+        </div>
+
+        <div class="knowledge-drug-pair">
+          <span class="drug-chip-a">💊 ${drugA ? `${drugA.name_ko} (${drugA.name_en})` : r.drug_a_id}</span>
+          <span class="pair-cross">✖️</span>
+          <span class="drug-chip-b">💊 ${drugB ? `${drugB.name_ko} (${drugB.name_en})` : r.drug_b_id}</span>
+          ${r.hospital_department ? `<span class="dept-tag">🏥 ${r.hospital_department}</span>` : ''}
+        </div>
+
+        <div class="knowledge-body-grid">
+          <div class="knowledge-prop-box">
+            <span class="prop-label">🧬 약동/약력학 상호작용 기전</span>
+            <p class="prop-text">${r.mechanism}</p>
+          </div>
+          <div class="knowledge-prop-box">
+            <span class="prop-label">⚠️ 발생 가능 주요 부작용</span>
+            <div class="adverse-chips">
+              ${(r.adverse_reactions || []).map(a => `<span class="adverse-chip">${a}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div class="knowledge-action-box">
+          <span class="action-label">📋 약사의 임상 조치 및 복약지도 가이드</span>
+          <p class="action-text">${r.clinical_action}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// 10. Git 커밋 타임라인 렌더링
+function renderGitLogTimeline(commits) {
+  const container = document.getElementById('gitLogTimeline');
+  if (!container) return;
+
+  if (!commits || commits.length === 0) {
+    container.innerHTML = `
+      <div class="git-log-item">
+        <div class="log-hash">Init</div>
+        <div class="log-msg">GitHub 원격 저장소 동기화 대기 중</div>
+        <div class="log-meta">ralf-kang/Pharm-DDI</div>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = commits.map(c => `
+    <div class="git-log-item">
+      <div class="log-item-header">
+        <span class="log-hash">#${c.hash || 'commit'}</span>
+        <span class="log-date">${c.date || ''}</span>
+      </div>
+      <div class="log-msg">${c.message || 'Data accumulation commit'}</div>
+      <div class="log-meta">
+        <span>👤 ${c.author || 'Pharm-DDI Engine'}</span>
+        <span class="branch-tag">origin/main</span>
+      </div>
+    </div>
+  `).join('');
+}

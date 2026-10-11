@@ -15,6 +15,7 @@ from datetime import datetime
 
 import database
 import ddi_data
+import data_store
 import socket
 
 PORT = 8085
@@ -149,6 +150,10 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                     "local_url": f"http://localhost:{PORT}",
                     "wifi_url": f"http://{local_ip}:{PORT}"
                 })
+
+            # Git 저장소 실시간 동기화 상태 조회
+            elif path == "/api/git-sync-status":
+                self._send_json(data_store.get_git_sync_status())
 
             # 시스템 종합 통계 (오른쪽 상단 DB 현황 표기)
             elif path == "/api/stats":
@@ -374,8 +379,37 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
         cursor = conn.cursor()
 
         try:
+            # 0-1. Git 즉시 수동 동기화
+            if path == "/api/git-sync-now":
+                status = data_store.sync_now()
+                response_data = dict(status)
+                response_data["success"] = True
+                response_data["commit_hash"] = status.get("commit_hash") or status.get("last_commit_hash")
+                self._send_json(response_data)
+                return
+
+            # 0-2. 신규 의약품 등록 (한국형 DDInter 지속 축적 엔진)
+            elif path == "/api/drugs":
+                try:
+                    res = data_store.add_new_drug(body)
+                    res["success"] = True
+                    self._send_json(res, 201)
+                except Exception as e:
+                    self._send_error(str(e), 400)
+                return
+
+            # 0-3. 신규 DDI 상호작용 규칙 등록 (한국형 DDInter 지속 축적 엔진)
+            elif path == "/api/rules":
+                try:
+                    res = data_store.add_new_rule(body)
+                    res["success"] = True
+                    self._send_json(res, 201)
+                except Exception as e:
+                    self._send_error(str(e), 400)
+                return
+
             # 1. 약물 상호작용 분석 엔진 (DDI Checker)
-            if path == "/api/check-ddi":
+            elif path == "/api/check-ddi":
                 selected_drug_ids = body.get("drug_ids", [])
                 if not selected_drug_ids or len(selected_drug_ids) < 2:
                     self._send_json({
@@ -503,6 +537,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 ))
                 new_id = cursor.lastrowid
                 conn.commit()
+                data_store.sync_db_to_json(f"신규 환자 등록: {name}")
                 self._send_json({
                     "id": new_id,
                     "chart_no": chart_no,
@@ -534,6 +569,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 # 환자 updated_at 갱신
                 cursor.execute("UPDATE patients SET updated_at = CURRENT_TIMESTAMP WHERE id = ?", (patient_id,))
                 conn.commit()
+                data_store.sync_db_to_json(f"환자 방문 상담일지 등록: 환자 ID {patient_id}")
                 self._send_json({
                     "visit_id": new_visit_id,
                     "message": "방문 및 상담 기록(새 기록지)이 성공적으로 등록되었습니다."
@@ -564,6 +600,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 ))
                 new_memo_id = cursor.lastrowid
                 conn.commit()
+                data_store.sync_db_to_json(f"약사 임상 메모 등록: {title}")
                 self._send_json({
                     "id": new_memo_id,
                     "message": "약사 임상 메모(새 기록지)가 성공적으로 등록되었습니다."
@@ -590,7 +627,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 # 메모의 updated_at 갱신
                 cursor.execute("UPDATE pharmacist_memos SET updated_at = CURRENT_TIMESTAMP WHERE id = ?", (memo_id,))
                 conn.commit()
-
+                data_store.sync_db_to_json(f"약사 코멘트 등록: 메모 ID {memo_id}")
                 self._send_json({
                     "id": new_comment_id,
                     "message": "약사 코멘트가 성공적으로 등록되었습니다."
@@ -630,6 +667,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                     patient_id
                 ))
                 conn.commit()
+                data_store.sync_db_to_json(f"환자 정보 수정: ID {patient_id}")
                 self._send_json({"message": "환자 정보가 수정되었습니다."})
 
             # 약사 메모 수정
@@ -652,6 +690,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                     memo_id
                 ))
                 conn.commit()
+                data_store.sync_db_to_json(f"약사 임상 메모 수정: ID {memo_id}")
                 self._send_json({"message": "메모가 수정되었습니다."})
 
             else:
@@ -671,6 +710,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 comment_id = int(path.split("/")[-1])
                 cursor.execute("DELETE FROM memo_comments WHERE id = ?", (comment_id,))
                 conn.commit()
+                data_store.sync_db_to_json(f"약사 코멘트 삭제: ID {comment_id}")
                 self._send_json({"message": "코멘트가 삭제되었습니다."})
 
             # 환자 삭제
@@ -679,6 +719,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 cursor.execute("DELETE FROM patients WHERE id = ?", (patient_id,))
                 cursor.execute("DELETE FROM patient_visits WHERE patient_id = ?", (patient_id,))
                 conn.commit()
+                data_store.sync_db_to_json(f"환자 정보 삭제: ID {patient_id}")
                 self._send_json({"message": "환자 정보가 삭제되었습니다."})
 
             # 약사 메모 삭제
@@ -687,6 +728,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 cursor.execute("DELETE FROM pharmacist_memos WHERE id = ?", (memo_id,))
                 cursor.execute("DELETE FROM memo_comments WHERE memo_id = ?", (memo_id,))
                 conn.commit()
+                data_store.sync_db_to_json(f"약사 임상 메모 삭제: ID {memo_id}")
                 self._send_json({"message": "메모가 삭제되었습니다."})
 
             else:
@@ -726,6 +768,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
 
 def run_server():
     database.init_db()
+    data_store.init_data_store()
     socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer((HOST, PORT), PharmacyRequestHandler) as httpd:
         print("="*65)

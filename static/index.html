@@ -41,6 +41,15 @@
           <span class="stat-pill sci">🔬 최근 2개년 SCI</span>
         </div>
 
+        <!-- Git 원격 저장소 실시간 동기화 상태 배지 & 즉시 푸시 버튼 -->
+        <div class="git-sync-header-pill" id="gitSyncHeaderPill" title="GitHub 저장소(ralf-kang/Pharm-DDI) 지속 축적 상태">
+          <span class="git-status-dot green" id="gitHeaderDot"></span>
+          <span class="git-commit-label" id="gitHeaderLabel">Git 동기화됨</span>
+          <button class="btn-git-header-sync" id="btnHeaderGitSync" title="지금 GitHub에 즉시 커밋 및 푸시">
+            <span class="sync-icon-rotate" id="gitHeaderSpinIcon">🔄</span> 동기화
+          </button>
+        </div>
+
         <!-- 모바일/태블릿 Wi-Fi 접속 안내 버튼 -->
         <button class="wifi-connect-btn" id="btnOpenMobileConnectModal" title="모바일/태블릿 Wi-Fi 접속">
           <span class="wifi-pulse"></span>
@@ -133,6 +142,10 @@
       <button class="tab-btn" data-tab="tab-library">
         <span class="tab-icon">📚</span>
         <span class="tab-text">약물 & DDI 사전</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-ddinter">
+        <span class="tab-icon">🧬</span>
+        <span class="tab-text">DDInter 지식 축적 (Git 연동)</span>
       </button>
     </nav>
 
@@ -321,6 +334,90 @@
       <div class="library-content" id="lib-rules">
         <div class="rules-card-list" id="libRulesCardList">
           <!-- JS 렌더링 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 탭 6: 한국형 DDInter 약물 상호작용 지식 지속 축적 센터 -->
+    <section class="tab-content" id="tab-ddinter">
+      <div class="ddinter-hero-card">
+        <div class="ddinter-hero-header">
+          <div class="hero-title-group">
+            <span class="ddinter-pill">🧬 한국형 DDInter 2.0 엔진</span>
+            <h2>약학 약물 상호작용 지속 축적 & GitHub 원격 영구 보존 센터</h2>
+            <p class="hero-desc">
+              데이터베이스를 로컬 PC에만 두지 않고, <strong>GitHub 원격 저장소(<a href="https://github.com/ralf-kang/Pharm-DDI" target="_blank" style="color: #60a5fa; text-decoration: underline;">ralf-kang/Pharm-DDI</a>)</strong>에 실시간 구조화된 JSON(<code>data/*.json</code>)으로 자동 지속 축적합니다.<br>
+              약국 매장 현장에서 발굴된 신규 처방약 및 임상 상호작용 규칙을 영구히 자산화할 수 있습니다.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="btnOpenAddDrugModal">💊 + 신규 의약품 등록</button>
+            <button class="btn btn-danger" id="btnOpenAddRuleModal">⚠️ + 신규 DDI 규칙 등록</button>
+            <button class="btn btn-secondary" id="btnDdinterSyncNow">🔄 GitHub 즉시 동기화</button>
+          </div>
+        </div>
+
+        <!-- 실시간 Git 저장소 축적 통계 바 -->
+        <div class="ddinter-stats-grid">
+          <div class="ddinter-stat-card">
+            <span class="stat-icon">💊</span>
+            <div class="stat-meta">
+              <span class="stat-label">지속 축적 의약품 DB</span>
+              <strong class="stat-number" id="ddinterStatDrugs">516종</strong>
+              <span class="stat-sub">data/drugs.json</span>
+            </div>
+          </div>
+          <div class="ddinter-stat-card">
+            <span class="stat-icon">⚠️</span>
+            <div class="stat-meta">
+              <span class="stat-label">지속 축적 DDI 규칙 DB</span>
+              <strong class="stat-number" id="ddinterStatRules">766건</strong>
+              <span class="stat-sub">data/rules.json</span>
+            </div>
+          </div>
+          <div class="ddinter-stat-card">
+            <span class="stat-icon">🐙</span>
+            <div class="stat-meta">
+              <span class="stat-label">GitHub 연결 리포지토리</span>
+              <strong class="stat-number branch">ralf-kang / Pharm-DDI</strong>
+              <span class="stat-sub" id="ddinterCommitHash">Commit: 4e0ed1a (main)</span>
+            </div>
+          </div>
+          <div class="ddinter-stat-card">
+            <span class="stat-icon">🔄</span>
+            <div class="stat-meta">
+              <span class="stat-label">원격 자동 지속 동기화</span>
+              <strong class="stat-number active" id="ddinterSyncStatusText">자동 푸시 활성</strong>
+              <span class="stat-sub" id="ddinterLastSyncTime">실시간 큐 작동 중</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 지식 축적 큐레이션 및 최근 Git 커밋 로그 -->
+      <div class="ddinter-layout-row">
+        <!-- 왼쪽: 실시간 축적 지식 브라우저 -->
+        <div class="panel ddinter-panel flex-2">
+          <div class="panel-header">
+            <h3>📚 축적 지식 실시간 검색 & 검증</h3>
+            <div class="search-box-inline">
+              <input type="text" id="ddinterSearchInput" placeholder="축적된 의약품, 상호작용 기전 검색...">
+            </div>
+          </div>
+          <div class="ddinter-knowledge-list" id="ddinterKnowledgeList">
+            <!-- JS 렌더링 -->
+          </div>
+        </div>
+
+        <!-- 오른쪽: Git 원격 저장소 동기화 활동 로그 타임라인 -->
+        <div class="panel ddinter-panel flex-1">
+          <div class="panel-header">
+            <h3>📜 GitHub 데이터 축적 커밋 로그</h3>
+            <span class="badge badge-success" id="gitSyncBadgeStatus">연결됨</span>
+          </div>
+          <div class="git-log-timeline" id="gitLogTimeline">
+            <!-- JS 렌더링 -->
+          </div>
         </div>
       </div>
     </section>
@@ -618,6 +715,128 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="btnCancelMemo">취소</button>
           <button type="submit" class="btn btn-primary">메모 저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 모달: DDInter 신규 의약품 등록 (Git 영구 축적) -->
+  <div class="modal-overlay" id="addDrugModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>💊 신규 의약품 지식 등록 (Git 영구 축적)</h3>
+        <button class="modal-close" id="btnCloseAddDrugModal">&times;</button>
+      </div>
+      <form id="addDrugForm" class="modal-body">
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label>한글 성분명 *</label>
+            <input type="text" id="dFormNameKo" required placeholder="예: 펙수프라잔">
+          </div>
+          <div class="form-group flex-1">
+            <label>영문 성분명 *</label>
+            <input type="text" id="dFormNameEn" required placeholder="예: Fexuprazan">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label>약효군 카테고리 *</label>
+            <select id="dFormCategory" required>
+              <option value="소화기계용제 (위산분비억제제 / 위장운동 / 제산제)">소화기계용제 (위산분비억제제 / 위장운동 / 제산제)</option>
+              <option value="심혈관계 / 항고혈압제">심혈관계 / 항고혈압제</option>
+              <option value="소염진통제 (NSAIDs / 진통제)">소염진통제 (NSAIDs / 진통제)</option>
+              <option value="항혈전제 (항혈소판제 / 항응고제)">항혈전제 (항혈소판제 / 항응고제)</option>
+              <option value="항지질혈증 (스타틴계 / 피브레이트)">항지질혈증 (스타틴계 / 피브레이트)</option>
+              <option value="항균제 / 항생제">항균제 / 항생제</option>
+              <option value="항진균제 / 항바이러스제">항진균제 / 항바이러스제</option>
+              <option value="정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)">정신신경용제 (항우울제 / 진정제 / 신경안정제 / 항전간제)</option>
+              <option value="호흡기용제 / 항히스타민제 / 진해거담제">호흡기용제 / 항히스타민제 / 진해거담제</option>
+              <option value="내분비 / 당뇨 / 갑상선 / 골다공증약">내분비 / 당뇨 / 갑상선 / 골다공증약</option>
+              <option value="비뇨생식기계 (전립선비대증 / PDE5 억제제)">비뇨생식기계 (전립선비대증 / PDE5 억제제)</option>
+              <option value="통풍치료제">통풍치료제</option>
+              <option value="기타 / 면역억제제">기타 / 면역억제제</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label>약물 계열 (Class) *</label>
+            <input type="text" id="dFormClass" required placeholder="예: P-CAB (칼륨경쟁적 위산분비억제제)">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>대표 상품명 (쉼표 구분) *</label>
+          <input type="text" id="dFormBrands" required placeholder="예: 펙수클루, 벨라펙스">
+        </div>
+        <div class="form-group">
+          <label>대사 및 약동학(CYP/기전) 특성 프로필 *</label>
+          <textarea id="dFormCyp" rows="2" required placeholder="예: CYP3A4 주요 대사, CYP2C19 비의존적 대사로 클로피도그렐과의 상호작용 위험 낮음"></textarea>
+        </div>
+        <div class="modal-tip-box" style="margin-top: 10px; font-size: 0.82rem; color: #64748b; background: #f8fafc; padding: 10px; border-radius: 8px;">
+          💡 등록 즉시 <code>data/drugs.json</code>에 저장되며, GitHub 원격 저장소로 자동 커밋·푸시되어 영구 축적됩니다.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelAddDrug">취소</button>
+          <button type="submit" class="btn btn-primary">의약품 등록 & Git 축적</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 모달: DDInter 신규 DDI 규칙 등록 (Git 영구 축적) -->
+  <div class="modal-overlay" id="addRuleModal">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3>⚠️ 신규 DDI 상호작용 규칙 등록 (Git 영구 축적)</h3>
+        <button class="modal-close" id="btnCloseAddRuleModal">&times;</button>
+      </div>
+      <form id="addRuleForm" class="modal-body">
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label>상호작용 약물 1 *</label>
+            <select id="rFormDrugA" required>
+              <option value="">약물 1 선택...</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label>상호작용 약물 2 *</label>
+            <select id="rFormDrugB" required>
+              <option value="">약물 2 선택...</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label>위험 심각도 *</label>
+            <select id="rFormSeverity" required>
+              <option value="CONTRAINDICATED">🚨 병용 금기 (Contraindicated)</option>
+              <option value="MAJOR" selected>⚠️ 중대한 위험 (Major Warning)</option>
+              <option value="MODERATE">ℹ️ 병용 주의 (Moderate Caution)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>상호작용 제목 (Title) *</label>
+          <input type="text" id="rFormTitle" required placeholder="예: 펙수프라잔 + 클로피도그렐 병용 안전성 평가">
+        </div>
+        <div class="form-group">
+          <label>발생 기전 (Mechanism) *</label>
+          <textarea id="rFormMechanism" rows="3" required placeholder="약동학적(CYP, P-gp, 흡수) 또는 약력학적 상가/길항 기전을 상세히 서술하십시오."></textarea>
+        </div>
+        <div class="form-group">
+          <label>예상 부작용 / 임상 영향 (쉼표 구분) *</label>
+          <input type="text" id="rFormAdverse" required placeholder="예: 항혈소판 약효 유지, 위장관 출혈 위험 저감, 소화장애 경감">
+        </div>
+        <div class="form-group">
+          <label>약사의 임상 조치 및 복약지도 계획 (Clinical Action) *</label>
+          <textarea id="rFormAction" rows="2" required placeholder="예: CYP2C19 대사 간섭이 적어 오메프라졸 대비 스텐트 혈전 위험 낮음. 정기적 위장관 증상 모니터링."></textarea>
+        </div>
+        <div class="form-group">
+          <label>관련 병원 진료과 (선택)</label>
+          <input type="text" id="rFormDept" placeholder="예: 순환기내과 ↔ 소화기내과">
+        </div>
+        <div class="modal-tip-box" style="margin-top: 10px; font-size: 0.82rem; color: #64748b; background: #f8fafc; padding: 10px; border-radius: 8px;">
+          💡 등록 즉시 <code>data/rules.json</code>에 저장되며, DDI 검사기 엔진에 실시간 탑재되고 GitHub 원격 저장소로 자동 커밋·푸시됩니다.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelAddRule">취소</button>
+          <button type="submit" class="btn btn-primary">DDI 규칙 등록 & Git 축적</button>
         </div>
       </form>
     </div>
