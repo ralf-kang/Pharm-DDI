@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#0284c7">
+  <title>Pharm-DDI Expert Suite | 약물 교차반응 & 약국 입지 임상 가이드</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- 온프라미스 브라우저 자체 OCR 엔진 (약봉투 판독용) -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- 헤더 -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo-box">
+          <svg class="rx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+          </svg>
+          <div class="title-group">
+            <h1>Pharm-DDI Expert Suite</h1>
+            <p class="subtitle">약학 약물 교차·상호반응 전문가 & 클리닉 입지별 임상 가이드</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-right">
+        <!-- 오른쪽 상단: 실시간 수집 약물 데이터베이스 규모 통계 뱃지 -->
+        <div class="db-stats-badge" id="headerDbStatsBadge" title="실시간 의약품 데이터베이스 수집 규모 현황">
+          <span class="stat-pill"><span class="dot green"></span>의약품 <strong id="hStatDrugs">516</strong>종</span>
+          <span class="stat-pill">DDI <strong id="hStatRules">766</strong>건</span>
+          <span class="stat-pill">입지가이드 <strong id="hStatGuides">5</strong>개과</span>
+          <span class="stat-pill sci">🔬 최근 2개년 SCI</span>
+        </div>
+
+        <!-- 모바일/태블릿 Wi-Fi 접속 안내 버튼 -->
+        <button class="wifi-connect-btn" id="btnOpenMobileConnectModal" title="모바일/태블릿 Wi-Fi 접속">
+          <span class="wifi-pulse"></span>
+          <span class="btn-text">📱 모바일·태블릿 접속</span>
+        </button>
+        <div class="on-premise-badge desktop-only">
+          <span class="status-dot"></span>
+          <span id="ipDisplayLabel">로컬 인트라넷</span>
+        </div>
+        <div class="system-time desktop-only" id="systemClock">2026-10-12</div>
+      </div>
+    </header>
+
+    <!-- 상단 대시보드 메트릭 바 (모바일 가로 스크롤 지원) -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-icon bg-blue">💊</div>
+        <div class="metric-info">
+          <span class="metric-label">탑재 의약품 DB</span>
+          <span class="metric-val" id="metricDrugs">516종</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon bg-red">⚠️</div>
+        <div class="metric-info">
+          <span class="metric-label">병용금기/주의 규칙</span>
+          <span class="metric-val" id="metricRules">766건</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon bg-emerald">🏥</div>
+        <div class="metric-info">
+          <span class="metric-label">병원 입지별 3단계 가이드</span>
+          <span class="metric-val" id="metricScenarios">5개과</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon bg-purple">👥</div>
+        <div class="metric-info">
+          <span class="metric-label">등록 관리 환자</span>
+          <span class="metric-val" id="metricPatients">-</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon bg-amber">📝</div>
+        <div class="metric-info">
+          <span class="metric-label">약사 임상 메모 (다중 공유)</span>
+          <span class="metric-val" id="metricMemos">-</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📢 최신 2개년(2024~2026) SCI 논문 약물 상호작용 및 상호 금기 공지사항 게시판 -->
+    <section class="sci-notice-section" id="sciNoticeSection">
+      <div class="sci-notice-header" id="sciNoticeToggle">
+        <div class="notice-title-box">
+          <span class="notice-pill">🔬 2024~2026 최신 SCI 경보</span>
+          <h3 class="notice-heading">최근 2개년 약학 SCI 권위지 규명 핵심 상호 금기 & 중대 위험 긴급 공지</h3>
+          <span class="notice-count" id="sciAlertCountBadge">4건</span>
+        </div>
+        <button class="notice-toggle-btn" id="btnToggleSciNotice" title="공지 접기/펼치기">
+          <span id="sciToggleIcon">▼</span>
+        </button>
+      </div>
+      <div class="sci-notice-body" id="sciNoticeBody">
+        <div class="sci-notice-cards-slider" id="sciNoticeSlider">
+          <!-- JS에서 공지사항 카드 동적 렌더링 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 내비게이션 탭 (모바일 터치 스와이프 친화적 가로 스크롤) -->
+    <nav class="nav-tabs" id="navTabsBar">
+      <button class="tab-btn active" data-tab="tab-ddi">
+        <span class="tab-icon">⚡</span>
+        <span class="tab-text">상호작용 검사기</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-hospital">
+        <span class="tab-icon">🏥</span>
+        <span class="tab-text">병원 입지별 가이드 (3단계 위험도)</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-patients">
+        <span class="tab-icon">👤</span>
+        <span class="tab-text">환자 & 상담일지 (약봉투 OCR)</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-memos">
+        <span class="tab-icon">📋</span>
+        <span class="tab-text">약사 임상 메모 (다중약사 협업)</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-library">
+        <span class="tab-icon">📚</span>
+        <span class="tab-text">약물 & DDI 사전</span>
+      </button>
+    </nav>
+
+    <!-- 탭 1: 약물 교차 및 상호작용 검사기 -->
+    <main class="tab-content active" id="tab-ddi">
+      <div class="content-split">
+        <!-- 왼쪽: 약물 선택기 패널 -->
+        <div class="panel selection-panel">
+          <div class="panel-header">
+            <h2>🔍 검사 대상 약물 선택</h2>
+            <span class="badge" id="selectedCountBadge">0개 선택됨</span>
+          </div>
+
+          <!-- 선택된 약물 태그 박스 (한글 텍스트 오버플로우 방지) -->
+          <div class="selected-tags-box" id="selectedTagsBox">
+            <div class="placeholder-text">아래 목록에서 검사할 약물을 터치하여 추가하세요. (최소 2개 이상)</div>
+          </div>
+
+          <div class="action-buttons-row">
+            <button class="btn btn-primary btn-block" id="btnRunDdiCheck">
+              <span>⚡ 상호작용 및 병용금기 분석 실행</span>
+            </button>
+            <button class="btn btn-secondary" id="btnClearSelected">초기화</button>
+          </div>
+
+          <!-- 약물 검색 및 필터 -->
+          <div class="search-filter-box">
+            <input type="text" id="drugSearchInput" placeholder="약품명, 성분명 (예: 암로디핀, 노바스크, 자렐토, 포시가)...">
+            <select id="drugCategoryFilter">
+              <option value="">모든 약효 분류 전체</option>
+            </select>
+          </div>
+
+          <!-- 약물 목록 스크롤 -->
+          <div class="drug-list-container" id="drugListContainer">
+            <!-- 자바스크립트로 렌더링 -->
+          </div>
+        </div>
+
+        <!-- 오른쪽: 분석 결과 패널 -->
+        <div class="panel result-panel">
+          <div class="panel-header">
+            <h2>📊 약학 상호작용 분석 결과</h2>
+            <div class="result-badges" id="resultSummaryBadges">
+              <!-- 건수 뱃지 -->
+            </div>
+          </div>
+
+          <div class="result-scroll-container" id="ddiResultContainer">
+            <div class="empty-state">
+              <div class="empty-icon">🩺</div>
+              <h3>검사할 약물을 선택하고 분석 버튼을 눌러주세요</h3>
+              <p>한국 식약처 DUR 병용금기 기준 및 최근 2개년 SCI 논문, FDA/Lexicomp 임상 지식을 바탕으로<br>
+                 상호작용 기전, 부작용, 약사의 구체적 대처 지침을 즉시 안내합니다.</p>
+              
+              <div class="quick-samples">
+                <span>⚡ 빠른 위험 예시 테스트 (최신 2개년 SCI 포함):</span>
+                <div class="sample-buttons-grid">
+                  <button class="btn-sample highlight-sci" data-sample="rivaroxaban,escitalopram">🔬 [2024 JAMA] 자렐토 + 렉사프로 (출혈 급증)</button>
+                  <button class="btn-sample highlight-sci" data-sample="dapagliflozin,furosemide">🔬 [2024 JACC] 포시가 + 라식스 (euDKA/신손상)</button>
+                  <button class="btn-sample highlight-sci" data-sample="allopurinol,azathioprine">🔬 [2024 Kidney] 자이로릭 + 이뮤란 (골수파괴 금기)</button>
+                  <button class="btn-sample highlight-sci" data-sample="amlodipine,simvastatin">🔬 [2024 Circulation] 암로디핀 + 심바스타틴 (20mg 상한)</button>
+                  <button class="btn-sample" data-sample="amlodipine,clarithromycin">암로디핀 + 클라리시드 (저혈압/부종)</button>
+                  <button class="btn-sample" data-sample="aceclofenac,losartan,hydrochlorothiazide">에어탈 + 혈압약 (Triple Whammy)</button>
+                  <button class="btn-sample" data-sample="colchicine,clarithromycin">콜키신 + 클라리시드 (치명적 중독)</button>
+                  <button class="btn-sample" data-sample="tramadol,escitalopram">트라마돌 + SSRI (세로토닌 증후군)</button>
+                  <button class="btn-sample" data-sample="sildenafil,nitroglycerin">실데나필 + 질산염 (쇼크 금기)</button>
+                  <button class="btn-sample" data-sample="clopidogrel,omeprazole">플라빅스 + 오메프라졸 (효능 상실)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 탭 2: 병원 입지별 처방 감시 가이드 (3단계 위험도: 고위험 -> 경고 -> 주의) -->
+    <section class="tab-content" id="tab-hospital">
+      <div class="hospital-intro-card">
+        <div class="intro-text">
+          <h2>🏥 약국 입지 및 인근 병원 진료과 조합별 3단계 집중 감시 가이드</h2>
+          <p>
+            약국이 위치한 건물의 입점 병원이나 인근 클리닉의 진료과목 구성에 따라 발생하는 대표적 처방 충돌 사고를 
+            <strong>[🚨 고위험 (병용금기)] → [⚠️ 경고 (주요 위험)] → [ℹ️ 주의 (경미/모니터링)]</strong> 3단계 수준으로 체계화하여 안내합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="hospital-layout">
+        <!-- 병원 입지 선택 버튼들 (모바일 가로 칩 스크롤) -->
+        <div class="hospital-menu" id="hospitalNav">
+          <!-- JS 렌더링 -->
+        </div>
+
+        <!-- 병원 입지 상세 가이드 (3단계 위험도 아코디언/그룹 렌더링) -->
+        <div class="hospital-detail-card" id="hospitalDetailCard">
+          <div class="empty-state">
+            <p>좌측/상단에서 약국 인근 병원 진료과 조합을 선택해주세요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 탭 3: 방문 환자 관리 & 복약 상담 일지 (약봉투 OCR 탑재) -->
+    <section class="tab-content" id="tab-patients">
+      <div class="patient-top-bar">
+        <div class="search-box">
+          <input type="text" id="patientSearchInput" placeholder="환자명, 차트번호, 전화번호, 기저질환 검색...">
+        </div>
+        <button class="btn btn-primary" id="btnOpenNewPatientModal">+ 신규 환자 등록</button>
+      </div>
+
+      <div class="patient-grid">
+        <!-- 환자 목록 -->
+        <div class="patient-list-card" id="patientListCard">
+          <div class="card-title">
+            <h3>👥 등록 환자 명단</h3>
+            <span class="count-tag" id="patientTotalCount">0명</span>
+          </div>
+          <div class="patient-list" id="patientListContainer">
+            <!-- JS 렌더링 -->
+          </div>
+        </div>
+
+        <!-- 환자 상세 프로필 및 상담 일지 -->
+        <div class="patient-detail-card" id="patientDetailCard">
+          <div class="empty-state">
+            <p>좌측 환자 목록에서 환자를 선택하시면 과거 복약 상담 기록 및 약봉투 이력을 확인할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 탭 4: 약사 임상 메모 (다중 약사/파트타임 공유 및 코멘트) -->
+    <section class="tab-content" id="tab-memos">
+      <div class="memo-top-bar">
+        <div class="memo-filter-row">
+          <input type="text" id="memoSearchInput" placeholder="임상 메모 제목, 내용, 태그, 작성 약사 검색...">
+          <select id="memoCategoryFilter">
+            <option value="">모든 카테고리 전체</option>
+            <option value="병원입지별 주의">병원입지별 주의</option>
+            <option value="DDI 임상 가이드">DDI 임상 가이드</option>
+            <option value="복약지도 노하우">복약지도 노하우</option>
+            <option value="처방 중재 사례">처방 중재 사례</option>
+            <option value="기타 메모">기타 메모</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" id="btnOpenNewMemoModal">+ 새 임상 메모 작성</button>
+      </div>
+
+      <!-- 메모 카드 그리드 (댓글/코멘트 타임라인 내장) -->
+      <div class="memo-grid" id="memoGridContainer">
+        <!-- JS 렌더링 -->
+      </div>
+    </section>
+
+    <!-- 탭 5: 의약품 마스터 & DDI 규칙 사전 -->
+    <section class="tab-content" id="tab-library">
+      <div class="library-header">
+        <div class="lib-subtabs">
+          <button class="lib-subtab-btn active" data-subtab="lib-drugs">💊 전체 수집 의약품 마스터 (<span id="libDrugCount">86</span>)</button>
+          <button class="lib-subtab-btn" data-subtab="lib-rules">⚠️ 전체 DDI 규칙 사전 (<span id="libRuleCount">118</span>)</button>
+        </div>
+        <input type="text" id="libSearchInput" placeholder="약품명, 성분명, 규칙 제목, 병원 검색...">
+      </div>
+
+      <div class="library-content active" id="lib-drugs">
+        <div class="lib-table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">약물명 (한글)</th>
+                <th style="width: 15%;">영문명 / 성분</th>
+                <th style="width: 18%;">약효 분류</th>
+                <th style="width: 25%;">대표 상품명 (브랜드)</th>
+                <th style="width: 27%;">대사 및 약동학(CYP/기전) 프로필</th>
+              </tr>
+            </thead>
+            <tbody id="libDrugsTableBody">
+              <!-- JS 렌더링 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="library-content" id="lib-rules">
+        <div class="rules-card-list" id="libRulesCardList">
+          <!-- JS 렌더링 -->
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 🌟 새로운 기록지 감지 플로팅 알림 아이콘/배너 (새 기록지가 등록될 때까지 우측 유지) -->
+  <div class="floating-record-badge" id="floatingNewRecordBadge" style="display: none;">
+    <div class="floating-badge-pulse"></div>
+    <div class="floating-badge-content" id="floatingBadgeContent">
+      <span class="floating-badge-icon">📋</span>
+      <div class="floating-badge-text">
+        <strong id="floatingBadgeTitle">새 기록지 등록됨</strong>
+        <span id="floatingBadgeSub">방금 전 업데이트</span>
+      </div>
+    </div>
+    <button class="floating-badge-close" id="btnCloseFloatingBadge" title="닫기">&times;</button>
+  </div>
+
+  <!-- 모달: 모바일 / 태블릿 Wi-Fi 접속 안내 모달 -->
+  <div class="modal-overlay" id="mobileConnectModal">
+    <div class="modal-box mobile-connect-box">
+      <div class="modal-header">
+        <h3>📱 모바일 / 태블릿 Wi-Fi 접속 안내</h3>
+        <button class="modal-close" id="btnCloseMobileConnectModal">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <p class="connect-guide-text">
+          약국 내 <strong>동일한 Wi-Fi(공유기)</strong>에 연결된 스마트폰이나 태블릿에서<br>
+          아래 주소로 접속하거나 카메라로 QR 코드를 비추면 즉시 실행됩니다.
+        </p>
+
+        <div class="qr-wrapper" id="qrContainer">
+          <!-- SVG QR Code 자동 생성 영역 -->
+        </div>
+
+        <div class="access-url-box">
+          <span class="url-label">모바일 브라우저 접속 주소:</span>
+          <div class="url-copy-row">
+            <input type="text" id="mobileAccessUrlInput" readonly value="http://192.168.219.110:8085">
+            <button class="btn btn-primary" id="btnCopyMobileUrl">복사</button>
+          </div>
+        </div>
+
+        <div class="wifi-tip-box">
+          <strong>💡 연결 팁:</strong> 스마트폰의 기본 카메라 앱을 켜서 위 QR 코드를 비추면 링크 열기 알림이 뜹니다. 별도 앱 설치 없이 사파리, 크롬, 삼성인터넷 등 모든 모바일 브라우저에서 사용할 수 있습니다.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="btnCloseMobileConnectModal2">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 모달: 신규 환자 등록 / 수정 -->
+  <div class="modal-overlay" id="patientModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="patientModalTitle">신규 환자 등록</h3>
+        <button class="modal-close" id="btnClosePatientModal">&times;</button>
+      </div>
+      <form id="patientForm" class="modal-body">
+        <input type="hidden" id="pFormId">
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label>환자 성명 *</label>
+            <input type="text" id="pFormName" required placeholder="예: 홍길동">
+          </div>
+          <div class="form-group flex-1">
+            <label>출생연도</label>
+            <input type="text" id="pFormBirthYear" placeholder="예: 1965">
+          </div>
+          <div class="form-group flex-1">
+            <label>성별</label>
+            <select id="pFormGender">
+              <option value="남">남</option>
+              <option value="여">여</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label>연락처</label>
+            <input type="text" id="pFormPhone" placeholder="010-0000-0000">
+          </div>
+          <div class="form-group flex-1">
+            <label>차트 번호 (미입력시 자동생성)</label>
+            <input type="text" id="pFormChartNo" placeholder="예: P-2026-004">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>기저질환 (고혈압, 당뇨, 천식, 녹내장, 간질환, 신부전 등)</label>
+          <input type="text" id="pFormChronic" placeholder="예: 고혈압, 당뇨, 심방세동, 골관절염">
+        </div>
+        <div class="form-group">
+          <label>약물 알레르기 및 부작용 병력</label>
+          <input type="text" id="pFormAllergies" placeholder="예: 페니실린 쇼크, NSAID 위경련, 아스피린 천식">
+        </div>
+        <div class="form-group">
+          <label>현재 정기 복용 중인 약물 (쉼표로 구분)</label>
+          <textarea id="pFormRegularMeds" rows="2" placeholder="예: 자렐토 20mg, 노바스크 5mg, 다이아벡스 500mg"></textarea>
+        </div>
+        <div class="form-group">
+          <label>약사 특이 메모 / 주의사항</label>
+          <textarea id="pFormNotes" rows="2" placeholder="환자 복약 순응도, 특별히 주의해야 할 진통제/감기약 메모 등"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelPatient">취소</button>
+          <button type="submit" class="btn btn-primary">저장하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 모달: 방문 상담 기록 작성 (📸 약봉투 사진 업로드 & 자체 OCR 기능 탑재) -->
+  <div class="modal-overlay" id="visitModal">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3>📝 처방 조제 및 복약상담 기록 작성 (약봉투 OCR 지원)</h3>
+        <button class="modal-close" id="btnCloseVisitModal">&times;</button>
+      </div>
+      <form id="visitForm" class="modal-body">
+        <input type="hidden" id="vPatientId">
+
+        <!-- 📸 약봉투 사진 업로드 & 온프라미스 자체 OCR 분석 섹션 -->
+        <div class="ocr-section-box">
+          <div class="ocr-header">
+            <span class="ocr-badge">📸 스마트 약봉투 OCR 분석</span>
+            <h4>환자가 지참한 타 병원 약봉투 사진 업로드 & 자동 텍스트 판독</h4>
+          </div>
+          <div class="ocr-upload-area" id="ocrDropArea">
+            <input type="file" id="bagImageFileInput" accept="image/*" capture="environment" style="display: none;">
+            <div class="ocr-drop-content">
+              <span class="camera-icon">📷</span>
+              <p>약봉투 사진을 <strong>클릭하여 업로드</strong>하거나 <strong>드래그 & 드롭</strong>하세요 (카메라 촬영 가능)</p>
+              <button type="button" class="btn btn-sm btn-secondary" id="btnTriggerBagUpload">사진 선택 / 촬영</button>
+            </div>
+            <!-- 미리보기 -->
+            <div class="ocr-preview-container" id="ocrPreviewContainer" style="display: none;">
+              <img id="bagImagePreview" alt="약봉투 미리보기">
+              <div class="ocr-preview-actions">
+                <button type="button" class="btn btn-primary" id="btnRunOcrAnalysis">🔍 OCR 텍스트 자동 판독 시작</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btnRemoveBagImage">사진 제거</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- OCR 판독 진행 상태 프로그레스 바 -->
+          <div class="ocr-progress-box" id="ocrProgressBox" style="display: none;">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="ocrProgressBar" style="width: 0%;"></div>
+            </div>
+            <span class="progress-status-text" id="ocrProgressStatus">OCR 엔진 준비 중... (0%)</span>
+          </div>
+
+          <!-- OCR 판독 결과 및 약물 추천 칩 -->
+          <div class="ocr-results-box" id="ocrResultsBox" style="display: none;">
+            <div class="ocr-result-row">
+              <div class="form-group flex-1">
+                <label>판독된 약봉투 원문 텍스트 (수정 가능):</label>
+                <textarea id="ocrExtractedText" rows="3" placeholder="OCR로 추출된 텍스트가 표시됩니다..."></textarea>
+              </div>
+            </div>
+            <div class="matched-drugs-alert" id="matchedDrugsAlert">
+              <span class="matched-title">✨ 감지된 DB 약물 목록:</span>
+              <div class="matched-chips-list" id="matchedChipsList">
+                <!-- 감지된 약물 칩 -->
+              </div>
+              <button type="button" class="btn btn-sm btn-success" id="btnApplyMatchedDrugs">
+                + 처방 약물 목록에 자동 입력
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label>방문 일자</label>
+            <input type="date" id="vDate" required>
+          </div>
+          <div class="form-group flex-1">
+            <label>발행 병원명</label>
+            <input type="text" id="vHospitalName" placeholder="예: 서울바른정형외과">
+          </div>
+          <div class="form-group flex-1">
+            <label>진료과</label>
+            <select id="vHospitalDept">
+              <option value="정형외과">정형외과</option>
+              <option value="내과">내과</option>
+              <option value="정신건강의학과">정신건강의학과</option>
+              <option value="이비인후과">이비인후과</option>
+              <option value="피부과">피부과</option>
+              <option value="비뇨의학과">비뇨의학과</option>
+              <option value="안과">안과</option>
+              <option value="치과">치과</option>
+              <option value="소아청소년과">소아청소년과</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label>상담 약사 성명</label>
+            <select id="vPharmacistName">
+              <option value="대표약사">대표약사</option>
+              <option value="김약사 (오전 파트)">김약사 (오전 파트)</option>
+              <option value="이약사 (오후 파트)">이약사 (오후 파트)</option>
+              <option value="박약사 (주말 파트)">박약사 (주말 파트)</option>
+              <option value="당직약사">당직약사</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>이번 처방 약물 목록 *</label>
+          <input type="text" id="vPrescribed" required placeholder="예: 암로디핀 5mg, 록소프로펜 60mg, 무코스타 100mg">
+        </div>
+        <div class="form-group">
+          <label>발견된 상호작용 / DUR 경고 요약</label>
+          <input type="text" id="vRiskSummary" placeholder="예: 기존 복용약 리바록사반과 록소프로펜 병용 시 출혈 위험 발생">
+        </div>
+        <div class="form-group">
+          <label>약사의 상담 및 중재 메모 (의사 연락, 대체 조제, 특별 복약지도 등) *</label>
+          <textarea id="vCounselingNotes" rows="3" required placeholder="예: 환자에게 소염진통제 병용 위험성 설명 후 아세트아미노펜으로 대체 조제. 멍이나 흑색변 발생 시 즉시 복용 중단 안내."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelVisit">취소</button>
+          <button type="submit" class="btn btn-primary">상담 기록 저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 모달: 약사 임상 메모 작성 (다중 약사 작성자 선택 지원) -->
+  <div class="modal-overlay" id="memoModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="memoModalTitle">새 임상 메모 작성</h3>
+        <button class="modal-close" id="btnCloseMemoModal">&times;</button>
+      </div>
+      <form id="memoForm" class="modal-body">
+        <input type="hidden" id="memoFormId">
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label>제목 *</label>
+            <input type="text" id="mFormTitle" required placeholder="예: 3층 정형외과 어르신 처방 검수 주의사항">
+          </div>
+          <div class="form-group flex-1">
+            <label>작성 약사 *</label>
+            <select id="mFormAuthor">
+              <option value="대표약사">대표약사</option>
+              <option value="김약사 (오전 파트)">김약사 (오전 파트)</option>
+              <option value="이약사 (오후 파트)">이약사 (오후 파트)</option>
+              <option value="박약사 (주말 파트)">박약사 (주말 파트)</option>
+              <option value="custom">직접 입력...</option>
+            </select>
+            <input type="text" id="mFormAuthorCustom" placeholder="약사명 직접 입력" style="display:none; margin-top: 5px;">
+          </div>
+          <div class="form-group flex-1">
+            <label>카테고리</label>
+            <select id="mFormCategory">
+              <option value="병원입지별 주의">병원입지별 주의</option>
+              <option value="DDI 임상 가이드">DDI 임상 가이드</option>
+              <option value="복약지도 노하우">복약지도 노하우</option>
+              <option value="처방 중재 사례">처방 중재 사례</option>
+              <option value="기타 메모">기타 메모</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label>관련 약물 (쉼표 구분)</label>
+            <input type="text" id="mFormDrugs" placeholder="예: 트라마돌, 렉사프로, 울트라셋">
+          </div>
+          <div class="form-group flex-1">
+            <label>관련 진료과</label>
+            <input type="text" id="mFormDept" placeholder="예: 정형외과, 정신과, 내과">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>메모 상세 내용 *</label>
+          <textarea id="mFormContent" rows="5" required placeholder="구체적인 발생 기전, 대처 프로토콜, 환자 복약지도 멘트 등 상세 기록"></textarea>
+        </div>
+        <div class="form-row align-center">
+          <div class="form-group flex-2">
+            <label>태그 (쉼표 구분)</label>
+            <input type="text" id="mFormTags" placeholder="예: 세로토닌, 출혈위험, 대체조제">
+          </div>
+          <div class="form-group flex-1 checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="mFormPinned">
+              <span>상단 고정 (중요 메모)</span>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelMemo">취소</button>
+          <button type="submit" class="btn btn-primary">메모 저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 토스트 알림 컨테이너 -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
