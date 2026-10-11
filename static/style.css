@@ -2830,3 +2830,292 @@ body {
   }
 }
 
+/* ==========================================================================
+   📚 분리된 의약품 사전 & DDI 규칙 사전 전문 뷰 스타일링
+   ========================================================================== */
+
+/* 1. 사전 상단 헤더 배너 */
+.dict-header-banner {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+  flex-wrap: wrap;
+}
+
+.dict-header-banner.banner-rules {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.dict-title-box {
+  flex: 1;
+  min-width: 260px;
+}
+
+.dict-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.dict-badge.badge-warning {
+  background: rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+}
+
+.dict-title-box h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+}
+
+.dict-title-box p {
+  font-size: 0.875rem;
+  color: #e0f2fe;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.banner-rules .dict-title-box p {
+  color: #cbd5e1;
+}
+
+.dict-stats-badge {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  padding: 10px 18px;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+}
+
+.dict-stats-badge.badge-red {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.dict-stats-badge .stat-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.dict-stats-badge .stat-unit {
+  font-size: 0.75rem;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+/* 2. 사전 컨트롤 검색/필터 바 */
+.dict-controls-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.dict-controls-bar .search-input-wrapper {
+  flex: 2;
+  min-width: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dict-controls-bar .search-input-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.dict-controls-bar .search-input-wrapper input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  outline: none;
+  background: #f8fafc;
+  transition: all 0.2s;
+}
+
+.dict-controls-bar .search-input-wrapper input:focus {
+  background: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.dict-controls-bar .filter-select-wrapper {
+  flex: 1;
+  min-width: 180px;
+}
+
+.dict-controls-bar .filter-select-wrapper select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  outline: none;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dict-controls-bar .filter-select-wrapper select:focus {
+  background: #ffffff;
+  border-color: var(--primary);
+}
+
+/* 3. 의약품 마스터 테이블 */
+.dict-table-container {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+  max-height: 680px;
+}
+
+.dict-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.dict-data-table th {
+  background: #f8fafc;
+  padding: 12px 16px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.dict-data-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.875rem;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.dict-data-table tr:hover {
+  background: #f0f9ff;
+}
+
+.dict-data-table tr:nth-child(even) {
+  background: #fafbfc;
+}
+.dict-data-table tr:nth-child(even):hover {
+  background: #f0f9ff;
+}
+
+.btn-add-to-checker {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.btn-add-to-checker:hover {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+/* 4. DDI 규칙 사전 카드 리스트 */
+.dict-rules-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rule-pair-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.rule-pair-chip {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.rule-pair-cross {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.btn-test-pair {
+  margin-left: auto;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-test-pair:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .dict-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .dict-controls-bar .search-input-wrapper,
+  .dict-controls-bar .filter-select-wrapper {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+

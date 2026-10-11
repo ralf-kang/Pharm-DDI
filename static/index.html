@@ -139,9 +139,13 @@
         <span class="tab-icon">📋</span>
         <span class="tab-text">약사 임상 메모 (다중약사 협업)</span>
       </button>
-      <button class="tab-btn" data-tab="tab-library">
-        <span class="tab-icon">📚</span>
-        <span class="tab-text">약물 & DDI 사전</span>
+      <button class="tab-btn" data-tab="tab-drugs">
+        <span class="tab-icon">💊</span>
+        <span class="tab-text">의약품 사전 (<span id="navDrugCount">516</span>)</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-rules">
+        <span class="tab-icon">📖</span>
+        <span class="tab-text">DDI 규칙 사전 (<span id="navRuleCount">767</span>)</span>
       </button>
       <button class="tab-btn" data-tab="tab-ddinter">
         <span class="tab-icon">🧬</span>
@@ -302,36 +306,112 @@
       </div>
     </section>
 
-    <!-- 탭 5: 의약품 마스터 & DDI 규칙 사전 -->
-    <section class="tab-content" id="tab-library">
-      <div class="library-header">
-        <div class="lib-subtabs">
-          <button class="lib-subtab-btn active" data-subtab="lib-drugs">💊 전체 수집 의약품 마스터 (<span id="libDrugCount">86</span>)</button>
-          <button class="lib-subtab-btn" data-subtab="lib-rules">⚠️ 전체 DDI 규칙 사전 (<span id="libRuleCount">118</span>)</button>
+    <!-- 탭 5: 의약품 마스터 사전 (단독 탭 분리: 검색 & 효능군 필터 및 가독성 최적화) -->
+    <section class="tab-content" id="tab-drugs">
+      <div class="dict-header-banner">
+        <div class="dict-title-box">
+          <div class="dict-badge">💊 DRUG MASTER ENCYCLOPEDIA</div>
+          <h2>전체 수집 의약품 마스터 사전</h2>
+          <p>국내 다빈도 처방 전문/일반의약품의 한글·영문 성분명, 효능군 분류, 대표 처방 브랜드 상품명, CYP 및 약동학 대사 프로필을 망라합니다.</p>
         </div>
-        <input type="text" id="libSearchInput" placeholder="약품명, 성분명, 규칙 제목, 병원 검색...">
-      </div>
-
-      <div class="library-content active" id="lib-drugs">
-        <div class="lib-table-responsive">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th style="width: 15%;">약물명 (한글)</th>
-                <th style="width: 15%;">영문명 / 성분</th>
-                <th style="width: 18%;">약효 분류</th>
-                <th style="width: 25%;">대표 상품명 (브랜드)</th>
-                <th style="width: 27%;">대사 및 약동학(CYP/기전) 프로필</th>
-              </tr>
-            </thead>
-            <tbody id="libDrugsTableBody">
-              <!-- JS 렌더링 -->
-            </tbody>
-          </table>
+        <div class="dict-stats-badge">
+          <span class="stat-num" id="dictDrugCountDisplay">516</span>
+          <span class="stat-unit">종 탑재</span>
         </div>
       </div>
 
-      <div class="library-content" id="lib-rules">
+      <!-- 의약품 검색 및 효능군 필터 바 -->
+      <div class="dict-controls-bar">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="drugLibSearchInput" placeholder="약품명(한글), 영문 성분명, 대표 브랜드(상품명), CYP 대사 특성 검색...">
+        </div>
+        <div class="filter-select-wrapper">
+          <select id="drugLibCategoryFilter">
+            <option value="">전체 효능군 분류 (516종)</option>
+            <option value="소화기계용제">소화기계용제 (위산분비억제제/위장운동)</option>
+            <option value="심혈관계">심혈관계 / 항고혈압제 / 항협심증</option>
+            <option value="소염진통제">소염진통제 (NSAIDs / 진통제)</option>
+            <option value="항혈전제">항혈전제 (항혈소판제 / 항응고제)</option>
+            <option value="항지질혈증">항지질혈증 (스타틴계 / 피브레이트)</option>
+            <option value="항균제">항균제 / 항생제</option>
+            <option value="항진균제">항진균제 / 항바이러스제</option>
+            <option value="정신신경용제">정신신경용제 (항우울제/진정제/항전간제)</option>
+            <option value="호흡기용제">호흡기용제 / 항히스타민제 / 진해거담제</option>
+            <option value="내분비">내분비 / 당뇨 / 갑상선 / 골다공증약</option>
+            <option value="비뇨생식기계">비뇨생식기계 (전립선비대증 / PDE5)</option>
+            <option value="통풍치료제">통풍치료제</option>
+            <option value="기타">기타 / 면역억제제</option>
+          </select>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="btnResetDrugFilters">초기화</button>
+      </div>
+
+      <!-- 의약품 테이블 컨테이너 -->
+      <div class="dict-table-container">
+        <table class="dict-data-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">약물명 (한글)</th>
+              <th style="width: 15%;">영문명 / 성분</th>
+              <th style="width: 17%;">약효 분류</th>
+              <th style="width: 23%;">대표 상품명 (브랜드)</th>
+              <th style="width: 22%;">대사 및 약동학(CYP/기전) 프로필</th>
+              <th style="width: 8%; text-align: center;">검사기</th>
+            </tr>
+          </thead>
+          <tbody id="libDrugsTableBody">
+            <!-- JS 렌더링 -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 탭 6: DDI 상호작용 규칙 사전 (단독 탭 분리: 심각도/진료과 필터 및 임상카드 가독성 최적화) -->
+    <section class="tab-content" id="tab-rules">
+      <div class="dict-header-banner banner-rules">
+        <div class="dict-title-box">
+          <div class="dict-badge badge-warning">⚠️ DDI INTERACTION KNOWLEDGE BASE</div>
+          <h2>DDI 약물 상호작용 및 병용금기 규칙 사전</h2>
+          <p>병용 금기(Contraindicated), 중대한 위험(Major Warning), 병용 주의(Moderate) 수준별 약리학적 기전 및 최신 2개년 SCI 근거, 약사 임상 권고사항을 열람할 수 있습니다.</p>
+        </div>
+        <div class="dict-stats-badge badge-red">
+          <span class="stat-num" id="dictRuleCountDisplay">767</span>
+          <span class="stat-unit">건 등록</span>
+        </div>
+      </div>
+
+      <!-- DDI 규칙 검색 및 심각도/진료과 필터 바 -->
+      <div class="dict-controls-bar">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="ruleLibSearchInput" placeholder="상호작용 제목, 약물명, 발생 기전, 부작용, 복약지도 키워드 검색...">
+        </div>
+        <div class="filter-select-wrapper">
+          <select id="ruleLibSeverityFilter">
+            <option value="">전체 위험 심각도</option>
+            <option value="CONTRAINDICATED">🚨 병용 금기만 (Contraindicated)</option>
+            <option value="MAJOR">⚠️ 중대한 위험만 (Major Warning)</option>
+            <option value="MODERATE">ℹ️ 병용 주의만 (Moderate Caution)</option>
+            <option value="SCI">🔬 최신 SCI 논문 등재 규칙만</option>
+          </select>
+        </div>
+        <div class="filter-select-wrapper">
+          <select id="ruleLibDeptFilter">
+            <option value="">전체 병원 진료과</option>
+            <option value="순환기내과">순환기내과 (심혈관)</option>
+            <option value="소화기내과">소화기내과</option>
+            <option value="정형외과">정형외과 / 재활의학과</option>
+            <option value="정신건강의학과">정신건강의학과 / 신경과</option>
+            <option value="이비인후과">이비인후과 / 호흡기내과</option>
+            <option value="내분비내과">내분비내과 (당뇨/갑상선)</option>
+          </select>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="btnResetRuleFilters">초기화</button>
+      </div>
+
+      <!-- DDI 규칙 카드 리스트 -->
+      <div class="dict-rules-container">
         <div class="rules-card-list" id="libRulesCardList">
           <!-- JS 렌더링 -->
         </div>

@@ -93,6 +93,8 @@ function setupNavigationTabs() {
       // 탭 전환 시 필요한 데이터 리프레시
       if (targetId === 'tab-patients') loadPatients();
       if (targetId === 'tab-memos') loadMemos();
+      if (targetId === 'tab-drugs') renderLibraryDrugs();
+      if (targetId === 'tab-rules') renderRules();
       if (targetId === 'tab-ddinter') renderDdinterView();
     });
   });
@@ -111,7 +113,7 @@ async function loadStats() {
     const hRules = document.getElementById('hStatRules');
     const hGuides = document.getElementById('hStatGuides');
     if (hDrugs) hDrugs.textContent = data.total_drugs || 516;
-    if (hRules) hRules.textContent = data.total_rules || 766;
+    if (hRules) hRules.textContent = data.total_rules || 767;
     if (hGuides) hGuides.textContent = data.hospital_scenarios || 5;
 
     // 2. 상단 메트릭 카드 갱신
@@ -126,6 +128,17 @@ async function loadStats() {
     if (elScenarios) elScenarios.textContent = `${data.hospital_scenarios}개과`;
     if (elPatients) elPatients.textContent = `${data.patient_count}명`;
     if (elMemos) elMemos.textContent = `${data.memo_count}건`;
+
+    // 3. 네비게이션 탭 및 사전 배너 카운트 갱신
+    const navDrug = document.getElementById('navDrugCount');
+    const navRule = document.getElementById('navRuleCount');
+    const dictDrug = document.getElementById('dictDrugCountDisplay');
+    const dictRule = document.getElementById('dictRuleCountDisplay');
+
+    if (navDrug) navDrug.textContent = data.total_drugs;
+    if (navRule) navRule.textContent = data.total_rules;
+    if (dictDrug) dictDrug.textContent = data.total_drugs;
+    if (dictRule) dictRule.textContent = data.total_rules;
 
     const libD = document.getElementById('libDrugCount');
     const libR = document.getElementById('libRuleCount');
@@ -1112,23 +1125,67 @@ async function loadRules() {
 function renderLibraryDrugs() {
   const container = document.getElementById('libDrugsTableBody');
   if (!container) return;
-  const q = document.getElementById('libSearchInput')?.value.trim().toLowerCase() || '';
+
+  const q = (document.getElementById('drugLibSearchInput')?.value || document.getElementById('libSearchInput')?.value || '').trim().toLowerCase();
+  const cat = document.getElementById('drugLibCategoryFilter')?.value.trim() || '';
 
   const filtered = state.drugs.filter(d => {
-    return !q ||
+    // 1. 효능군 필터
+    if (cat && !d.category.includes(cat)) return false;
+
+    // 2. 키워드 검색
+    if (!q) return true;
+    return (
       d.name_ko.toLowerCase().includes(q) ||
       d.name_en.toLowerCase().includes(q) ||
       d.category.toLowerCase().includes(q) ||
-      (d.brand_names && d.brand_names.some(b => b.toLowerCase().includes(q)));
+      (d.class && d.class.toLowerCase().includes(q)) ||
+      (d.cyp_profile && d.cyp_profile.toLowerCase().includes(q)) ||
+      (d.brand_names && d.brand_names.some(b => b.toLowerCase().includes(q)))
+    );
   });
+
+  const countBadge = document.getElementById('dictDrugCountDisplay');
+  if (countBadge && (q || cat)) {
+    countBadge.textContent = `${filtered.length} / ${state.drugs.length}`;
+  } else if (countBadge) {
+    countBadge.textContent = state.drugs.length;
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <tr>
+        <td colspan="6" style="text-align:center; padding: 40px; color:#64748b;">
+          <div style="font-size: 1.5rem; margin-bottom: 8px;">🔍</div>
+          <strong>검색 조건과 일치하는 의약품이 없습니다.</strong>
+          <p style="font-size:0.8125rem; margin-top:4px;">검색어 또는 효능군 필터를 변경해주세요.</p>
+        </td>
+      </tr>
+    `;
+    return;
+  }
 
   container.innerHTML = filtered.map(d => `
     <tr>
-      <td style="font-weight:700; color:#0f172a;">${d.name_ko}</td>
-      <td style="color:#475569;">${d.name_en}</td>
-      <td><span class="drug-badge">${d.category}</span></td>
-      <td style="color:#0284c7; font-size:0.8125rem;">${d.brand_names ? d.brand_names.join(', ') : '-'}</td>
-      <td style="font-size:0.775rem; color:#64748b;">${d.cyp_profile || d.class || '-'}</td>
+      <td style="font-weight:700; color:#0f172a; font-size:0.95rem;">
+        💊 ${d.name_ko}
+      </td>
+      <td style="color:#334155; font-size:0.875rem;">
+        <strong>${d.name_en}</strong>
+      </td>
+      <td>
+        <span class="drug-badge" style="background:#e0f2fe; color:#0369a1; font-weight:700; font-size:0.75rem;">${d.category}</span>
+        ${d.class ? `<div style="font-size:0.75rem; color:#64748b; margin-top:3px;">${d.class}</div>` : ''}
+      </td>
+      <td style="color:#0284c7; font-size:0.8125rem; font-weight:600; line-height:1.4;">
+        ${d.brand_names && d.brand_names.length ? d.brand_names.join(', ') : '-'}
+      </td>
+      <td style="font-size:0.8125rem; color:#475569; line-height:1.5;">
+        ${d.cyp_profile || '-'}
+      </td>
+      <td style="text-align: center;">
+        <button class="btn-add-to-checker" onclick="window.quickAddDrugToChecker('${d.id}')" title="${d.name_ko}을(를) 상호작용 검사기에 추가">+ 담기</button>
+      </td>
     </tr>
   `).join('');
 }
@@ -1136,51 +1193,111 @@ function renderLibraryDrugs() {
 function renderRules() {
   const container = document.getElementById('libRulesCardList');
   if (!container) return;
-  const q = document.getElementById('libSearchInput')?.value.trim().toLowerCase() || '';
+
+  const q = (document.getElementById('ruleLibSearchInput')?.value || document.getElementById('libSearchInput')?.value || '').trim().toLowerCase();
+  const sev = document.getElementById('ruleLibSeverityFilter')?.value.trim() || '';
+  const dept = document.getElementById('ruleLibDeptFilter')?.value.trim() || '';
 
   const filtered = state.rules.filter(r => {
-    return !q ||
+    // 1. 심각도 / SCI 필터
+    if (sev === 'SCI') {
+      if (!r.is_recent_sci) return false;
+    } else if (sev && r.severity !== sev) {
+      return false;
+    }
+
+    // 2. 진료과 필터
+    if (dept && (!r.hospital_department || !r.hospital_department.includes(dept))) {
+      return false;
+    }
+
+    // 3. 키워드 검색
+    if (!q) return true;
+    const drugA = state.drugs.find(d => d.id === r.drug_a_id);
+    const drugB = state.drugs.find(d => d.id === r.drug_b_id);
+    const drugMatch = (drugA && (drugA.name_ko.toLowerCase().includes(q) || drugA.name_en.toLowerCase().includes(q))) ||
+                      (drugB && (drugB.name_ko.toLowerCase().includes(q) || drugB.name_en.toLowerCase().includes(q)));
+
+    return (
       r.title.toLowerCase().includes(q) ||
       r.mechanism.toLowerCase().includes(q) ||
-      r.adverse_reactions.some(a => a.toLowerCase().includes(q)) ||
-      r.clinical_action.toLowerCase().includes(q);
+      (r.clinical_action && r.clinical_action.toLowerCase().includes(q)) ||
+      (r.adverse_reactions && r.adverse_reactions.some(a => a.toLowerCase().includes(q))) ||
+      drugMatch
+    );
   });
 
-  container.innerHTML = filtered.map(r => `
-    <div class="ddi-card severity-${r.severity}">
-      <div class="ddi-card-header">
-        <div class="ddi-title">
-          ${r.is_recent_sci ? '<span class="pill-recent-sci" style="margin-right:6px;">🔬 ' + (r.sci_badge || '최신 정보 (최근 2개년 SCI)') + '</span>' : ''}
-          📖 ${r.title}
-        </div>
-        <span class="severity-pill pill-${r.severity}">${r.severity_ko}</span>
+  const countBadge = document.getElementById('dictRuleCountDisplay');
+  if (countBadge && (q || sev || dept)) {
+    countBadge.textContent = `${filtered.length} / ${state.rules.length}`;
+  } else if (countBadge) {
+    countBadge.textContent = state.rules.length;
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state" style="padding: 40px 20px;">
+        <div class="empty-icon">🔍</div>
+        <h3>검색 조건과 일치하는 DDI 상호작용 규칙이 없습니다</h3>
+        <p>검색어나 심각도/진료과 필터를 변경하거나 신규 DDI 규칙을 등록해주세요.</p>
       </div>
-      ${r.is_recent_sci ? `
-        <div class="sci-evidence-banner">
-          <div class="sci-badge-label">
-            <span>🔬 최근 2개년 권위 SCI 논문 근거</span>
-            <span>• ${r.sci_year || '2024'}</span>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(r => {
+    const drugA = state.drugs.find(d => d.id === r.drug_a_id);
+    const drugB = state.drugs.find(d => d.id === r.drug_b_id);
+    const idA = r.drug_a_id || (r.drugs && r.drugs[0]) || '';
+    const idB = r.drug_b_id || (r.drugs && r.drugs[1]) || '';
+
+    return `
+      <div class="ddi-card severity-${r.severity}">
+        <div class="ddi-card-header">
+          <div class="ddi-title">
+            ${r.is_recent_sci ? '<span class="pill-recent-sci" style="margin-right:6px;">🔬 ' + (r.sci_badge || '최신 정보 (최근 2개년 SCI)') + '</span>' : ''}
+            📖 ${r.title}
           </div>
-          <div class="sci-journal-info">📄 논문 출처: <strong>${r.sci_journal}</strong></div>
+          <span class="severity-pill pill-${r.severity}">${r.severity_ko}</span>
         </div>
-      ` : ''}
-      <div class="hospital-dept-tag">🏥 ${r.hospital_department || '종합/타과 복합'}</div>
-      <div class="ddi-section">
-        <div class="ddi-section-label">${r.is_recent_sci ? '🔬 약리학적 기전 및 최신 가설' : '기전'}</div>
-        <div class="ddi-section-content">${r.mechanism}</div>
+
+        <div class="rule-pair-row">
+          <span class="rule-pair-chip">💊 ${drugA ? `${drugA.name_ko} (${drugA.name_en})` : idA}</span>
+          <span class="rule-pair-cross">✖️</span>
+          <span class="rule-pair-chip">💊 ${drugB ? `${drugB.name_ko} (${drugB.name_en})` : idB}</span>
+          ${r.hospital_department ? `<span class="hospital-dept-tag" style="margin-bottom:0;">🏥 ${r.hospital_department}</span>` : ''}
+          <button class="btn-test-pair" onclick="window.quickCheckPair('${idA}', '${idB}')">⚡ 이 조합 검사하기</button>
+        </div>
+
+        ${r.is_recent_sci ? `
+          <div class="sci-evidence-banner">
+            <div class="sci-badge-label">
+              <span>🔬 최근 2개년 권위 SCI 논문 근거</span>
+              <span>• ${r.sci_year || '2024'}</span>
+            </div>
+            <div class="sci-journal-info">📄 논문 출처: <strong>${r.sci_journal}</strong></div>
+          </div>
+        ` : ''}
+
+        <div class="ddi-section">
+          <div class="ddi-section-label">${r.is_recent_sci ? '🔬 약리학적 기전 및 최신 가설' : '발생 기전'}</div>
+          <div class="ddi-section-content">${r.mechanism}</div>
+        </div>
+
+        <div class="ddi-section">
+          <div class="ddi-section-label">주요 부작용 및 위해 반응</div>
+          <ul class="adverse-list">
+            ${(r.adverse_reactions || []).map(a => `<li>${a}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="clinical-action-box">
+          <div class="action-title">📋 약사의 임상 대처 및 복약지도 가이드</div>
+          <p>${r.clinical_action}</p>
+        </div>
       </div>
-      <div class="ddi-section">
-        <div class="ddi-section-label">부작용</div>
-        <ul class="adverse-list">
-          ${r.adverse_reactions.map(a => `<li>${a}</li>`).join('')}
-        </ul>
-      </div>
-      <div class="clinical-action-box">
-        <div class="action-title">임상 대처 및 권고사항</div>
-        <p>${r.clinical_action}</p>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 // ================= 이벤트 리스너 설정 =================
@@ -1258,21 +1375,38 @@ function setupEventListeners() {
     if (noticeHeader) noticeHeader.addEventListener('click', doToggle);
   }
 
-  // 사전 서브탭 전환
-  document.querySelectorAll('.lib-subtab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.lib-subtab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.library-content').forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      const target = btn.getAttribute('data-subtab');
-      document.getElementById(target)?.classList.add('active');
-    });
-  });
+  // 6. 의약품 사전 검색 & 효능군 필터 리스너
+  const drugLibSearch = document.getElementById('drugLibSearchInput');
+  if (drugLibSearch) drugLibSearch.addEventListener('input', renderLibraryDrugs);
 
-  const libSearch = document.getElementById('libSearchInput');
-  if (libSearch) {
-    libSearch.addEventListener('input', () => {
+  const drugLibCat = document.getElementById('drugLibCategoryFilter');
+  if (drugLibCat) drugLibCat.addEventListener('change', renderLibraryDrugs);
+
+  const btnResetDrug = document.getElementById('btnResetDrugFilters');
+  if (btnResetDrug) {
+    btnResetDrug.addEventListener('click', () => {
+      if (drugLibSearch) drugLibSearch.value = '';
+      if (drugLibCat) drugLibCat.value = '';
       renderLibraryDrugs();
+    });
+  }
+
+  // 7. DDI 규칙 사전 검색 & 심각도/진료과 필터 리스너
+  const ruleLibSearch = document.getElementById('ruleLibSearchInput');
+  if (ruleLibSearch) ruleLibSearch.addEventListener('input', renderRules);
+
+  const ruleLibSev = document.getElementById('ruleLibSeverityFilter');
+  if (ruleLibSev) ruleLibSev.addEventListener('change', renderRules);
+
+  const ruleLibDept = document.getElementById('ruleLibDeptFilter');
+  if (ruleLibDept) ruleLibDept.addEventListener('change', renderRules);
+
+  const btnResetRule = document.getElementById('btnResetRuleFilters');
+  if (btnResetRule) {
+    btnResetRule.addEventListener('click', () => {
+      if (ruleLibSearch) ruleLibSearch.value = '';
+      if (ruleLibSev) ruleLibSev.value = '';
+      if (ruleLibDept) ruleLibDept.value = '';
       renderRules();
     });
   }
@@ -1585,6 +1719,39 @@ window.loadPatientMedsToDdiCheck = function(patientName, medsArray) {
   renderDrugList();
 
   showToast(`${patientName} 님의 복용약 ${matchedCount}개가 검사기에 자동 등록되었습니다. 추가 처방약을 선택 후 검사하세요!`, 'success');
+};
+
+window.quickAddDrugToChecker = function(drugId) {
+  const d = state.drugs.find(x => x.id === drugId);
+  if (!d) return;
+
+  state.selectedDrugIds.add(drugId);
+  updateSelectedTagsBox();
+  renderDrugList();
+
+  const ddiTabBtn = document.querySelector('[data-tab="tab-ddi"]');
+  if (ddiTabBtn) ddiTabBtn.click();
+
+  showToast(`'${d.name_ko}' 약물이 상호작용 검사기에 추가되었습니다.`, 'success');
+};
+
+window.quickCheckPair = function(drugAId, drugBId) {
+  if (!drugAId || !drugBId) return;
+  state.selectedDrugIds.clear();
+  state.selectedDrugIds.add(drugAId);
+  state.selectedDrugIds.add(drugBId);
+
+  updateSelectedTagsBox();
+  renderDrugList();
+
+  const ddiTabBtn = document.querySelector('[data-tab="tab-ddi"]');
+  if (ddiTabBtn) ddiTabBtn.click();
+
+  runDdiCheck();
+
+  const drugA = state.drugs.find(d => d.id === drugAId);
+  const drugB = state.drugs.find(d => d.id === drugBId);
+  showToast(`[${drugA ? drugA.name_ko : drugAId} + ${drugB ? drugB.name_ko : drugBId}] 상호작용 검사를 즉시 실행했습니다.`, 'success');
 };
 
 // SVG QR 코드 렌더링
