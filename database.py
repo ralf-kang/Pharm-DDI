@@ -8,7 +8,16 @@ import json
 import os
 from datetime import datetime
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "pharmacy.db")
+import shutil
+
+DB_PATH = os.environ.get("DB_PATH", os.path.join(os.path.dirname(__file__), "pharmacy.db"))
+_default_db = os.path.join(os.path.dirname(__file__), "pharmacy.db")
+if DB_PATH != _default_db and not os.path.exists(DB_PATH) and os.path.exists(_default_db):
+    try:
+        os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+        shutil.copyfile(_default_db, DB_PATH)
+    except Exception as e:
+        print(f"[Database] Warning: failed to copy seed database: {e}")
 
 def get_db_connection():
     conn = sqlite3.connect(DB_PATH)

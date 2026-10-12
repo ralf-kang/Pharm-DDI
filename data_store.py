@@ -15,7 +15,7 @@ from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-DB_PATH = os.path.join(BASE_DIR, "pharmacy.db")
+DB_PATH = os.environ.get("DB_PATH", os.path.join(BASE_DIR, "pharmacy.db"))
 
 os.makedirs(DATA_DIR, exist_ok=True)
 

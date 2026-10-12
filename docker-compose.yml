@@ -1,0 +1,38 @@
+# docker-compose.yml — pharm-ddi
+#
+# .30 (server2, macOS arm64) 3003 포트 배포
+#
+# 실행:
+#   docker compose up -d --build
+name: pharm-ddi
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pharm-ddi
+    restart: unless-stopped
+    environment:
+      PORT: "3003"
+      HOST: "0.0.0.0"
+      EXTERNAL_HOST: "192.168.0.30"
+      DB_PATH: "/app/data/pharmacy.db"
+      TZ: Asia/Seoul
+      PYTHONUNBUFFERED: "1"
+    ports:
+      # 외부 3003 → 내부 3003
+      - "3003:3003"
+    volumes:
+      - pharm-ddi-data:/app/data
+      - pharm-ddi-uploads:/app/static/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:3003/api/stats"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  pharm-ddi-data:
+  pharm-ddi-uploads:
