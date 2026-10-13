@@ -18,8 +18,8 @@ import ddi_data
 import data_store
 import socket
 
-PORT = int(os.environ.get("PORT", 8085))
-HOST = os.environ.get("HOST", "0.0.0.0")
+PORT = 8085
+HOST = "0.0.0.0"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "static")
@@ -28,9 +28,6 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 def get_local_ip():
     """로컬 Wi-Fi 또는 이더넷 IPv4 주소 자동 감지"""
-    ext_host = os.environ.get("EXTERNAL_HOST")
-    if ext_host:
-        return ext_host
     s = None
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -81,6 +78,11 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 return {}
         return {}
 
+    def do_HEAD(self):
+        self.send_response(200)
+        self.send_header('Content-Type', 'text/html; charset=utf-8')
+        self.end_headers()
+
     # ================= HTTP METHOD 라우터 =================
     def do_GET(self):
         parsed_url = urllib.parse.urlparse(self.path)
@@ -90,12 +92,20 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
         if path.startswith("/api/"):
             try:
                 self._handle_api_get(path, query_params)
+            except (BrokenPipeError, ConnectionResetError):
+                pass
             except Exception as e:
-                self._send_error(f"서버 오류: {str(e)}", 500)
+                try:
+                    self._send_error(f"서버 오류: {str(e)}", 500)
+                except Exception:
+                    pass
             return
 
         # 정적 파일 서빙 (HTML, CSS, JS)
-        self._serve_static(path)
+        try:
+            self._serve_static(path)
+        except (BrokenPipeError, ConnectionResetError):
+            pass
 
     def do_POST(self):
         parsed_url = urllib.parse.urlparse(self.path)
@@ -105,8 +115,13 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
             try:
                 body = self._parse_body()
                 self._handle_api_post(path, body)
+            except (BrokenPipeError, ConnectionResetError):
+                pass
             except Exception as e:
-                self._send_error(f"서버 오류: {str(e)}", 500)
+                try:
+                    self._send_error(f"서버 오류: {str(e)}", 500)
+                except Exception:
+                    pass
             return
 
         self._send_error("지원하지 않는 요청입니다.", 404)
@@ -772,8 +787,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
 def run_server():
     database.init_db()
     data_store.init_data_store()
-    socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer((HOST, PORT), PharmacyRequestHandler) as httpd:
+    with http.server.ThreadingHTTPServer((HOST, PORT), PharmacyRequestHandler) as httpd:
         print("="*65)
         print(" [Pharm-DDI Expert Suite] 온프라미스 약학 전문가 시스템 가동")
         print(f" * 로컬 웹 서비스 URL: http://localhost:{PORT}")
