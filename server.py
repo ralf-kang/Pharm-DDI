@@ -18,8 +18,8 @@ import ddi_data
 import data_store
 import socket
 
-PORT = 8085
-HOST = "0.0.0.0"
+PORT = int(os.environ.get("PORT", 8085))
+HOST = os.environ.get("HOST", "0.0.0.0")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "static")
@@ -28,6 +28,9 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 def get_local_ip():
     """로컬 Wi-Fi 또는 이더넷 IPv4 주소 자동 감지"""
+    ext_host = os.environ.get("EXTERNAL_HOST")
+    if ext_host:
+        return ext_host
     s = None
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
