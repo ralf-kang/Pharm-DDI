@@ -4645,7 +4645,9 @@
     "brand_names": [
       "위고비",
       "오젬픽",
-      "리벨서스"
+      "리벨서스",
+      "Ozempic",
+      "Wegovy"
     ],
     "class": "초강력 GLP-1 작용제",
     "cyp_profile": "담석증, 췌장염, 마취 전 흡인 위험"
@@ -6030,5 +6032,87 @@
     ],
     "class": "5-HT1 수용체 효능 편두통 치료제",
     "cyp_profile": "세로토닌 증후군, MAOI 병용금기"
+  },
+  {
+    "id": "lixisenatide",
+    "name_ko": "Lixisenatide",
+    "name_en": "Lixisenatide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "Soliqua"
+    ],
+    "class": "GLP-1 Receptor Agonist / ATC A10BJ",
+    "cyp_profile": "",
+    "auto_imported": true,
+    "needs_review": true,
+    "name_ko_pending": true,
+    "rxcui": "1440051",
+    "atc_class_id": "A10BJ",
+    "origin_query": "Ozempic",
+    "similar_to": "semaglutide",
+    "source": "NLM RxNorm / RxClass(ATC) + openFDA Label",
+    "added_at": "2026-11-10T00:14:09"
+  },
+  {
+    "id": "tirzepatide",
+    "name_ko": "Tirzepatide",
+    "name_en": "Tirzepatide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "Mounjaro",
+      "Zepbound"
+    ],
+    "class": "GLP-1 Receptor Agonist / Glucose-dependent Insulinotropic Polypeptide Receptor Agonist / ATC A10BX",
+    "cyp_profile": "",
+    "auto_imported": true,
+    "needs_review": true,
+    "name_ko_pending": true,
+    "rxcui": "2601723",
+    "atc_class_id": "A10BX",
+    "origin_query": "Ozempic",
+    "similar_to": "semaglutide",
+    "source": "NLM RxNorm / RxClass(ATC) + openFDA Label",
+    "added_at": "2026-11-10T00:14:19"
+  },
+  {
+    "id": "exenatide",
+    "name_ko": "Exenatide",
+    "name_en": "Exenatide",
+    "category": "내분비 / 당뇨 / 갑상선 / 골다공증약",
+    "brand_names": [
+      "Bydureon",
+      "Byetta"
+    ],
+    "class": "GLP-1 Receptor Agonist / ATC A10BJ",
+    "cyp_profile": "",
+    "auto_imported": true,
+    "needs_review": true,
+    "name_ko_pending": true,
+    "rxcui": "60548",
+    "atc_class_id": "A10BJ",
+    "origin_query": "Ozempic",
+    "similar_to": "semaglutide",
+    "source": "NLM RxNorm / RxClass(ATC) + openFDA Label",
+    "added_at": "2026-11-10T00:14:23"
+  },
+  {
+    "id": "finerenone",
+    "name_ko": "Finerenone",
+    "name_en": "Finerenone",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "Kerendia"
+    ],
+    "class": "Nonsteroidal Mineralocorticoid-Receptor Antagonist / ATC C03DA",
+    "cyp_profile": "",
+    "auto_imported": true,
+    "needs_review": true,
+    "name_ko_pending": true,
+    "rxcui": "2562811",
+    "atc_class_id": "C03DA",
+    "origin_query": "finerenone",
+    "similar_to": "",
+    "source": "NLM RxNorm / RxClass(ATC)",
+    "added_at": "2026-11-10T00:14:28"
   }
 ]

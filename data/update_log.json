@@ -1,0 +1,72 @@
+[
+  {
+    "started_at": "2026-11-10T00:14:00",
+    "trigger": "manual",
+    "finished_at": "2026-11-10T00:14:39",
+    "duration_sec": 39.2,
+    "queries_processed": 3,
+    "queries_resolved": 3,
+    "new_drugs": [
+      {
+        "id": "lixisenatide",
+        "name_en": "Lixisenatide",
+        "similar_to": "semaglutide"
+      },
+      {
+        "id": "tirzepatide",
+        "name_en": "Tirzepatide",
+        "similar_to": "semaglutide"
+      },
+      {
+        "id": "exenatide",
+        "name_en": "Exenatide",
+        "similar_to": "semaglutide"
+      },
+      {
+        "id": "finerenone",
+        "name_en": "Finerenone",
+        "similar_to": ""
+      }
+    ],
+    "new_drugs_count": 4,
+    "new_rules": 10,
+    "updated_rules": 0,
+    "linked_aliases": [
+      {
+        "drug_id": "semaglutide",
+        "alias": "Ozempic"
+      },
+      {
+        "drug_id": "semaglutide",
+        "alias": "Wegovy"
+      }
+    ],
+    "label_refresh": {
+      "labels_scanned": 42,
+      "labels_matched": 21
+    },
+    "http_requests": 33,
+    "errors": [],
+    "status": "success"
+  },
+  {
+    "started_at": "2026-11-10T00:12:23",
+    "trigger": "cli",
+    "finished_at": "2026-11-10T00:13:45",
+    "duration_sec": 81.4,
+    "queries_processed": 0,
+    "queries_resolved": 0,
+    "new_drugs": [],
+    "new_drugs_count": 0,
+    "new_rules": 1430,
+    "updated_rules": 0,
+    "linked_aliases": [],
+    "label_refresh": {
+      "labels_scanned": 1000,
+      "labels_matched": 564
+    },
+    "http_requests": 10,
+    "errors": [],
+    "status": "success"
+  }
+]

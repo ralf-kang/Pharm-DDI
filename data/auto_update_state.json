@@ -1,0 +1,22 @@
+{
+  "last_label_refresh_date": "2026-11-10",
+  "last_run_date": "2026-11-10",
+  "last_run_at": "2026-11-10T00:14:39",
+  "last_summary": {
+    "started_at": "2026-11-10T00:14:00",
+    "trigger": "manual",
+    "finished_at": "2026-11-10T00:14:39",
+    "duration_sec": 39.2,
+    "queries_processed": 3,
+    "queries_resolved": 3,
+    "new_drugs_count": 4,
+    "new_rules": 10,
+    "updated_rules": 0,
+    "label_refresh": {
+      "labels_scanned": 42,
+      "labels_matched": 21
+    },
+    "http_requests": 33,
+    "status": "success"
+  }
+}

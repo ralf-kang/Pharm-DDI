@@ -43,6 +43,27 @@
 
 ---
 
+### 5. 🤖 일일 자동 업데이트 & 미조회 약물 자동 등록 (`auto_update.py`)
+- **미조회 검색어 자동 접수**: DDI 검사기·의약품 사전에서 검색 결과가 없으면 해당 검색어가 `data/pending_queries.json`에 저장됩니다 (입력 멈춘 뒤 1.5초, 2자 이상, 중복은 횟수만 증가).
+- **매일 03:00(Asia/Seoul) 자동 배치** — 서버 내 스케줄러가 실행하며, 03:00 이후 서버가 켜졌는데 당일 미실행이면 기동 직후 보충 실행합니다.
+  1. 대기 검색어를 **NLM RxNorm**으로 성분명 정규화 → 신규 의약품 등록 (영문 상품명이면 기존 약물에 상품명 별칭만 추가)
+  2. **NLM RxClass**의 FDA 약리분류(EPC, 예: GLP-1 Receptor Agonist) → 없으면 ATC 4단계 기준으로 **유사 약물 최대 5종** 등록 (현행 FDA 라벨이 있는 시판 약물만)
+  3. **openFDA 허가사항(라벨)**의 Drug Interactions / Contraindications / Boxed Warning 원문에서 DB 내 약물과의 상호작용 후보를 추출해 DDI 규칙으로 등록
+  4. **최근 개정된 FDA 라벨을 최신순으로 조회**해 기존 약물의 상호작용 규칙 추가·갱신 (openFDA 공개 지연을 고려해 60일 구간을 겹쳐 조회하고, 더 최신 개정일인 경우에만 갱신)
+- **안전장치**: 자동 수집 데이터는 `auto_imported`/`needs_review` 표시와 함께 화면에 `🤖 자동 수집 · 약사 검증 필요` 배지, 출처(DailyMed 라벨 링크), 라벨 개정일이 표기됩니다. 자동 수집 규칙은 **절대 '병용 금기' 등급으로 분류되지 않으며**(라벨에 금기 언급 시 MAJOR + "FDA 라벨 병용금기 언급" 표기), 수작업으로 큐레이션된 기존 의약품·규칙은 덮어쓰지 않습니다.
+- **한계**: 한글 검색어는 영문 DB(RxNorm/openFDA)로 자동 변환되지 않아 `needs_manual`(수동 등록 필요)로 분류됩니다. 자동 등록 약물의 한글명은 영문명으로 임시 표기됩니다.
+- **수동 실행 / 상태 조회**
+  ```bash
+  python auto_update.py                 # 즉시 1회 실행 (CLI)
+  python auto_update.py --no-labels     # 대기 검색어만 처리
+  curl -X POST http://localhost:8085/api/auto-update/run   # 서버에서 백그라운드 실행
+  curl http://localhost:8085/api/auto-update/status        # 최근 실행 결과 / 대기열 현황
+  curl http://localhost:8085/api/pending-queries           # 미조회 검색어 대기열
+  ```
+- **환경변수**: `DATA_AUTO_UPDATE=0`(스케줄러 끄기), `DATA_UPDATE_HOUR=3`, `DATA_UPDATE_MAX_QUERIES=20`, `DATA_UPDATE_MAX_SIMILAR=5`, `OPENFDA_API_KEY`(선택, 호출 한도 상향), `DATA_GIT_SYNC=0`(git 자동 commit/push 끄기)
+
+---
+
 ## 📱 동일 Wi-Fi 존 모바일 & 태블릿 접속
 
 약국 내 동일 Wi-Fi 망에 연결된 스마트폰, 태블릿에서 별도 설치 없이 즉시 접속 가능합니다.
