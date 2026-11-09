@@ -16,6 +16,7 @@ from datetime import datetime
 import database
 import ddi_data
 import data_store
+import auto_update
 import socket
 
 PORT = int(os.environ.get("PORT", 8085))
@@ -176,6 +177,13 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
             elif path == "/api/git-sync-status":
                 self._send_json(data_store.get_git_sync_status())
 
+            # 일일 자동 업데이트 상태 / 미조회 검색어 대기열
+            elif path == "/api/auto-update/status":
+                self._send_json(auto_update.get_status())
+
+            elif path == "/api/pending-queries":
+                self._send_json({"queries": auto_update.get_pending_queries()})
+
             # 시스템 종합 통계 (오른쪽 상단 DB 현황 표기)
             elif path == "/api/stats":
                 cursor.execute("SELECT COUNT(*) FROM patients")
@@ -286,6 +294,8 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                         or any(q in b.lower() for b in d["brand_names"])
                     ]
 
+                # 최신 등록순 (added_at 내림차순, 기존 큐레이션 데이터는 원래 순서 유지)
+                filtered = sorted(filtered, key=lambda d: d.get("added_at") or "", reverse=True)
                 self._send_json({
                     "categories": ddi_data.DRUG_CATEGORIES,
                     "drugs": filtered
@@ -299,8 +309,11 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
 
             # 상호작용 규칙 전체 목록
             elif path == "/api/rules":
+                # 최신순 (라벨 개정일/등록일 내림차순)
+                rules = sorted(ddi_data.DDI_RULES,
+                               key=lambda r: r.get("updated_at") or r.get("added_at") or "", reverse=True)
                 self._send_json({
-                    "rules": ddi_data.DDI_RULES
+                    "rules": rules
                 })
 
             # 병원 입지별 가이드 목록
@@ -409,6 +422,20 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                 self._send_json(response_data)
                 return
 
+            # 0-1b. 미조회 검색어 저장 (다음 일일 업데이트 시 자동 등록 대상)
+            elif path == "/api/pending-queries":
+                res = auto_update.record_unmatched_query(str(body.get("query", "")))
+                self._send_json(res, 201 if res.get("saved") else 200)
+                return
+
+            # 0-1c. 일일 자동 업데이트 즉시 실행 (백그라운드)
+            elif path == "/api/auto-update/run":
+                started = auto_update.run_in_background(trigger="manual")
+                self._send_json({"started": started,
+                                 "message": "자동 업데이트를 시작했습니다." if started else "이미 실행 중입니다."},
+                                202 if started else 409)
+                return
+
             # 0-2. 신규 의약품 등록 (한국형 DDInter 지속 축적 엔진)
             elif path == "/api/drugs":
                 try:
@@ -467,7 +494,11 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
                             "mechanism": rule["mechanism"],
                             "adverse_reactions": rule["adverse_reactions"],
                             "clinical_action": rule["clinical_action"],
-                            "hospital_department": rule.get("hospital_department", "")
+                            "hospital_department": rule.get("hospital_department", ""),
+                            "auto_imported": rule.get("auto_imported", False),
+                            "source": rule.get("source", ""),
+                            "source_url": rule.get("source_url", ""),
+                            "label_effective_date": rule.get("label_effective_date", "")
                         })
 
                 # 심각도별 정렬: CONTRAINDICATED -> MAJOR -> MODERATE
@@ -480,6 +511,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
 
                 self._send_json({
                     "selected_drugs": selected_drugs_info,
+                    "auto_imported_drugs": [d["name_en"] for d in selected_drugs_info if d.get("auto_imported")],
                     "interactions_found": len(results),
                     "contraindicated_count": contraindicated_count,
                     "major_count": major_count,
@@ -790,6 +822,7 @@ class PharmacyRequestHandler(http.server.BaseHTTPRequestHandler):
 def run_server():
     database.init_db()
     data_store.init_data_store()
+    auto_update.start_scheduler()
     with http.server.ThreadingHTTPServer((HOST, PORT), PharmacyRequestHandler) as httpd:
         print("="*65)
         print(" [Pharm-DDI Expert Suite] 온프라미스 약학 전문가 시스템 가동")

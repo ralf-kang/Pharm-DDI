@@ -20,6 +20,13 @@ services:
       DB_PATH: "/app/data/pharmacy.db"
       TZ: Asia/Seoul
       PYTHONUNBUFFERED: "1"
+      # 일일 자동 업데이트 (매일 03:00, 미조회 검색어 → RxNorm/openFDA 기반 자동 등록)
+      # 저장 용량 문제로 당분간 일시 중지. 재개하려면 "1"
+      DATA_AUTO_UPDATE: "0"
+      DATA_UPDATE_HOUR: "3"
+      # OPENFDA_API_KEY: ""   # 선택: openFDA 일일 호출 한도 상향
+      # git 자동 commit + `git push origin main` (기존 동작). 컨테이너에서 원치 않으면 "0"
+      DATA_GIT_SYNC: "1"
     ports:
       # 외부 3003 → 내부 3003
       - "3003:3003"

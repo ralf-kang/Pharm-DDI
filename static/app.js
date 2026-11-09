@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadRules();
   await checkLatestActivity();
   await loadGitSyncStatus();
+  await loadAutoUpdateStatus();
 
   // 15초마다 최신 기록지 상태 백그라운드 갱신
   setInterval(checkLatestActivity, 15000);
@@ -356,7 +357,9 @@ function renderDrugList() {
   });
 
   if (filtered.length === 0) {
-    container.innerHTML = '<div style="text-align:center; padding:24px; color:#94a3b8; font-size:0.875rem;">일치하는 약물이 없습니다.</div>';
+    const rawQuery = document.getElementById('drugSearchInput').value.trim();
+    container.innerHTML = renderMissingDrugNotice(rawQuery, '일치하는 약물이 없습니다.');
+    reportMissingQuery(rawQuery);
     return;
   }
 
@@ -367,6 +370,7 @@ function renderDrugList() {
         <div class="drug-main-info">
           <div class="drug-title-row">
             <span class="drug-name-ko">${drug.name_ko}</span>
+            ${autoBadge(drug)}
           </div>
           <div class="drug-item-en">${drug.name_en} <span class="drug-class-tag">${drug.class ? `(${drug.class})` : ''}</span></div>
           <div class="drug-brands">대표제품: ${drug.brand_names ? drug.brand_names.join(', ') : '-'}</div>
@@ -462,6 +466,8 @@ async function runDdiCheck() {
           <h3 style="color:#059669;">선택된 약물 간 알려진 중대한 상호작용이 없습니다</h3>
           <p>선택하신 ${data.selected_drugs.length}가지 약물은 일반적인 용량 범위 내에서 병용 투여가 비교적 안전합니다.<br>
              (단, 개별 환자의 신기능·간기능 저하 및 고령 환자에서의 대사 지연 가능성은 별도 고려 바랍니다.)</p>
+          ${(data.auto_imported_drugs || []).length ? `
+            <p style="margin-top:12px; color:#b45309; font-weight:600;">⚠️ ${escapeHtml(data.auto_imported_drugs.join(', '))}은(는) 자동 등록된 약물로 상호작용 데이터가 제한적입니다. 국내 DUR 및 허가사항을 별도로 확인하십시오.</p>` : ''}
         </div>
       `;
       return;
@@ -476,6 +482,7 @@ async function runDdiCheck() {
           </div>
           <span class="severity-pill pill-${r.severity}">${r.severity_ko}</span>
         </div>
+        ${autoRuleBanner(r)}
 
         ${r.is_recent_sci ? `
           <div class="sci-evidence-banner">
@@ -1153,22 +1160,23 @@ function renderLibraryDrugs() {
   }
 
   if (filtered.length === 0) {
+    const rawQuery = (document.getElementById('drugLibSearchInput')?.value || '').trim();
     container.innerHTML = `
       <tr>
         <td colspan="6" style="text-align:center; padding: 40px; color:#64748b;">
           <div style="font-size: 1.5rem; margin-bottom: 8px;">🔍</div>
-          <strong>검색 조건과 일치하는 의약품이 없습니다.</strong>
-          <p style="font-size:0.8125rem; margin-top:4px;">검색어 또는 효능군 필터를 변경해주세요.</p>
+          ${renderMissingDrugNotice(rawQuery, '검색 조건과 일치하는 의약품이 없습니다.')}
         </td>
       </tr>
     `;
+    reportMissingQuery(rawQuery);
     return;
   }
 
   container.innerHTML = filtered.map(d => `
     <tr>
       <td style="font-weight:700; color:#0f172a; font-size:0.95rem;">
-        💊 ${d.name_ko}
+        💊 ${d.name_ko} ${autoBadge(d)}
       </td>
       <td style="color:#334155; font-size:0.875rem;">
         <strong>${d.name_en}</strong>
@@ -1202,6 +1210,8 @@ function renderRules() {
     // 1. 심각도 / SCI 필터
     if (sev === 'SCI') {
       if (!r.is_recent_sci) return false;
+    } else if (sev === 'AUTO') {
+      if (!r.auto_imported) return false;
     } else if (sev && r.severity !== sev) {
       return false;
     }
@@ -1260,6 +1270,7 @@ function renderRules() {
           </div>
           <span class="severity-pill pill-${r.severity}">${r.severity_ko}</span>
         </div>
+        ${autoRuleBanner(r)}
 
         <div class="rule-pair-row">
           <span class="rule-pair-chip">💊 ${drugA ? `${drugA.name_ko} (${drugA.name_en})` : idA}</span>
@@ -2144,4 +2155,109 @@ function renderGitLogTimeline(commits) {
       </div>
     </div>
   `).join('');
+}
+
+
+// ================= 미조회 검색어 자동 접수 & 일일 자동 업데이트 =================
+function escapeHtml(str) {
+  return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function autoBadge(drug) {
+  if (!drug || !drug.auto_imported) return '';
+  const tip = `${drug.source || '자동 수집'} · ${(drug.added_at || '').slice(0, 10)}${drug.similar_to ? ' · 유사약물(' + drug.similar_to + ')' : ''}`;
+  return `<span class="auto-import-badge" title="${escapeHtml(tip)}">🤖 자동등록</span>`;
+}
+
+function autoRuleBanner(r) {
+  if (!r || !r.auto_imported) return '';
+  const link = r.source_url ? ` · <a href="${escapeHtml(r.source_url)}" target="_blank" rel="noopener">라벨 원문 보기</a>` : '';
+  const date = r.label_effective_date ? ` (라벨 개정일 ${escapeHtml(r.label_effective_date)})` : '';
+  return `<div class="auto-rule-banner">🤖 자동 수집 · 약사 검증 필요 — 출처: ${escapeHtml(r.source || '외부 공개 DB')}${date}${link}</div>`;
+}
+
+const reportedQueries = new Set();
+let reportQueryTimer = null;
+
+function hasAnyDrugMatch(q) {
+  const lq = q.toLowerCase();
+  return state.drugs.some(d =>
+    d.name_ko.toLowerCase().includes(lq) ||
+    d.name_en.toLowerCase().includes(lq) ||
+    (d.brand_names || []).some(b => b.toLowerCase().includes(lq)));
+}
+
+function renderMissingDrugNotice(rawQuery, baseMsg) {
+  if (!rawQuery || rawQuery.length < 2 || hasAnyDrugMatch(rawQuery)) {
+    return `<div style="text-align:center; padding:24px; color:#94a3b8; font-size:0.875rem;">${baseMsg}</div>`;
+  }
+  const hour = String(state.autoUpdateHour ?? 3).padStart(2, '0');
+  // 일일 자동 배치가 일시 중지된 경우: 저장만 되고 자동 등록되지 않음을 안내
+  if (state.autoUpdateEnabled === false) {
+    return `
+    <div class="missing-drug-notice">
+      <strong>'${escapeHtml(rawQuery)}' 은(는) 아직 DB에 없는 약물입니다.</strong>
+      <p>검색어가 <b>등록 요청 목록</b>에 저장되었습니다. 현재 일일 자동 업데이트가 <b>일시 중지</b>되어 있어 자동 등록되지 않으며, 관리자 확인 후 등록됩니다.</p>
+    </div>`;
+  }
+  // 한글 검색어는 영문 공개 DB(RxNorm/openFDA)로 자동 변환되지 않음 → 수동 등록 대기열로 안내
+  if (/[^\x00-\x7F]/.test(rawQuery)) {
+    return `
+    <div class="missing-drug-notice">
+      <strong>'${escapeHtml(rawQuery)}' 은(는) 아직 DB에 없는 약물입니다.</strong>
+      <p>검색어가 <b>수동 등록 요청 목록</b>에 저장되었습니다. 한글 약품명은 자동 변환이 지원되지 않아 약사 확인 후 등록됩니다.</p>
+      <p class="missing-hint">※ 영문 성분명 또는 영문 상품명(예: tirzepatide, Mounjaro)으로 다시 검색하시면 다음 일일 자동 업데이트(매일 ${hour}:00) 때 해당 약물과 유사 약물이 자동 등록됩니다.</p>
+    </div>`;
+  }
+  return `
+    <div class="missing-drug-notice">
+      <strong>'${escapeHtml(rawQuery)}' 은(는) 아직 DB에 없는 약물입니다.</strong>
+      <p>검색어가 자동 접수되었습니다. 다음 일일 자동 업데이트(매일 ${hour}:00) 시
+         해당 약물과 동일 계열 유사 약물, FDA 허가사항 기반 상호작용 후보가 자동 등록됩니다.</p>
+      <p class="missing-hint">※ 영문 성분명/상품명(예: tirzepatide, Mounjaro)으로 검색하면 자동 등록 성공률이 높습니다.</p>
+    </div>`;
+}
+
+function reportMissingQuery(rawQuery) {
+  clearTimeout(reportQueryTimer);
+  const q = (rawQuery || '').trim();
+  if (q.length < 2 || hasAnyDrugMatch(q)) return;
+  // 입력이 멈춘 뒤 1.5초 후 한 번만 전송 (타이핑 중간 단계 저장 방지)
+  reportQueryTimer = setTimeout(async () => {
+    const key = q.toLowerCase();
+    if (reportedQueries.has(key)) return;
+    reportedQueries.add(key);
+    try {
+      await fetch('/api/pending-queries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: q })
+      });
+      loadAutoUpdateStatus();
+    } catch (err) {
+      reportedQueries.delete(key);
+    }
+  }, 1500);
+}
+
+async function loadAutoUpdateStatus() {
+  try {
+    const res = await fetch('/api/auto-update/status');
+    const st = await res.json();
+    state.autoUpdateHour = st.update_hour;
+    state.autoUpdateEnabled = !!st.enabled;
+    const bar = document.getElementById('autoUpdateStatusBar');
+    if (!bar) return;
+    const sum = st.last_summary || {};
+    const qc = st.queue_counts || {};
+    const lastRun = st.last_run_at ? st.last_run_at.replace('T', ' ').slice(0, 16) : '없음';
+    bar.innerHTML = `
+      <span>🤖 <strong>일일 자동 업데이트</strong> ${st.enabled ? '활성' : '비활성'}${st.running ? ' · <b>실행 중…</b>' : ''}</span>
+      <span>최근 실행: ${escapeHtml(lastRun)}</span>
+      ${st.last_run_at ? `<span>신규 의약품 ${sum.new_drugs_count ?? 0}종 · 신규 DDI ${sum.new_rules ?? 0}건 · 갱신 ${sum.updated_rules ?? 0}건</span>` : ''}
+      <span>다음 실행: ${st.enabled ? escapeHtml(st.next_run || '-') : '일시 중지됨'}</span>
+      <span>접수 대기 검색어 ${qc.pending || 0}건${qc.needs_manual ? ` · 수동 등록 필요 ${qc.needs_manual}건` : ''}</span>`;
+  } catch (err) {
+    console.error('Failed to load auto-update status', err);
+  }
 }

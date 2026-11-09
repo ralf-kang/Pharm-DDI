@@ -29,6 +29,10 @@ SYNC_LOG_FILE = os.path.join(DATA_DIR, "sync_log.json")
 
 # In-memory sync status
 _sync_lock = threading.Lock()
+# drugs.json / rules.json 읽기-수정-저장 구간 보호 (HTTP 스레드 ↔ 일일 자동 업데이트 스레드)
+DATA_LOCK = threading.RLock()
+# DATA_GIT_SYNC=0 이면 git commit/push 자동 동기화 비활성화 (테스트/개발 환경)
+GIT_SYNC_ENABLED = os.environ.get("DATA_GIT_SYNC", "1") != "0"
 _git_queue = []
 _git_thread = None
 _sync_status = {
@@ -189,6 +193,10 @@ def sync_json_to_db():
 # ================= 2. DDInter 지식 축적 (신규 의약품 / DDI 규칙) =================
 def add_new_drug(drug_data):
     """신규 의약품을 Git 저장소 data/drugs.json 및 ddi_data에 즉시 추가"""
+    with DATA_LOCK:
+        return _add_new_drug(drug_data)
+
+def _add_new_drug(drug_data):
     import ddi_data
     drugs = load_json(DRUGS_FILE, [])
 
@@ -230,6 +238,10 @@ def add_new_drug(drug_data):
 
 def add_new_rule(rule_data):
     """신규 DDI 상호작용 규칙을 Git 저장소 data/rules.json 및 ddi_data에 즉시 추가"""
+    with DATA_LOCK:
+        return _add_new_rule(rule_data)
+
+def _add_new_rule(rule_data):
     import ddi_data
     rules = load_json(RULES_FILE, [])
 
@@ -300,6 +312,9 @@ def add_new_rule(rule_data):
 def queue_git_sync(commit_msg):
     """Git 동기화 큐에 작업 등록 및 백그라운드 워커 트리거"""
     global _git_queue, _git_thread
+    if not GIT_SYNC_ENABLED:
+        print(f"[DataStore] DATA_GIT_SYNC=0 — git 동기화 생략: {commit_msg}")
+        return
     with _sync_lock:
         _git_queue.append({
             "message": commit_msg,
