@@ -2192,6 +2192,14 @@ function renderMissingDrugNotice(rawQuery, baseMsg) {
     return `<div style="text-align:center; padding:24px; color:#94a3b8; font-size:0.875rem;">${baseMsg}</div>`;
   }
   const hour = String(state.autoUpdateHour ?? 3).padStart(2, '0');
+  // 일일 자동 배치가 일시 중지된 경우: 저장만 되고 자동 등록되지 않음을 안내
+  if (state.autoUpdateEnabled === false) {
+    return `
+    <div class="missing-drug-notice">
+      <strong>'${escapeHtml(rawQuery)}' 은(는) 아직 DB에 없는 약물입니다.</strong>
+      <p>검색어가 <b>등록 요청 목록</b>에 저장되었습니다. 현재 일일 자동 업데이트가 <b>일시 중지</b>되어 있어 자동 등록되지 않으며, 관리자 확인 후 등록됩니다.</p>
+    </div>`;
+  }
   // 한글 검색어는 영문 공개 DB(RxNorm/openFDA)로 자동 변환되지 않음 → 수동 등록 대기열로 안내
   if (/[^\x00-\x7F]/.test(rawQuery)) {
     return `
@@ -2237,6 +2245,7 @@ async function loadAutoUpdateStatus() {
     const res = await fetch('/api/auto-update/status');
     const st = await res.json();
     state.autoUpdateHour = st.update_hour;
+    state.autoUpdateEnabled = !!st.enabled;
     const bar = document.getElementById('autoUpdateStatusBar');
     if (!bar) return;
     const sum = st.last_summary || {};
@@ -2246,7 +2255,7 @@ async function loadAutoUpdateStatus() {
       <span>🤖 <strong>일일 자동 업데이트</strong> ${st.enabled ? '활성' : '비활성'}${st.running ? ' · <b>실행 중…</b>' : ''}</span>
       <span>최근 실행: ${escapeHtml(lastRun)}</span>
       ${st.last_run_at ? `<span>신규 의약품 ${sum.new_drugs_count ?? 0}종 · 신규 DDI ${sum.new_rules ?? 0}건 · 갱신 ${sum.updated_rules ?? 0}건</span>` : ''}
-      <span>다음 실행: ${escapeHtml(st.next_run || '-')}</span>
+      <span>다음 실행: ${st.enabled ? escapeHtml(st.next_run || '-') : '일시 중지됨'}</span>
       <span>접수 대기 검색어 ${qc.pending || 0}건${qc.needs_manual ? ` · 수동 등록 필요 ${qc.needs_manual}건` : ''}</span>`;
   } catch (err) {
     console.error('Failed to load auto-update status', err);

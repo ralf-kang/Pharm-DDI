@@ -39,6 +39,8 @@ UPDATE_LOG_FILE = os.path.join(DATA_DIR, "update_log.json")
 RXNAV = "https://rxnav.nlm.nih.gov/REST"
 OPENFDA_LABEL = "https://api.fda.gov/drug/label.json"
 
+# 일일 자동 배치 on/off — 저장 용량 문제로 당분간 기본 비활성화 (DATA_AUTO_UPDATE=1 로 재개)
+AUTO_UPDATE_ENABLED = os.environ.get("DATA_AUTO_UPDATE", "0") == "1"
 UPDATE_HOUR = int(os.environ.get("DATA_UPDATE_HOUR", "3"))
 MAX_QUERIES_PER_RUN = int(os.environ.get("DATA_UPDATE_MAX_QUERIES", "20"))
 MAX_SIMILAR_PER_DRUG = int(os.environ.get("DATA_UPDATE_MAX_SIMILAR", "5"))
@@ -212,7 +214,8 @@ def record_unmatched_query(query):
             queue.insert(0, entry)
             queue = queue[:2000]
         save_json(PENDING_FILE, queue)
-    return {"saved": True, "entry": entry, "next_run": next_run_time().strftime("%Y-%m-%d %H:%M")}
+    return {"saved": True, "entry": entry,
+            "next_run": next_run_time().strftime("%Y-%m-%d %H:%M") if AUTO_UPDATE_ENABLED else None}
 
 
 def get_pending_queries():
@@ -868,10 +871,10 @@ def get_status():
         counts[e.get("status", "pending")] = counts.get(e.get("status", "pending"), 0) + 1
     logs = load_json(UPDATE_LOG_FILE, [])
     return {
-        "enabled": os.environ.get("DATA_AUTO_UPDATE", "1") != "0",
+        "enabled": AUTO_UPDATE_ENABLED,
         "running": _run_status["running"],
         "update_hour": UPDATE_HOUR,
-        "next_run": next_run_time().strftime("%Y-%m-%d %H:%M"),
+        "next_run": next_run_time().strftime("%Y-%m-%d %H:%M") if AUTO_UPDATE_ENABLED else None,
         "last_run_at": state.get("last_run_at"),
         "last_summary": state.get("last_summary"),
         "queue_counts": counts,
@@ -896,8 +899,8 @@ def _scheduler_loop():
 
 
 def start_scheduler():
-    if os.environ.get("DATA_AUTO_UPDATE", "1") == "0":
-        print("[AutoUpdate] DATA_AUTO_UPDATE=0 — 일일 자동 업데이트 비활성화")
+    if not AUTO_UPDATE_ENABLED:
+        print("[AutoUpdate] 일일 자동 업데이트 일시 중지 상태 (재개: DATA_AUTO_UPDATE=1)")
         return None
     t = threading.Thread(target=_scheduler_loop, daemon=True, name="ddi-auto-update")
     t.start()

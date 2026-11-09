@@ -8,7 +8,7 @@
 
 - **탑재 의약품 DB**: **520종** (큐레이션 516종 + 자동 등록 4종, 국내 원외처방 및 다빈도 13개 카테고리)
 - **약물 상호작용(DDI) 규칙**: **2,113건** (큐레이션 767건: 식약처 DUR 고시 및 임상 가이드라인 반영 / 자동 수집 1,346건: FDA 허가사항 기반, 약사 검증 필요)
-- **일일 자동 업데이트**: 매일 03:00 미조회 검색어 자동 등록 + 최근 개정 FDA 라벨 최신순 반영 (아래 5번 참조)
+- **일일 자동 업데이트**: ⏸ 저장 용량 문제로 일시 중지 중 (재개: `DATA_AUTO_UPDATE=1`, 아래 5번 참조)
 - **최신 2개년(2024~2025) SCI 학술 경보**: JAMA, JACC, Circulation 등 권위지 최신 규명 임상 경보 탑재
 - **병원 입지별 임상 가이드**: 5개 주요 진료과 (3단계 계층: 고위험 / 경고 / 주의)
 - **로컬 데이터베이스**: SQLite 영구 보존 (`pharmacy.db`)
@@ -61,7 +61,8 @@
   curl http://localhost:8085/api/auto-update/status        # 최근 실행 결과 / 대기열 현황
   curl http://localhost:8085/api/pending-queries           # 미조회 검색어 대기열
   ```
-- **환경변수**: `DATA_AUTO_UPDATE=0`(스케줄러 끄기), `DATA_UPDATE_HOUR=3`, `DATA_UPDATE_MAX_QUERIES=20`, `DATA_UPDATE_MAX_SIMILAR=5`, `OPENFDA_API_KEY`(선택, 호출 한도 상향), `DATA_GIT_SYNC=0`(git 자동 commit/push 끄기)
+- **⏸ 현재 상태: 일시 중지** — 저장 용량 문제로 일일 자동 배치는 기본 비활성화되어 있습니다. 검색어 저장과 수동 실행(`python auto_update.py`, `POST /api/auto-update/run`)은 계속 가능합니다.
+- **환경변수**: `DATA_AUTO_UPDATE=1`(일일 스케줄러 재개, 기본값 0), `DATA_UPDATE_HOUR=3`, `DATA_UPDATE_MAX_QUERIES=20`, `DATA_UPDATE_MAX_SIMILAR=5`, `OPENFDA_API_KEY`(선택, 호출 한도 상향), `DATA_GIT_SYNC=0`(git 자동 commit/push 끄기)
 
 ---
 
