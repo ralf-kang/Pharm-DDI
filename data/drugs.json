@@ -4646,8 +4646,7 @@
       "위고비",
       "오젬픽",
       "리벨서스",
-      "Ozempic",
-      "Wegovy"
+      "Ozempic"
     ],
     "class": "초강력 GLP-1 작용제",
     "cyp_profile": "담석증, 췌장염, 마취 전 흡인 위험"
@@ -6034,6 +6033,26 @@
     "cyp_profile": "세로토닌 증후군, MAOI 병용금기"
   },
   {
+    "id": "finerenone",
+    "name_ko": "Finerenone",
+    "name_en": "Finerenone",
+    "category": "심혈관계 / 항고혈압제",
+    "brand_names": [
+      "Kerendia"
+    ],
+    "class": "Nonsteroidal Mineralocorticoid-Receptor Antagonist / ATC C03DA",
+    "cyp_profile": "",
+    "auto_imported": true,
+    "needs_review": true,
+    "name_ko_pending": true,
+    "rxcui": "2562811",
+    "atc_class_id": "C03DA",
+    "origin_query": "finerenone",
+    "similar_to": "",
+    "source": "NLM RxNorm / RxClass(ATC)",
+    "added_at": "2026-11-10T00:20:30"
+  },
+  {
     "id": "lixisenatide",
     "name_ko": "Lixisenatide",
     "name_en": "Lixisenatide",
@@ -6051,7 +6070,7 @@
     "origin_query": "Ozempic",
     "similar_to": "semaglutide",
     "source": "NLM RxNorm / RxClass(ATC) + openFDA Label",
-    "added_at": "2026-11-10T00:14:09"
+    "added_at": "2026-11-10T00:20:41"
   },
   {
     "id": "tirzepatide",
@@ -6072,7 +6091,7 @@
     "origin_query": "Ozempic",
     "similar_to": "semaglutide",
     "source": "NLM RxNorm / RxClass(ATC) + openFDA Label",
-    "added_at": "2026-11-10T00:14:19"
+    "added_at": "2026-11-10T00:20:46"
   },
   {
     "id": "exenatide",
@@ -6093,26 +6112,6 @@
     "origin_query": "Ozempic",
     "similar_to": "semaglutide",
     "source": "NLM RxNorm / RxClass(ATC) + openFDA Label",
-    "added_at": "2026-11-10T00:14:23"
-  },
-  {
-    "id": "finerenone",
-    "name_ko": "Finerenone",
-    "name_en": "Finerenone",
-    "category": "심혈관계 / 항고혈압제",
-    "brand_names": [
-      "Kerendia"
-    ],
-    "class": "Nonsteroidal Mineralocorticoid-Receptor Antagonist / ATC C03DA",
-    "cyp_profile": "",
-    "auto_imported": true,
-    "needs_review": true,
-    "name_ko_pending": true,
-    "rxcui": "2562811",
-    "atc_class_id": "C03DA",
-    "origin_query": "finerenone",
-    "similar_to": "",
-    "source": "NLM RxNorm / RxClass(ATC)",
-    "added_at": "2026-11-10T00:14:28"
+    "added_at": "2026-11-10T00:20:50"
   }
 ]

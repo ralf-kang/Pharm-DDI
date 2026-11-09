@@ -2192,6 +2192,15 @@ function renderMissingDrugNotice(rawQuery, baseMsg) {
     return `<div style="text-align:center; padding:24px; color:#94a3b8; font-size:0.875rem;">${baseMsg}</div>`;
   }
   const hour = String(state.autoUpdateHour ?? 3).padStart(2, '0');
+  // 한글 검색어는 영문 공개 DB(RxNorm/openFDA)로 자동 변환되지 않음 → 수동 등록 대기열로 안내
+  if (/[^\x00-\x7F]/.test(rawQuery)) {
+    return `
+    <div class="missing-drug-notice">
+      <strong>'${escapeHtml(rawQuery)}' 은(는) 아직 DB에 없는 약물입니다.</strong>
+      <p>검색어가 <b>수동 등록 요청 목록</b>에 저장되었습니다. 한글 약품명은 자동 변환이 지원되지 않아 약사 확인 후 등록됩니다.</p>
+      <p class="missing-hint">※ 영문 성분명 또는 영문 상품명(예: tirzepatide, Mounjaro)으로 다시 검색하시면 다음 일일 자동 업데이트(매일 ${hour}:00) 때 해당 약물과 유사 약물이 자동 등록됩니다.</p>
+    </div>`;
+  }
   return `
     <div class="missing-drug-notice">
       <strong>'${escapeHtml(rawQuery)}' 은(는) 아직 DB에 없는 약물입니다.</strong>

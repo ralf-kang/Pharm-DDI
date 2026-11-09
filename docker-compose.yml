@@ -24,6 +24,8 @@ services:
       DATA_AUTO_UPDATE: "1"
       DATA_UPDATE_HOUR: "3"
       # OPENFDA_API_KEY: ""   # 선택: openFDA 일일 호출 한도 상향
+      # git 자동 commit + `git push origin main` (기존 동작). 컨테이너에서 원치 않으면 "0"
+      DATA_GIT_SYNC: "1"
     ports:
       # 외부 3003 → 내부 3003
       - "3003:3003"

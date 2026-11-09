@@ -20,6 +20,7 @@ CLI:  python auto_update.py [--max-queries N] [--no-labels] [--git]
 
 import os
 import re
+import html
 import json
 import time
 import difflib
@@ -139,6 +140,7 @@ class _Http:
         self.max_requests = max_requests
         self.count = 0
         self.errors = []
+        self.last_failed = False
 
     def get_json(self, url, params=None):
         if self.count >= self.max_requests:
@@ -147,23 +149,26 @@ class _Http:
             url = url + "?" + urllib.parse.urlencode(params, safe=":[]+\"")
         self.count += 1
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
-        for attempt in range(2):
+        self.last_failed = False
+        for attempt in range(3):
             try:
-                with urllib.request.urlopen(req, timeout=20) as resp:
+                with urllib.request.urlopen(req, timeout=30) as resp:
                     return json.loads(resp.read().decode("utf-8"))
             except urllib.error.HTTPError as e:
                 if e.code == 404:  # openFDA: 검색 결과 없음
                     return None
-                if e.code == 429 and attempt == 0:
-                    time.sleep(3)
+                if (e.code == 429 or e.code >= 500) and attempt < 2:
+                    time.sleep(3 * (attempt + 1))  # 일시 오류 백오프 재시도
                     continue
                 self.errors.append(f"HTTP {e.code}: {url[:120]}")
+                self.last_failed = True
                 return None
             except Exception as e:
-                if attempt == 0:
-                    time.sleep(1)
+                if attempt < 2:
+                    time.sleep(2 * (attempt + 1))
                     continue
                 self.errors.append(f"{type(e).__name__}: {url[:120]}")
+                self.last_failed = True
                 return None
         return None
 
@@ -362,6 +367,11 @@ def _cyp_profile_from_label(label):
 
 STRONG_PAT = re.compile(
     r"contraindicated|\bavoid\b|do not (co-?administer|use)|not recommended|fatal|death|life-threatening|serious", re.I)
+NEGATION_PAT = re.compile(
+    r"\bno (clinically )?(significant|relevant|meaningful|important)\b|no (pharmacokinetic )?(effect|interaction|change)s? |"
+    r"did not (significantly )?(alter|affect|change|potentiate|influence|have a)|"
+    r"(was|were) not (significantly )?(altered|affected|changed)|no dose adjustment|not expected to|"
+    r"not clinically (significant|relevant)|similar in the presence", re.I)
 
 
 def extract_label_interactions(label, self_drug_id, drugs):
@@ -418,6 +428,11 @@ def extract_label_interactions(label, self_drug_id, drugs):
                 continue  # 성분 과민반응 금기 문구는 약물 상호작용이 아님
             contra = sec == "contraindications" or "contraindicated" in window.lower()
             strong = contra or sec == "boxed_warning" or bool(STRONG_PAT.search(window))
+            # 라벨 7장/12장에는 '상호작용 없음' 연구 결과도 다수 기재됨 → 부정문만 있고
+            # 강한 경고·위해반응 키워드가 없는 문맥은 상호작용 후보에서 제외
+            if (not strong and NEGATION_PAT.search(window)
+                    and not any(re.search(p, window, re.I) for p, _ in ADVERSE_KEYWORDS)):
+                continue
             for did in name_to_ids[m.group(1).lower()]:
                 info = found.setdefault(did, {"sentences": [], "contra_mentioned": False,
                                               "severity": "MODERATE", "joined": ""})
@@ -480,9 +495,10 @@ def build_auto_rule(drug_a, drug_b, info, label, rule_id):
         "severity": sev,
         "severity_ko": sev_ko,
         "title": f"{drug_a['name_ko']} + {drug_b['name_ko']} (FDA 라벨 자동 수집)",
-        "mechanism": f"[FDA 라벨 원문 발췌 · {drug_a['name_en']} 허가사항{_product_note(label)}] {excerpt}",
-        "adverse_reactions": adverse,
-        "clinical_action": " ".join(actions),
+        # 라벨 원문(예: 'CrCl <30')은 화면에서 innerHTML 로 렌더링되므로 HTML 이스케이프
+        "mechanism": html.escape(f"[FDA 라벨 원문 발췌 · {drug_a['name_en']} 허가사항{_product_note(label)}] {excerpt}", quote=False),
+        "adverse_reactions": [html.escape(a, quote=False) for a in adverse],
+        "clinical_action": html.escape(" ".join(actions), quote=False),
         "hospital_department": "",
         "is_recent_sci": False,
         "auto_imported": True,
@@ -671,6 +687,7 @@ class _Batch:
         processed = 0
         skip = 0
         matched = 0
+        complete = True
         while processed < MAX_RECENT_LABELS:
             params = {
                 "search": f"effective_time:[{since}+TO+{today}]+AND+_exists_:drug_interactions",
@@ -683,6 +700,7 @@ class _Batch:
             d = self.http.get_json(OPENFDA_LABEL, params)
             results = (d or {}).get("results") or []
             if not results:
+                complete = not self.http.last_failed  # 네트워크/서버 오류로 중단된 경우 미완료
                 break
             for label in results:
                 processed += 1
@@ -701,7 +719,7 @@ class _Batch:
             if len(results) < 100:
                 break
             skip += 100
-        return {"labels_scanned": processed, "labels_matched": matched}
+        return {"labels_scanned": processed, "labels_matched": matched, "complete": complete}
 
     def commit(self):
         """변경분을 JSON 저장 및 메모리(ddi_data) 반영"""
@@ -784,7 +802,9 @@ def run_daily_update(trigger="schedule", max_queries=None, include_labels=True, 
             since = base - timedelta(days=LABEL_OVERLAP_DAYS)
             try:
                 label_stats = batch.refresh_recent_labels(since)
-                state["last_label_refresh_date"] = _now().strftime("%Y-%m-%d")
+                if label_stats.get("complete"):
+                    # 중간 실패 시 기준일을 전진시키지 않아 다음 실행에서 누락분을 다시 조회
+                    state["last_label_refresh_date"] = _now().strftime("%Y-%m-%d")
             except RuntimeError as ex:
                 label_stats = {"error": str(ex)}
 
